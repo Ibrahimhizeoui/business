@@ -1,0 +1,86 @@
+
+	<div class="container-fluid container-fullw bg-white" >
+							<div class="row">
+								<div class="col-md-12">
+									<h5 class="over-title">Ajouter un <span class="text-bold">Fournisseur</span></h5>
+									
+									<div class="row">
+										
+											{{ form_start(form) }}
+                                            {{ form_errors(form) }}
+                                          
+											
+										
+										<div class="col-md-9" >
+											<fieldset>
+												<legend>
+												Information
+												</legend>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>
+																Nom de fournisseur
+															</label>
+															{{ form_widget(form.nom,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label">
+																Téléphone 
+															</label>
+															{{ form_widget(form.tel,{ 'attr': {'class': 'form-control'} }) }}
+															
+														</div>
+													</div>
+												</div>
+												
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>
+																Fax
+															</label>
+															{{ form_widget(form.fax,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label">
+																Email
+															</label>
+															
+															{{ form_widget(form.email,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="block">
+																Adresse
+															</label>
+															{{ form_widget(form.adress,{'attr' :{'class': 'form-control'}}) }}
+														</div>
+													</div>
+													
+													
+												</div>
+												  
+									<p id="f1">dddd</p>
+									{{ form_widget(form.save,{ 'attr': {'class': 'ff btn btn-o btn-primary'} }) }}
+									<img style="display:none" src="{{asset('assets/ajax.gif')}}" class="bb">
+														{{ form_end(form) }} 
+												
+												
+											</fieldset>
+											
+										</div>
+									</div>
+									
+														
+												
+								</div>
+							</div>
+						</div>

@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+{% block title %}Modifier Paiment | BusinessPark{% endblock %}
+{% block content %}
+    <link href="{{asset('vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet" media="screen">
+        <link href="{{asset('vendor/select2/select2.min.css')}}" rel="stylesheet" media="screen">
+        <link href="{{asset('vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css')}}" rel="stylesheet" media="screen">
+        <link href="{{asset('vendor/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet" media="screen">
+    <section id="page-title">
+    
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">Gestion de paiment </h1>
+                                    
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>gestion des paiments fournisseur</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>Modifier</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                     <div class="container-fluid container-fullw bg-white">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <h5 class="over-title margin-bottom-15">ajouter un  <span class="text-bold">Paiment</span></h5>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            {{ form_start(form) }}
+                                            {{ form_errors(form) }}
+                                          
+                                            <fieldset>
+                                                <legend>
+                                                    Paiment fournisseur
+                                                </legend>
+                                                <div class="form-group">
+                                                    <label>
+                                                        Typepaiement <span class="symbol required"></span>
+                                                    </label>
+                                                    <div class="form-group">
+                                                        
+                                                        {{ form_widget(form.typepaiement,{ 'attr': {'class': 'form-control'} }) }}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>
+                                                        Montant  <span class="symbol required"></span>
+                                                    </label>
+                                                    <div class="form-group">
+                                                        
+                                                        {{ form_widget(form.montant,{ 'attr': {'class': 'form-control'} }) }}
+                                                    </div>
+                                                </div>
+                                                 <div class="form-group">
+                                                    <label>
+                                                        Fournisseur <span class="symbol required"></span>
+                                                    </label>
+                                                    <div class="form-group">
+                                                        
+                                                        {{ form_widget(form.fournisseur) }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label>
+                                                        Date payment  <span class="symbol required"></span>
+                                                    </label>
+                                                    <div class="form-group">
+                                                        
+                                                        {{ form_widget(form.datepayment,{ 'attr': {'class': 'form-control','placeholder':'tappez l email'} }) }}
+                                                    </div>
+                                                </div>
+                                                {{ form_widget(form.save,{ 'attr': {'class': 'btn btn-o btn-primary'} }) }}
+                                                        {{ form_end(form) }} 
+                                            </fieldset>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+{% endblock %}
+{% block jspage  %}
+        <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+        <script src="{{asset('vendor/maskedinput/jquery.maskedinput.min.js')}}"></script>
+        <script src="{{asset('vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+        <script src="{{asset('vendor/autosize/autosize.min.js')}}"></script>
+        <script src="{{asset('vendor/selectFx/classie.js')}}"></script>
+        <script src="{{asset('vendor/selectFx/selectFx.js')}}"></script>
+        <script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+        <script src="{{asset('vendor/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+        <script src="{{asset('vendor/bootstrap-timepicker/bootstrap-timepicker.min.js')}}"></script>
+        <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+
+        
+        <!-- start: JavaScript Event Handlers for this page -->
+        <script src="{{asset('assets/js/form-elements.js')}}"></script>
+
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+                FormElements.init();
+            });
+        </script>
+        </script>
+        {% endblock %}

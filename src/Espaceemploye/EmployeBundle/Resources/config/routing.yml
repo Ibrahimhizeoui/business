@@ -1,0 +1,37 @@
+espaceemploye_employe_homepage:
+    path:     /espace
+    defaults: { _controller: EspaceemployeEmployeBundle:Default:index }
+changedonnee:
+    path:    /changedonnee
+    defaults: { _controller: EspaceemployeEmployeBundle:Default:changedonnee }
+changepassword:
+    path:    /changepassword
+    defaults: { _controller: EspaceemployeEmployeBundle:Default:changepassword }
+
+
+activites:
+    path:   /activites
+    defaults: { _controller: EspaceemployeEmployeBundle:Activite:activites }
+ajouter_activite:
+    path:   /ajouter_activite
+    defaults: { _controller: EspaceemployeEmployeBundle:Activite:ajouter_activite }
+modif_activite:
+    path:   /modif_activite/{id}
+    defaults: { _controller: EspaceemployeEmployeBundle:Activite:modif_activite }
+supp_activite:
+    path:   /supp_activite/{id}
+    defaults: { _controller: EspaceemployeEmployeBundle:Activite:supp_activite }
+
+mesabsences:
+    path:   /absences
+    defaults: {_controller: EspaceemployeEmployeBundle:Absence:absences}
+ajouter_monabsence:
+    path:   /ajouter_absence
+    defaults: {_controller: EspaceemployeEmployeBundle:Absence:ajouter_absence}
+
+conges1:
+    path:   /conges
+    defaults: {_controller: EspaceemployeEmployeBundle:Default:conges}
+ajouter_conge1:
+    path:   /ajouter_conge
+    defaults: {_controller: EspaceemployeEmployeBundle:Default:ajouter_conge}

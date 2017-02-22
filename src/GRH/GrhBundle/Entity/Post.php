@@ -1,0 +1,250 @@
+<?php
+
+namespace GRH\GrhBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Post
+ *
+ * @ORM\Table(name="post")
+ * @ORM\Entity(repositoryClass="GRH\GrhBundle\Repository\PostRepository")
+ */
+class Post
+{
+    /**
+     * @ORM\ManyToOne(targetEntity="GRH\GrhBundle\Entity\Departement")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $departement;
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="intitule", type="string", length=255, nullable=true)
+     */
+    private $intitule;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="debut", type="date", nullable=true)
+     */
+    private $debut;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fin", type="date", nullable=true)
+     */
+    private $fin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="salaire", type="string", length=255, nullable=true)
+     */
+    private $salaire;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255, nullable=true)
+     */
+    private $status;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
+    
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set intitule
+     *
+     * @param string $intitule
+     *
+     * @return Post
+     */
+    public function setIntitule($intitule)
+    {
+        $this->intitule = $intitule;
+
+        return $this;
+    }
+
+    /**
+     * Get intitule
+     *
+     * @return string
+     */
+    public function getIntitule()
+    {
+        return $this->intitule;
+    }
+
+    /**
+     * Set debut
+     *
+     * @param \DateTime $debut
+     *
+     * @return Post
+     */
+    public function setDebut($debut)
+    {
+        $this->debut = $debut;
+
+        return $this;
+    }
+
+    /**
+     * Get debut
+     *
+     * @return \DateTime
+     */
+    public function getDebut()
+    {
+        return $this->debut;
+    }
+
+    /**
+     * Set fin
+     *
+     * @param \DateTime $fin
+     *
+     * @return Post
+     */
+    public function setFin($fin)
+    {
+        $this->fin = $fin;
+
+        return $this;
+    }
+
+    /**
+     * Get fin
+     *
+     * @return \DateTime
+     */
+    public function getFin()
+    {
+        return $this->fin;
+    }
+
+    /**
+     * Set salaire
+     *
+     * @param string $salaire
+     *
+     * @return Post
+     */
+    public function setSalaire($salaire)
+    {
+        $this->salaire = $salaire;
+
+        return $this;
+    }
+
+    /**
+     * Get salaire
+     *
+     * @return string
+     */
+    public function getSalaire()
+    {
+        return $this->salaire;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     *
+     * @return Post
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set departement
+     *
+     * @param \GRH\GrhBundle\Entity\Departement $departement
+     *
+     * @return Post
+     */
+    public function setDepartement(\GRH\GrhBundle\Entity\Departement $departement = null)
+    {
+        $this->departement = $departement;
+
+        return $this;
+    }
+
+    /**
+     * Get departement
+     *
+     * @return \GRH\GrhBundle\Entity\Departement
+     */
+    public function getDepartement()
+    {
+        return $this->departement;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Post
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+}

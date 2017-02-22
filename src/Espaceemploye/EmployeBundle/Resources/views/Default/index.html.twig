@@ -1,0 +1,378 @@
+{% extends 'base.html.twig' %}
+{% block title %}Mon espace Employé | BusinessPark{% endblock %}
+{% block content %}
+	<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<link href="{{asset('vendor/bootstrap-fileinput/jasny-bootstrap.min.css')}}" rel="stylesheet" media="screen">
+		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<section id="page-title">
+							<div class="row">
+								<div class="col-sm-8">
+									<h1 class="mainTitle">Profil de l'utilisateur</h1>
+									<span class="mainDescription">There are many systems which have a need for user profile pages which display personal information on each member.</span>
+								</div>
+								<ol class="breadcrumb">
+									<li>
+										<span>Espace Employe</span>
+									</li>
+									<li class="active">
+										<span>acceuil</span>
+									</li>
+								</ol>
+							</div>
+						</section>
+						<!-- end: PAGE TITLE -->
+						<!-- start: USER PROFILE -->
+						<div class="container-fluid container-fullw bg-white">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="tabbable">
+										<ul class="nav nav-tabs tab-padding tab-space-3 tab-blue" id="myTab4">
+											<li class="active">
+												<a data-toggle="tab" href="#panel_overview">
+													Overview
+												</a>
+											</li>
+											<li>
+												<a data-toggle="tab" href="#panel_projects">
+													Projects
+												</a>
+											</li>
+										</ul>
+										<div class="tab-content">
+											<div id="panel_overview" class="tab-pane fade in active">
+												<div class="row">
+													<div class="col-sm-5 col-md-4">
+														<div class="user-left">
+															<div class="center">
+																<h4>{{employe.nom~' '~employe.prenom}}</h4>
+																<div class="fileinput fileinput-new" data-provides="fileinput">
+																	<div class="user-image">
+																		<div class="fileinput-new thumbnail">
+																			<img src="{{asset('assets/images/avatar-1-xl.jpg')}}" alt="">
+																		</div>
+																		<div class="fileinput-preview fileinput-exists thumbnail"></div>
+																		<div class="user-image-buttons">
+																			<span class="btn btn-azure btn-file btn-sm"><span class="fileinput-new"><i class="fa fa-pencil"></i></span><span class="fileinput-exists"><i class="fa fa-pencil"></i></span>
+																				<input type="file">
+																			</span>
+																			<a href="#" class="btn fileinput-exists btn-red btn-sm" data-dismiss="fileinput">
+																				<i class="fa fa-times"></i>
+																			</a>
+																		</div>
+																	</div>
+																</div>
+																<hr>
+																<div class="social-icons block">
+																	<ul>
+																		<li data-placement="top" data-original-title="Twitter" class="social-twitter tooltips">
+																			<a href="http://www.twitter.com" target="_blank">
+																				Twitter
+																			</a>
+																		</li>
+																		<li data-placement="top" data-original-title="Facebook" class="social-facebook tooltips">
+																			<a href="http://facebook.com" target="_blank">
+																				Facebook
+																			</a>
+																		</li>
+																		<li data-placement="top" data-original-title="Google" class="social-google tooltips">
+																			<a href="http://google.com" target="_blank">
+																				Google+
+																			</a>
+																		</li>
+																		<li data-placement="top" data-original-title="LinkedIn" class="social-linkedin tooltips">
+																			<a href="http://linkedin.com" target="_blank">
+																				LinkedIn
+																			</a>
+																		</li>
+																		<li data-placement="top" data-original-title="Github" class="social-github tooltips">
+																			<a href="#" target="_blank">
+																				Github
+																			</a>
+																		</li>
+																	</ul>
+																</div>
+																<hr>
+															</div>
+															<table class="table table-condensed">
+																<thead>
+																	<tr>
+																		<th colspan="3">Contact Information</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>Adresse</td>
+																		<td>
+																		<a href="#">
+																			{{employe.address}}
+																		</a></td>
+																		<td><a href="#panel_edit_account" class="show-tab"><i class="fa fa-pencil edit-user-info"></i></a></td>
+																	</tr>
+																	<tr>
+																		<td>email:</td>
+																		<td>
+																		<a href="">
+																			{{employe.email}}
+																		</a></td>
+																		
+																	</tr>
+																	<tr>
+																		<td>Téléphone:</td>
+																		<td>{{employe.tel}}</td>
+																		
+																	</tr>
+																	<tr>
+																		<td>skye</td>
+																		<td>
+																		<a href="">
+																			peterclark82
+																		</a></td>
+																		
+																	</tr>
+																</tbody>
+															</table>
+															<table class="table">
+																<thead>
+																	<tr>
+																		<th colspan="3">information professionnelle</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>Département</td>
+																		<td>{{employe.departement.nom}}</td>
+																		
+																	</tr>
+																	
+																	<tr>
+																		<td>Poste</td>
+																		<td>{{employe.post.intitule}}</td>
+																		
+																	</tr>
+																	<tr>
+																		<td>Supervisor</td>
+																		<td>
+																		<a href="#">
+																			Kenneth Ross
+																		</a></td>
+																		
+																	</tr>
+																	
+																</tbody>
+															</table>
+															<table class="table">
+																<thead>
+																	<tr>
+																		<th colspan="3">Additional information</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>anniversaire</td>
+																		<td>{{employe.datenaissance|date("d,M,Y")}}</td>
+																		
+																	</tr>
+																	<tr>
+																		<td>Groups</td>
+																		<td>New company web site development, HR Management</td>
+																																			</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+													<div class="col-sm-7 col-md-8">
+														<div class="row space20">
+															<div class="col-sm-3">
+																<button class="btn btn-icon margin-bottom-5 margin-bottom-5 btn-block">
+																	<i class="ti-layers-alt block text-primary text-extra-large margin-bottom-10"></i>
+																	Projects
+																</button>
+															</div>
+															<div class="col-sm-3">
+																<button class="btn btn-icon margin-bottom-5 btn-block">
+																	<i class="ti-comments block text-primary text-extra-large margin-bottom-10"></i>
+																	Messages <span class="badge badge-danger"> 23 </span>
+																</button>
+															</div>
+															<div class="col-sm-3">
+																<button class="btn btn-icon margin-bottom-5 btn-block">
+																	<i class="ti-calendar block text-primary text-extra-large margin-bottom-10"></i>
+																	Calendar
+																</button>
+															</div>
+															<div class="col-sm-3">
+																<button class="btn btn-icon margin-bottom-5 btn-block">
+																	<i class="ti-flag block text-primary text-extra-large margin-bottom-10"></i>
+																	Notifications
+																</button>
+															</div>
+														</div>
+														<div class="panel panel-white" id="activities">
+															<div class="panel-heading border-light">
+																<h4 class="panel-title text-primary">Activités récentes</h4>
+																<paneltool class="panel-tools" tool-collapse="tool-collapse" tool-refresh="load1" tool-dismiss="tool-dismiss"></paneltool>
+															</div>
+															<div collapse="activities" ng-init="activities=false" class="panel-wrapper">
+																<div class="panel-body">
+																	<ul class="timeline-xs">
+																		{% for act in activites %}
+                                                                         {% if act.status=='oui' %}
+                                                                         	<li class="timeline-item success">
+																			<div class="margin-left-15">
+																				<div class="text-muted text-small">
+																					{{act.debut|date('d,M-Y')}}
+																				</div>
+																				<p>
+																					<a class="text-info" href>
+																						{{act.sujet}}
+																					</a>
+																					{{act.description}}
+																				</p>
+																			</div>
+																		</li>
+																		
+                                                                         	{% else %}
+                                                                              <li class="timeline-item danger">
+																			<div class="margin-left-15">
+																				<div class="text-muted text-small">
+																					{{act.debut|date('d,M-Y')}}
+																				</div>
+																				<p>
+																					<a class="text-info" href>
+																						{{act.sujet}}
+																					</a>
+																					{{act.description}}
+																				</p>
+																			</div>
+																		</li>
+                                                                         {% endif %}
+																		{% endfor %}
+																		
+																		
+																		
+																	</ul>
+																</div>
+															</div>
+														</div>
+																											</div>
+												</div>
+											</div>
+											<div id="panel_projects" class="tab-pane fade">
+												<table class="table" id="projects">
+													<thead>
+														<tr>
+															<th>Project Name</th>
+															<th class="hidden-xs">Client</th>
+															<th>Proj Comp</th>
+															<th class="hidden-xs">%Comp</th>
+															<th class="hidden-xs center">Priority</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>IT Help Desk</td>
+															<td class="hidden-xs">Master Company</td>
+															<td>11 november 2014</td>
+															<td class="hidden-xs">
+															<div class="progress active progress-xs">
+																<div style="width: 70%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" role="progressbar" class="progress-bar progress-bar-warning">
+																	<span class="sr-only"> 70% Complete (danger)</span>
+																</div>
+															</div></td>
+															<td class="center hidden-xs"><span class="label label-danger">Critical</span></td>
+														</tr>
+														<tr>
+															<td>PM New Product Dev</td>
+															<td class="hidden-xs">Brand Company</td>
+															<td>12 june 2014</td>
+															<td class="hidden-xs">
+															<div class="progress active progress-xs">
+																<div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-info">
+																	<span class="sr-only"> 40% Complete</span>
+																</div>
+															</div></td>
+															<td class="center hidden-xs"><span class="label label-warning">High</span></td>
+														</tr>
+														<tr>
+															<td>ClipTheme Web Site</td>
+															<td class="hidden-xs">Internal</td>
+															<td>11 november 2014</td>
+															<td class="hidden-xs">
+															<div class="progress active progress-xs">
+																<div style="width: 90%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" role="progressbar" class="progress-bar progress-bar-success">
+																	<span class="sr-only"> 90% Complete</span>
+																</div>
+															</div></td>
+															<td class="center hidden-xs"><span class="label label-success">Normal</span></td>
+														</tr>
+														<tr>
+															<td>Local Ad</td>
+															<td class="hidden-xs">UI Fab</td>
+															<td>15 april 2014</td>
+															<td class="hidden-xs">
+															<div class="progress active progress-xs">
+																<div style="width: 50%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" role="progressbar" class="progress-bar progress-bar-warning">
+																	<span class="sr-only"> 50% Complete</span>
+																</div>
+															</div></td>
+															<td class="center hidden-xs"><span class="label label-success">Normal</span></td>
+														</tr>
+														<tr>
+															<td>Design new theme</td>
+															<td class="hidden-xs">Internal</td>
+															<td>2 october 2014</td>
+															<td class="hidden-xs">
+															<div class="progress active progress-xs">
+																<div style="width: 20%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="20" role="progressbar" class="progress-bar progress-bar-success">
+																	<span class="sr-only"> 20% Complete (warning)</span>
+																</div>
+															</div></td>
+															<td class="center hidden-xs"><span class="label label-danger">Critical</span></td>
+														</tr>
+														<tr>
+															<td>IT Help Desk</td>
+															<td class="hidden-xs">Designer TM</td>
+															<td>6 december 2014</td>
+															<td class="hidden-xs">
+															<div class="progress active progress-xs">
+																<div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-warning">
+																	<span class="sr-only"> 40% Complete (warning)</span>
+																</div>
+															</div></td>
+															<td class="center hidden-xs"><span class="label label-warning">High</span></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end: USER PROFILE -->
+			
+{% endblock %}
+{% block jspage	 %}
+ 	    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script src="{{asset('vendor/maskedinput/jquery.maskedinput.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+		<script src="{{asset('vendor/autosize/autosize.min.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/classie.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/selectFx.js')}}"></script>
+		<script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-timepicker/bootstrap-timepicker.min.js')}}"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+       
+        
+        <!-- start: JavaScript Event Handlers for this page -->
+		<script src="{{asset('vendor/bootstrap-fileinput/jasny-bootstrap.js')}}"></script>
+
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+                
+            });
+        </script>
+        </script>
+        {% endblock %}

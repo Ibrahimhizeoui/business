@@ -1,0 +1,124 @@
+{% extends 'CRMClientBundle::espaceclient.html.twig' %}
+{% block title %}Demande un service | BusinessPark{% endblock %}
+{% block content %}
+	<section id="page-title">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">Espace Client </h1>
+                                    
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>services</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>Demande</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+	<div class="container-fluid container-fullw bg-white">
+							<div class="row">
+								<div class="col-md-12">
+									<h5 class="over-title">modifier un <span class="text-bold">Demande de service</span></h5>
+									
+									<div class="row">
+										
+											{{ form_start(form) }}
+                                            {{ form_errors(form) }}
+                                          
+											
+										
+										<div class="col-md-6">
+											<fieldset>
+												<legend>
+													 Information
+												</legend>
+												<div class="row">
+													<div class="col-md-9">
+														<div class="form-group">
+															<label>
+																Nom
+															</label>
+															{{ form_widget(form.sujet,{ 'attr': {'class': 'form-control','placeholder':'Entrer le sujet'} }) }}
+														</div>
+													</div>
+													
+												</div>
+												<div class="row">
+													<div class="col-md-9">
+														<div class="form-group">
+															<label class="block">
+																Date d'incription
+															</label>
+															{{ form_widget(form.dateajout,{'attr' :{'class': 'form-control'}}) }}
+														</div>
+													</div>
+													
+												</div>
+
+												<div class="row">
+													
+													<div class="col-md-9">
+														<div class="form-group">
+															<label class="block">
+																Staus
+															</label>
+															<div class="clip-radio radio-primary">
+																{{ form_widget(form.status,{'attr' :{'class': 'form-control'}}) }}
+															</div>
+															
+														</div>
+													</div>
+													
+												</div>
+
+
+												<div class="row">
+													<div class="col-md-9">
+														<div class="form-group">
+															<label class="block">
+																Description
+															</label>
+															{{ form_widget(form.description,{'attr' :{'class': 'form-control'}}) }}
+														</div>
+													</div>
+													
+													
+												</div>
+												
+											</fieldset>
+											
+										</div>
+									</div>
+									{{ form_widget(form.save,{ 'attr': {'class': 'btn btn-o btn-primary'} }) }}
+														{{ form_end(form) }} 
+												
+								</div>
+							</div>
+						</div>
+{% endblock %}
+{% block jspage	 %}
+ 	    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script src="{{asset('vendor/maskedinput/jquery.maskedinput.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+		<script src="{{asset('vendor/autosize/autosize.min.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/classie.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/selectFx.js')}}"></script>
+		<script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-timepicker/bootstrap-timepicker.min.js')}}"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+
+        
+        <!-- start: JavaScript Event Handlers for this page -->
+		<script src="{{asset('assets/js/form-elements.js')}}"></script>
+
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+                FormElements.init();
+            });
+        </script>
+        </script>
+        {% endblock %}

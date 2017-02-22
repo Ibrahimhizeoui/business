@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Departement</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ departement.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ departement.nom }}</td>
+            </tr>
+            <tr>
+                <th>Responsable</th>
+                <td>{{ departement.responsable }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ departement.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('departement_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

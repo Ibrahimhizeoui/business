@@ -1,0 +1,1587 @@
+        <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        <!-- end: META -->
+        <!-- start: GOOGLE FONTS -->
+        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        {% block stylesheets %}
+
+
+        <!-- start: MAIN CSS -->
+        <link rel="stylesheet" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('vendor/fontawesome/css/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{asset('vendor/themify-icons/themify-icons.min.css')}}">
+        <link href="{{asset('vendor/animate.css/animate.min.css" rel="stylesheet')}}" media="screen">
+        <link href="{{asset('vendor/perfect-scrollbar/perfect-scrollbar.min.css')}}" rel="stylesheet" media="screen">
+        <link href="{{asset('vendor/switchery/switchery.min.css')}}" rel="stylesheet" media="screen">
+        <!-- end: MAIN CSS -->
+
+        <!-- start: CLIP-TWO CSS -->
+        <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/css/plugins.css')}}">
+        <style type="text/css">
+         /* ---------------------------------------------------------------------- */
+/*  Theme 1
+/* ---------------------------------------------------------------------- */
+::-moz-selection {
+  background: #007aff;
+  text-shadow: none;
+  color: #ffffff;
+}
+
+::selection {
+  background: #007aff;
+  text-shadow: none;
+  color: #ffffff;
+}
+
+body {
+  background: #FAFAFA;
+}
+
+@media (max-width: 991px) {
+  .app-content {
+    background: #FAFAFA;
+  }
+}
+
+header .navbar-header {
+  background: #ffffff !important;
+  border-right-color: #c8c7cc !important;
+  border-bottom-color: #c8c7cc !important;
+}
+header .navbar-header .sidebar-toggler, header .navbar-header .sidebar-mobile-toggler {
+  color: #007aff !important;
+}
+header .navbar-header .navbar-brand {
+  color: #777 !important;
+}
+header .navbar-header .menu-toggler {
+  color: #007aff !important;
+}
+header .navbar-collapse {
+  background: #ffffff !important;
+  border-bottom-color: #c8c7cc !important;
+  box-shadow: none !important;
+}
+header .navbar-collapse .navbar-right > li > a {
+  color: #777;
+}
+header .navbar-collapse .navbar-right > li > a i {
+  color: #007aff !important;
+}
+header .navbar-collapse .navbar-right > li > a:hover, header .navbar-collapse .navbar-right > li > a:focus, header .navbar-collapse .navbar-right > li > a:active {
+  background: #ebebeb !important;
+}
+header .navbar-collapse .navbar-right > li.open > a {
+  background: #ebebeb !important;
+}
+header .navbar-collapse .navbar-right .dot-badge {
+  border-color: #ffffff;
+}
+@media (max-width: 991px) {
+  header .navbar-collapse {
+    background: #ffffff !important;
+    box-shadow: none;
+  }
+  header .navbar-collapse .navbar-right > li > a {
+    color: #777;
+  }
+  header .navbar-collapse .navbar-right > li > a i {
+    color: #007aff !important;
+  }
+  header .navbar-collapse .navbar-right > li > a:hover, header .navbar-collapse .navbar-right > li > a:focus, header .navbar-collapse .navbar-right > li > a:active {
+    background: #ebebeb !important;
+  }
+  header .navbar-collapse .navbar-right > li.open > a {
+    background: #ebebeb !important;
+  }
+}
+@media (max-width: 991px) and (max-width: 767px) {
+  header .navbar-collapse .navbar-right > li {
+    border-bottom: 1px solid #c8c7cc !important;
+  }
+}
+@media (max-width: 991px) {
+  header .navbar-collapse .navbar-right .dot-badge {
+    border-color: #ffffff;
+  }
+}
+@media (max-width: 767px) {
+  header .navbar-collapse {
+    background: #ffffff !important;
+  }
+  header .navbar-collapse .close-handle {
+    background: #ffffff;
+  }
+  header .navbar-collapse .close-handle .arrow-left, header .navbar-collapse .close-handle .arrow-right {
+    background-color: #007aff;
+  }
+  header .navbar-collapse .navbar-right .current-user a i {
+    color: #ffffff !important;
+    background: rgba(0, 122, 255, 0.3);
+  }
+}
+header .dropdown-off-sidebar {
+  border-left-color: #c8c7cc !important;
+  background: #ffffff !important;
+  color: #007aff !important;
+}
+@media (max-width: 991px) {
+  header .dropdown-off-sidebar {
+    background: #ffffff !important;
+    border-left-color: #c8c7cc !important;
+    color: #007aff !important;
+  }
+}
+
+#sidebar {
+  background: #EFEFF4 !important;
+}
+#sidebar:before {
+  border-right-width: "1px" !important;
+  border-right-style: solid;
+  border-right-color: #c8c7cc !important;
+}
+#sidebar nav {
+  border-right-width: "1px" !important;
+  border-right-style: solid;
+  border-right-color: #c8c7cc !important;
+}
+#sidebar nav .navbar-title {
+  color: #aaaaaa;
+}
+#sidebar nav > ul {
+  background: #ffffff !important;
+  border-bottom-color: #c8c7cc !important;
+  border-top-color: #c8c7cc !important;
+}
+#sidebar nav > ul > li a:active:focus {
+  background: #e6e6e6 !important;
+}
+#sidebar nav > ul > li > a .item-media > i {
+  color: #007aff !important;
+}
+#sidebar nav > ul > li > a .item-media .fa-stack .fa-square {
+  color: #007aff !important;
+}
+#sidebar nav > ul > li > a .item-inner {
+  color: #777 !important;
+  border-bottom-color: #c8c7cc;
+}
+#sidebar nav > ul > li.hover {
+  background: #f2f2f2 !important;
+}
+#sidebar nav > ul > li.open {
+  background: #f2f2f2 !important;
+}
+.no-touch #sidebar nav > ul > li:hover {
+  background: #f2f2f2 !important;
+}
+#sidebar nav > ul > li.active {
+  background: #007aff !important;
+}
+#sidebar nav > ul > li.active:hover {
+  background: #007aff !important;
+}
+@media (min-width: 992px) {
+  #sidebar nav > ul > li.active:before {
+    border-right-color: #c8c7cc !important;
+  }
+  #sidebar nav > ul > li.active:after {
+    border-right-color: #FAFAFA !important;
+  }
+}
+#sidebar nav > ul > li.active > a:active:focus {
+  background: #006ee6 !important;
+}
+#sidebar nav > ul > li.active > a .item-inner {
+  color: #ffffff !important;
+}
+#sidebar nav > ul > li.active > a .item-media > i {
+  color: #ffffff !important;
+}
+#sidebar nav > ul > li.active > a .item-media .fa-stack .fa-square {
+  color: #007aff !important;
+}
+#sidebar nav > ul > li.active .sub-menu {
+  background: #f7f7f7;
+}
+#sidebar nav > ul .sub-menu {
+  background: #f7f7f7;
+}
+#sidebar nav > ul .sub-menu > li.open {
+  background: #f2f2f2 !important;
+}
+#sidebar nav > ul .sub-menu > li a {
+  color: #777;
+}
+#sidebar nav > ul .sub-menu > li.active a {
+  background: #e0e0e0 !important;
+}
+#sidebar nav ul > li.hover {
+  background: #f2f2f2;
+}
+.no-touch #sidebar nav ul > li:hover {
+  background: #f2f2f2;
+}
+#sidebar nav ul > li.open {
+  background: #f2f2f2;
+}
+#sidebar nav .button-o {
+  border-color: #007aff !important;
+  color: #007aff !important;
+}
+
+@media (min-width: 992px) {
+  .app-sidebar-closed .app-aside .search-form {
+    background: #dddde8 !important;
+    border-bottom-color: #c8c7cc !important;
+  }
+  .app-sidebar-closed .app-aside .search-form > a {
+    color: #777;
+  }
+  .app-sidebar-closed .app-aside .navbar-form {
+    background: #dddde8 !important;
+  }
+  .app-sidebar-closed .app-aside .navbar-form a {
+    color: #777 !important;
+  }
+  .app-sidebar-closed .app-aside .navbar-form .form-group input {
+    background: rgba(255, 255, 255, 0.4);
+  }
+  .app-sidebar-closed .app-aside .navbar-form .form-group input::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: #777;
+  }
+  .app-sidebar-closed .app-aside .navbar-form .form-group input:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #777;
+  }
+  .app-sidebar-closed .app-aside .navbar-form .form-group input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #777;
+  }
+  .app-sidebar-closed .app-aside .navbar-form .form-group input:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: #777;
+  }
+  .app-sidebar-closed .app-aside > .item-inner {
+    background: #e6e6e6 !important;
+  }
+  .app-sidebar-closed .app-aside > .item-inner .title {
+    color: #777 !important;
+  }
+  .app-sidebar-closed .app-aside > .item-inner.active {
+    background: #e6e6e6 !important;
+  }
+  .app-sidebar-closed .app-aside > .item-inner.active:before {
+    border-left: 12px solid #c8c7cc;
+  }
+  .app-sidebar-closed .app-aside > .item-inner.active:after {
+    border-left: 12px solid #007aff !important;
+  }
+  .app-sidebar-closed .app-aside > .item-inner:before {
+    border-left: 12px solid #c8c7cc;
+  }
+  .app-sidebar-closed .app-aside > .item-inner:after {
+    border-left: 12px solid #f2f2f2 !important;
+  }
+  .app-sidebar-closed .app-aside .form-group {
+    background: #dddde8 !important;
+    border-color: #c8c7cc !important;
+  }
+  .app-sidebar-closed .app-aside .sub-menu {
+    background: #ffffff;
+  }
+  .app-sidebar-closed .app-aside .sub-menu li a {
+    color: #777 !important;
+  }
+  .app-sidebar-closed .app-aside .sub-menu li a.hover {
+    background: #e6e6e6 !important;
+  }
+  .no-touch .app-sidebar-closed .app-aside .sub-menu li a:hover {
+    background: #e6e6e6 !important;
+  }
+  .app-sidebar-closed .app-aside .sub-menu li.active > a, .app-sidebar-closed .app-aside .sub-menu li.open > a {
+    background: #e6e6e6 !important;
+  }
+}
+@media (min-width: 992px) {
+  .app-sidebar-closed ul.sub-menu {
+    border-right-color: #c8c7cc !important;
+    border-bottom-color: #c8c7cc !important;
+  }
+}
+
+.navbar-form {
+  background: #dddde8 !important;
+}
+.navbar-form .search-button {
+  color: #777;
+}
+.navbar-form .form-control::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: rgba(119, 119, 119, 0.5);
+}
+.navbar-form .form-control:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: rgba(119, 119, 119, 0.5);
+}
+.navbar-form .form-control::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: rgba(119, 119, 119, 0.5);
+}
+.navbar-form .form-control:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: rgba(119, 119, 119, 0.5);
+}
+.navbar-form .form-control:focus {
+  background-color: #ffffff !important;
+  border-color: #ffffff;
+  transition: all 300ms ease-in 0s;
+}
+.navbar-form .form-control:focus + .search-button {
+  color: #aeacb4;
+}
+.navbar-form .form-control:focus::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #c2c2c5 !important;
+}
+.navbar-form .form-control:focus:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #c2c2c5 !important;
+}
+.navbar-form .form-control:focus::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #c2c2c5 !important;
+}
+.navbar-form .form-control:focus:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #c2c2c5 !important;
+}
+
+#off-sidebar {
+  background: #ffffff !important;
+  border-color: #c8c7cc !important;
+}
+#off-sidebar .sidebar-back {
+  color: #007aff;
+}
+#off-sidebar .tab-content {
+  background: #ffffff !important;
+}
+#off-sidebar .nav-tabs.nav-justified > li > a {
+  border-color: #c8c7cc;
+  color: rgba(0, 122, 255, 0.7);
+  background: #f2f2f2;
+}
+#off-sidebar .nav-tabs.nav-justified > li > a:hover, #off-sidebar .nav-tabs.nav-justified > li > a:focus {
+  background: #e6e6e6;
+  color: rgba(0, 122, 255, 0.8);
+}
+#off-sidebar .nav-tabs.nav-justified > li.active > a, #off-sidebar .nav-tabs.nav-justified > li.active > a:hover, #off-sidebar .nav-tabs.nav-justified > li.active > a:focus {
+  color: #007aff;
+  background: #ffffff;
+  border-bottom-color: #ffffff;
+}
+#off-sidebar .media-list .media {
+  border-color: #c8c7cc;
+  color: #777;
+}
+#off-sidebar .media-list .media a:hover {
+  background: #e6e6e6;
+}
+#off-sidebar .media-list .media .media-heading {
+  color: #777 !important;
+}
+#off-sidebar .media-list .media .media-body span {
+  color: #919191;
+}
+#off-sidebar .sidebar-title {
+  color: #777;
+}
+#off-sidebar .discussion .messages-date {
+  color: #777;
+}
+#off-sidebar .discussion .message-name {
+  color: #777;
+}
+#off-sidebar .message-bar {
+  background: #e6e6e6;
+  border-top-color: #c8c7cc;
+}
+#off-sidebar .message-bar textarea {
+  background: #fff;
+  border-color: #c8c7cc;
+}
+#off-sidebar .message-bar .link {
+  color: #007aff;
+}
+#off-sidebar .message-bar a.icon-only {
+  color: #777;
+}
+
+.ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
+  background-color: #999 !important;
+}
+
+#app > footer {
+  background: #ffffff !important;
+  border-top-color: #c8c7cc !important;
+  color: #777;
+}
+
+        </style>
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}
+         <div id="app">
+            <!-- sidebar -->
+            <div class="sidebar app-aside" id="sidebar">
+                <div class="sidebar-container perfect-scrollbar">
+                    <nav>
+                        <!-- start: SEARCH FORM -->
+                        <div class="search-form">
+                            <a class="s-open" href="#">
+                                <i class="ti-search"></i>
+                            </a>
+                            <form class="navbar-form" role="search">
+                                <a class="s-remove" href="#" target=".navbar-form">
+                                    <i class="ti-close"></i>
+                                </a>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <button class="btn search-button" type="submit">
+                                        <i class="ti-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- end: SEARCH FORM -->
+                        <!-- start: MAIN NAVIGATION MENU -->
+                        <div class="navbar-title">
+                            <span>Main Navigation</span>
+                        </div>
+                        {% block menu %}
+                        <ul class="main-navigation-menu">
+                            <li class="active open">
+                                <a href="{{path('index2')}}">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-home"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Aceuil </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            {% endblock %}
+                           {% block menugrh %}
+                        
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class=" ti-user"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title">Gestion res. humaines</span><i class="icon-arrow"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('departement')}}">
+                                                    Départements
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('employe')}}">
+                                                    Employés
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('postes')}}">
+                                                    Postes
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('absences')}}">
+                                                    Absences
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('conges')}}">
+                                                    Congés
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('recrutements')}}">
+                                                    Recrutements
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('salaires')}}">
+                                                    Salaires
+                                                </a>
+                                            </li>
+                                    
+                                </ul>
+                            </li>{% endblock %}
+
+                            {% block menustok %}
+                        
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-agenda"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Gestion de stock 
+                                            
+                                            </span><span class="label label-danger pull-right" id="danger"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                   <li>
+                                                <a href="{{path('produits')}}">
+                                                    Produits
+                                                </a>
+                                            </li>
+                                    <li>
+                                                <a href="{{path('categories')}}">
+                                                    Categories
+                                                </a>
+                                            </li>
+                                      <li>
+                                                <a href="{{path('fournisseurs')}}">
+                                                    Fournisseurs
+                                                </a>
+                                            </li>
+                                      <li>
+                                                <a href="{{path('bonreceptions')}}">
+                                                  Commandes d'achat
+                                                </a>
+                                            </li>
+                                      
+                                       <li>
+                                                <a href="{{path('bonreceptions2')}}">
+                                                   Bons de reception
+                                                </a>
+                                            </li>
+                                               
+                                      <li>
+                                                <a href="{{path('commandes')}}">
+                                                   Commandes de vente
+                                                </a>
+                                            </li>
+
+                                                         
+                                    
+                                    
+                                </ul>
+                            </li>{% endblock %}
+
+
+                            {% block menufinance %}
+                        
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class=" ti-dashboard"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Gestion du finance </span><i class="icon-arrow"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                  <li>
+                                                <a href="{{path('taxes')}}">
+                                                    Taxes
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('factures')}}">
+                                                    Factures
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('depences')}}">
+                                                    Depenses
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="{{path('paimentclient')}}">
+                                                    Paiments <strong>Clients</strong>
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="{{path('paimentfournisseur')}}">
+                                                    Paiments <strong>Fournisseurs</strong>
+                                                </a>
+                                            </li>
+                                            
+                                            
+                                   
+                                </ul>
+                            </li>{% endblock %}
+
+                           {% block menucrm %}
+                        
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-agenda"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> CRM 
+                                            
+                                            </span><i class="icon-arrow"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                  <li>
+                                                <a href="{{path('clients')}}">
+                                                    Clients
+                                                </a>
+                                            </li>
+
+                                            
+                                            <li>
+                                                <a href="{{path('services')}}">
+                                                    Services
+                                                </a>
+                                            </li>
+
+                                             <li>
+                                                <a href="{{path('compagnes')}}">
+                                                    Compagnes marketing
+                                                </a>
+                                            </li>
+                                           
+                                           <li>
+                                                <a href="{{path('opportunites')}}">
+                                                    Opportunites de vente
+                                                </a>
+                                            </li>
+
+                                            
+                                            
+                                            
+                                    
+                                    
+                                </ul>
+                            </li>{% endblock %}
+
+
+                            
+                           
+                        </ul>
+                       
+                        <!-- end: MAIN NAVIGATION MENU -->
+                        <!-- start: CORE FEATURES -->
+                        <div class="navbar-title">
+                            <span>Core Features</span>
+                        </div>
+                        <ul class="folders">
+                            <li style="display:none;">
+                                <a href="pages_calendar.html">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <span class="fa-stack"> <i class="fa fa-square fa-stack-2x"></i> <i class="fa fa-terminal fa-stack-1x fa-inverse"></i> </span>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Calendar </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-folder"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title">Espace Emoplyé </span><i class="icon-arrow"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                     <li>
+                                        <a href="javascript:;">
+                                            <span>Gestion de données </span> <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('espaceemploye_employe_homepage')}}">
+                                                    Profil
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('changedonnee')}}">
+                                                    Changer les données
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('changepassword')}}">
+                                                    changer mot de pase
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('ajouter_conge1')}}">
+                                                    Demande congé
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('conges1')}}">
+                                                    Solde congé
+                                                </a>
+                                            </li>
+                                            
+                                        </ul>
+                                    </li>
+                                    <li >
+                                        <a href="javascript:;">
+                                            <span>Gestion d'absence</span> <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('mesabsences')}}">
+                                                    La liste de mes absences
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('ajouter_monabsence')}}">
+                                                    Ajouter une absence
+                                                </a>
+                                            </li>
+                                           
+                                        </ul>
+                                    </li>
+                                   
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span>Gestion des activités</span> <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('activites')}}">
+                                                    Liste de mes activités
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('ajouter_activite')}}">
+                                                    Créer une activité
+                                                </a>
+                                            </li>
+                                            
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                        <!-- end: CORE FEATURES -->
+                        <!-- start: DOCUMENTATION BUTTON -->
+                        <div class="wrapper">
+                            <a href="documentation.html" class="button-o">
+                                <i class="ti-help"></i>
+                                <span>Documentation</span>
+                            </a>
+                        </div>
+                        <!-- end: DOCUMENTATION BUTTON -->
+                    </nav>
+                </div>
+            </div>
+            <!-- / sidebar -->
+            <div class="app-content">
+                <!-- start: TOP NAVBAR -->
+                <header class="navbar navbar-default navbar-static-top">
+                    <!-- start: NAVBAR HEADER -->
+                    <div class="navbar-header">
+                        <a href="#" class="sidebar-mobile-toggler pull-left hidden-md hidden-lg" class="btn btn-navbar sidebar-toggle" data-toggle-class="app-slide-off" data-toggle-target="#app" data-toggle-click-outside="#sidebar">
+                            <i class="ti-align-justify"></i>
+                        </a>
+                        <a class="navbar-brand" href="#">
+                            <img src="{{asset('assets/images/logo.png')}}" alt="Clip-Two"/>
+                        </a>
+                        <a href="#" class="sidebar-toggler pull-right visible-md visible-lg" data-toggle-class="app-sidebar-closed" data-toggle-target="#app">
+                            <i class="ti-align-justify"></i>
+                        </a>
+                        <a class="pull-right menu-toggler visible-xs-block" id="menu-toggler" data-toggle="collapse" href=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <i class="ti-view-grid"></i>
+                        </a>
+                    </div>
+                    <!-- end: NAVBAR HEADER -->
+                    <!-- start: NAVBAR COLLAPSE -->
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-right" style="">
+                            <!-- start: MESSAGES DROPDOWN -->
+                            <!-- end: ACTIVITIES DROPDOWN -->
+                            <!-- start: LANGUAGE SWITCHER -->
+                            <li class="dropdown">
+                                <a href class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="ti-world"></i> Francais
+                                </a>
+                                <ul role="menu" class="dropdown-menu dropdown-light fadeInUpShort">
+                                    <li>
+                                        <a href="#" class="menu-toggler">
+                                            Francais
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="menu-toggler">
+                                            English
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                            <!-- start: LANGUAGE SWITCHER -->
+                            <!-- start: USER OPTIONS DROPDOWN -->
+                            <li class="dropdown current-user">
+                                <a href class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="{{asset('assets/images/avatar-1.jpg')}}" alt="Peter"> <span class="username">Peter <i class="ti-angle-down"></i></i></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-dark">
+                                    <li>
+                                        <a href="pages_user_profile.html">
+                                            My Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="pages_calendar.html">
+                                            My Calendar
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="{{path('fos_user_security_logout')}}">
+                                            Log Out
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- end: USER OPTIONS DROPDOWN -->
+                        </ul>
+                        <!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
+                        <div class="close-handle visible-xs-block menu-toggler" data-toggle="collapse" href=".navbar-collapse">
+                            <div class="arrow-left"></div>
+                            <div class="arrow-right"></div>
+                        </div>
+                        <!-- end: MENU TOGGLER FOR MOBILE DEVICES -->
+                    </div>
+                    <a class="dropdown-off-sidebar" data-toggle-class="app-offsidebar-open" data-toggle-target="#app" data-toggle-click-outside="#off-sidebar">
+                        &nbsp;
+                    </a>
+                    <!-- end: NAVBAR COLLAPSE -->
+                </header>
+                <!-- end: TOP NAVBAR -->
+                <div class="main-content" >
+                    <div class="wrap-content container" id="container">
+                        {% block content %}
+                      
+                      {% endblock %}
+                    </div>
+                </div>
+
+            </div>
+            <!-- start: FOOTER -->
+            <footer>
+                <div class="footer-inner">
+                    <div class="pull-left">
+                        &copy; <span class="current-year"></span><span class="text-bold text-uppercase">ClipTheme</span>. <span>All rights reserved</span>
+                    </div>
+                    <div class="pull-right">
+                        <span class="go-top"><i class="ti-angle-up"></i></span>
+                    </div>
+                </div>
+            </footer>
+            <!-- end: FOOTER -->
+            <!-- start: OFF-SIDEBAR -->
+            <div id="off-sidebar" class="sidebar">
+                <div class="sidebar-wrapper">
+                    <ul class="nav nav-tabs nav-justified">
+                        <li class="active">
+                            <a href="#off-users" aria-controls="off-users" role="tab" data-toggle="tab">
+                                <i class="ti-comments"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#off-favorites" aria-controls="off-favorites" role="tab" data-toggle="tab">
+                                <i class="ti-heart"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#off-settings" aria-controls="off-settings" role="tab" data-toggle="tab">
+                                <i class="ti-settings"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="off-users">
+                            <div id="users" toggleable active-class="chat-open">
+                                <div class="users-list">
+                                    <div class="sidebar-content perfect-scrollbar">
+                                        <h5 class="sidebar-title">On-line</h5>
+                                        <ul class="media-list">
+                                            <li class="media">
+                                                <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
+                                                    <i class="fa fa-circle status-online"></i>
+                                                    <img alt="..." src="assets/images/avatar-2.jpg" class="media-object">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Nicole Bell</h4>
+                                                        <span> Content Designer </span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="media">
+                                                <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
+                                                    <div class="user-label">
+                                                        <span class="label label-success">3</span>
+                                                    </div>
+                                                    <i class="fa fa-circle status-online"></i>
+                                                    <img alt="..." src="assets/images/avatar-3.jpg" class="media-object">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Steven Thompson</h4>
+                                                        <span> Visual Designer </span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="media">
+                                                <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
+                                                    <i class="fa fa-circle status-online"></i>
+                                                    <img alt="..." src="assets/images/avatar-4.jpg" class="media-object">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Ella Patterson</h4>
+                                                        <span> Web Editor </span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="media">
+                                                <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
+                                                    <i class="fa fa-circle status-online"></i>
+                                                    <img alt="..." src="assets/images/avatar-5.jpg" class="media-object">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Kenneth Ross</h4>
+                                                        <span> Senior Designer </span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <h5 class="sidebar-title">Off-line</h5>
+                                        <ul class="media-list">
+                                            <li class="media">
+                                                <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
+                                                    <img alt="..." src="assets/images/avatar-6.jpg" class="media-object">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Nicole Bell</h4>
+                                                        <span> Content Designer </span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="media">
+                                                <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
+                                                    <div class="user-label">
+                                                        <span class="label label-success">3</span>
+                                                    </div>
+                                                    <img alt="..." src="assets/images/avatar-7.jpg" class="media-object">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Steven Thompson</h4>
+                                                        <span> Visual Designer </span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="media">
+                                                <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
+                                                    <img alt="..." src="assets/images/avatar-8.jpg" class="media-object">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Ella Patterson</h4>
+                                                        <span> Web Editor </span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="media">
+                                                <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
+                                                    <img alt="..." src="assets/images/avatar-9.jpg" class="media-object">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Kenneth Ross</h4>
+                                                        <span> Senior Designer </span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="media">
+                                                <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
+                                                    <img alt="..." src="assets/images/avatar-10.jpg" class="media-object">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Ella Patterson</h4>
+                                                        <span> Web Editor </span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="media">
+                                                <a data-toggle-class="chat-open" data-toggle-target="#users" href="#">
+                                                    <img alt="..." src="assets/images/avatar-5.jpg" class="media-object">
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Kenneth Ross</h4>
+                                                        <span> Senior Designer </span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="user-chat">
+                                    <div class="chat-content">
+                                        <div class="sidebar-content perfect-scrollbar">
+                                            <a class="sidebar-back pull-left" href="#" data-toggle-class="chat-open" data-toggle-target="#users"><i class="ti-angle-left"></i> <span>Back</span></a>
+                                            <ol class="discussion">
+                                                <li class="messages-date">
+                                                    Sunday, Feb 9, 12:58
+                                                </li>
+                                                <li class="self">
+                                                    <div class="message">
+                                                        <div class="message-name">
+                                                            Peter Clark
+                                                        </div>
+                                                        <div class="message-text">
+                                                            Hi, Nicole
+                                                        </div>
+                                                        <div class="message-avatar">
+                                                            <img src="assets/images/avatar-1.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="message">
+                                                        <div class="message-name">
+                                                            Nicole Bell
+                                                        </div>
+                                                        <div class="message-text">
+                                                            How are you?
+                                                        </div>
+                                                        <div class="message-avatar">
+                                                            <img src="assets/images/avatar-1.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="other">
+                                                    <div class="message">
+                                                        <div class="message-name">
+                                                            Nicole Bell
+                                                        </div>
+                                                        <div class="message-text">
+                                                            Hi, i am good
+                                                        </div>
+                                                        <div class="message-avatar">
+                                                            <img src="assets/images/avatar-2.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="self">
+                                                    <div class="message">
+                                                        <div class="message-name">
+                                                            Peter Clark
+                                                        </div>
+                                                        <div class="message-text">
+                                                            Glad to see you ;)
+                                                        </div>
+                                                        <div class="message-avatar">
+                                                            <img src="assets/images/avatar-1.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="messages-date">
+                                                    Sunday, Feb 9, 13:10
+                                                </li>
+                                                <li class="other">
+                                                    <div class="message">
+                                                        <div class="message-name">
+                                                            Nicole Bell
+                                                        </div>
+                                                        <div class="message-text">
+                                                            What do you think about my new Dashboard?
+                                                        </div>
+                                                        <div class="message-avatar">
+                                                            <img src="assets/images/avatar-2.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="messages-date">
+                                                    Sunday, Feb 9, 15:28
+                                                </li>
+                                                <li class="other">
+                                                    <div class="message">
+                                                        <div class="message-name">
+                                                            Nicole Bell
+                                                        </div>
+                                                        <div class="message-text">
+                                                            Alo...
+                                                        </div>
+                                                        <div class="message-avatar">
+                                                            <img src="assets/images/avatar-2.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="message">
+                                                        <div class="message-name">
+                                                            Nicole Bell
+                                                        </div>
+                                                        <div class="message-text">
+                                                            Are you there?
+                                                        </div>
+                                                        <div class="message-avatar">
+                                                            <img src="assets/images/avatar-2.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="self">
+                                                    <div class="message">
+                                                        <div class="message-name">
+                                                            Peter Clark
+                                                        </div>
+                                                        <div class="message-text">
+                                                            Hi, i am here
+                                                        </div>
+                                                        <div class="message-avatar">
+                                                            <img src="assets/images/avatar-1.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="message">
+                                                        <div class="message-name">
+                                                            Nicole Bell
+                                                        </div>
+                                                        <div class="message-text">
+                                                            Your Dashboard is great
+                                                        </div>
+                                                        <div class="message-avatar">
+                                                            <img src="assets/images/avatar-1.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="messages-date">
+                                                    Friday, Feb 7, 23:39
+                                                </li>
+                                                <li class="other">
+                                                    <div class="message">
+                                                        <div class="message-name">
+                                                            Nicole Bell
+                                                        </div>
+                                                        <div class="message-text">
+                                                            How does the binding and digesting work in AngularJS?, Peter?
+                                                        </div>
+                                                        <div class="message-avatar">
+                                                            <img src="assets/images/avatar-2.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="self">
+                                                    <div class="message">
+                                                        <div class="message-name">
+                                                            Peter Clark
+                                                        </div>
+                                                        <div class="message-text">
+                                                            oh that's your question?
+                                                        </div>
+                                                        <div class="message-avatar">
+                                                            <img src="assets/images/avatar-1.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="message">
+                                                        <div class="message-name">
+                                                            Peter Clark
+                                                        </div>
+                                                        <div class="message-text">
+                                                            little reduntant, no?
+                                                        </div>
+                                                        <div class="message-avatar">
+                                                            <img src="assets/images/avatar-1.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="message">
+                                                        <div class="message-name">
+                                                            Peter Clark
+                                                        </div>
+                                                        <div class="message-text">
+                                                            literally we get the question daily
+                                                        </div>
+                                                        <div class="message-avatar">
+                                                            <img src="assets/images/avatar-1.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="other">
+                                                    <div class="message">
+                                                        <div class="message-name">
+                                                            Nicole Bell
+                                                        </div>
+                                                        <div class="message-text">
+                                                            I know. I, however, am not a nerd, and want to know
+                                                        </div>
+                                                        <div class="message-avatar">
+                                                            <img src="assets/images/avatar-2.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="self">
+                                                    <div class="message">
+                                                        <div class="message-name">
+                                                            Peter Clark
+                                                        </div>
+                                                        <div class="message-text">
+                                                            for this type of question, wouldn't it be better to try Google?
+                                                        </div>
+                                                        <div class="message-avatar">
+                                                            <img src="assets/images/avatar-1.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="other">
+                                                    <div class="message">
+                                                        <div class="message-name">
+                                                            Nicole Bell
+                                                        </div>
+                                                        <div class="message-text">
+                                                            Lucky for us :)
+                                                        </div>
+                                                        <div class="message-avatar">
+                                                            <img src="assets/images/avatar-2.jpg" alt="">
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                    <div class="message-bar">
+                                        <div class="message-inner">
+                                            <a class="link icon-only" href="#"><i class="fa fa-camera"></i></a>
+                                            <div class="message-area">
+                                                <textarea placeholder="Message"></textarea>
+                                            </div>
+                                            <a class="link" href="#">
+                                                Send
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="off-favorites">
+                            <div class="users-list">
+                                <div class="sidebar-content perfect-scrollbar">
+                                    <h5 class="sidebar-title">Favorites</h5>
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <a href="#">
+                                                <img alt="..." src="assets/images/avatar-7.jpg" class="media-object">
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">Nicole Bell</h4>
+                                                    <span> Content Designer </span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="media">
+                                            <a href="#">
+                                                <div class="user-label">
+                                                    <span class="label label-success">3</span>
+                                                </div>
+                                                <img alt="..." src="assets/images/avatar-6.jpg" class="media-object">
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">Steven Thompson</h4>
+                                                    <span> Visual Designer </span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="media">
+                                            <a href="#">
+                                                <img alt="..." src="assets/images/avatar-10.jpg" class="media-object">
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">Ella Patterson</h4>
+                                                    <span> Web Editor </span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="media">
+                                            <a href="#">
+                                                <img alt="..." src="assets/images/avatar-2.jpg" class="media-object">
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">Kenneth Ross</h4>
+                                                    <span> Senior Designer </span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="media">
+                                            <a href="#">
+                                                <img alt="..." src="assets/images/avatar-4.jpg" class="media-object">
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">Ella Patterson</h4>
+                                                    <span> Web Editor </span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="media">
+                                            <a href="#">
+                                                <img alt="..." src="assets/images/avatar-5.jpg" class="media-object">
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">Kenneth Ross</h4>
+                                                    <span> Senior Designer </span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="off-settings">
+                            <div class="sidebar-content perfect-scrollbar">
+                                <h5 class="sidebar-title">General Settings</h5>
+                                <ul class="media-list">
+                                    <li class="media">
+                                        <div class="padding-10">
+                                            <div class="display-table-cell">
+                                                <input type="checkbox" class="js-switch" checked />
+                                            </div>
+                                            <span class="display-table-cell vertical-align-middle padding-left-10">Enable Notifications</span>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="padding-10">
+                                            <div class="display-table-cell">
+                                                <input type="checkbox" class="js-switch" />
+                                            </div>
+                                            <span class="display-table-cell vertical-align-middle padding-left-10">Show your E-mail</span>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="padding-10">
+                                            <div class="display-table-cell">
+                                                <input type="checkbox" class="js-switch" checked />
+                                            </div>
+                                            <span class="display-table-cell vertical-align-middle padding-left-10">Show Offline Users</span>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="padding-10">
+                                            <div class="display-table-cell">
+                                                <input type="checkbox" class="js-switch" checked />
+                                            </div>
+                                            <span class="display-table-cell vertical-align-middle padding-left-10">E-mail Alerts</span>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="padding-10">
+                                            <div class="display-table-cell">
+                                                <input type="checkbox" class="js-switch" />
+                                            </div>
+                                            <span class="display-table-cell vertical-align-middle padding-left-10">SMS Alerts</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="save-options">
+                                    <button class="btn btn-success">
+                                        <i class="icon-settings"></i><span>Save Changes</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end: OFF-SIDEBAR -->
+            <!-- start: SETTINGS -->
+            <div class="settings panel panel-default hidden-xs hidden-sm" id="settings">
+                <button ct-toggle="toggle" data-toggle-class="active" data-toggle-target="#settings" class="btn btn-default">
+                    <i class="fa fa-spin fa-gear"></i>
+                </button>
+                <div class="panel-heading">
+                    Style Selector
+                </div>
+                <div class="panel-body">
+                    <!-- start: FIXED HEADER -->
+                    <div class="setting-box clearfix">
+                        <span class="setting-title pull-left"> Fixed header</span>
+                        <span class="setting-switch pull-right">
+                            <input type="checkbox" class="js-switch" id="fixed-header" />
+                        </span>
+                    </div>
+                    <!-- end: FIXED HEADER -->
+                    <!-- start: FIXED SIDEBAR -->
+                    <div class="setting-box clearfix">
+                        <span class="setting-title pull-left">Fixed sidebar</span>
+                        <span class="setting-switch pull-right">
+                            <input type="checkbox" class="js-switch" id="fixed-sidebar" />
+                        </span>
+                    </div>
+                    <!-- end: FIXED SIDEBAR -->
+                    <!-- start: CLOSED SIDEBAR -->
+                    <div class="setting-box clearfix">
+                        <span class="setting-title pull-left">Closed sidebar</span>
+                        <span class="setting-switch pull-right">
+                            <input type="checkbox" class="js-switch" id="closed-sidebar" />
+                        </span>
+                    </div>
+                    <!-- end: CLOSED SIDEBAR -->
+                    <!-- start: FIXED FOOTER -->
+                    <div class="setting-box clearfix">
+                        <span class="setting-title pull-left">Fixed footer</span>
+                        <span class="setting-switch pull-right">
+                            <input type="checkbox" class="js-switch" id="fixed-footer" />
+                        </span>
+                    </div>
+                    <!-- end: FIXED FOOTER -->
+                    <!-- start: THEME SWITCHER -->
+                    <div class="colors-row setting-box">
+                        <div class="color-theme theme-1">
+                            <div class="color-layout">
+                                <label>
+                                    <input type="radio" name="setting-theme" value="theme-1">
+                                    <span class="ti-check"></span>
+                                    <span class="split header"> <span class="color th-header"></span> <span class="color th-collapse"></span> </span>
+                                    <span class="split"> <span class="color th-sidebar"><i class="element"></i></span> <span class="color th-body"></span> </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="color-theme theme-2">
+                            <div class="color-layout">
+                                <label>
+                                    <input type="radio" name="setting-theme" value="theme-2">
+                                    <span class="ti-check"></span>
+                                    <span class="split header"> <span class="color th-header"></span> <span class="color th-collapse"></span> </span>
+                                    <span class="split"> <span class="color th-sidebar"><i class="element"></i></span> <span class="color th-body"></span> </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="colors-row setting-box">
+                        <div class="color-theme theme-3">
+                            <div class="color-layout">
+                                <label>
+                                    <input type="radio" name="setting-theme" value="theme-3">
+                                    <span class="ti-check"></span>
+                                    <span class="split header"> <span class="color th-header"></span> <span class="color th-collapse"></span> </span>
+                                    <span class="split"> <span class="color th-sidebar"><i class="element"></i></span> <span class="color th-body"></span> </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="color-theme theme-4">
+                            <div class="color-layout">
+                                <label>
+                                    <input type="radio" name="setting-theme" value="theme-4">
+                                    <span class="ti-check"></span>
+                                    <span class="split header"> <span class="color th-header"></span> <span class="color th-collapse"></span> </span>
+                                    <span class="split"> <span class="color th-sidebar"><i class="element"></i></span> <span class="color th-body"></span> </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="colors-row setting-box">
+                        <div class="color-theme theme-5">
+                            <div class="color-layout">
+                                <label>
+                                    <input type="radio" name="setting-theme" value="theme-5">
+                                    <span class="ti-check"></span>
+                                    <span class="split header"> <span class="color th-header"></span> <span class="color th-collapse"></span> </span>
+                                    <span class="split"> <span class="color th-sidebar"><i class="element"></i></span> <span class="color th-body"></span> </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="color-theme theme-6">
+                            <div class="color-layout">
+                                <label>
+                                    <input type="radio" name="setting-theme" value="theme-6">
+                                    <span class="ti-check"></span>
+                                    <span class="split header"> <span class="color th-header"></span> <span class="color th-collapse"></span> </span>
+                                    <span class="split"> <span class="color th-sidebar"><i class="element"></i></span> <span class="color th-body"></span> </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: THEME SWITCHER -->
+                </div>
+            </div>
+            <!-- end: SETTINGS -->
+        </div>    
+       
+
+        {% endblock %}
+        {% block javascripts %}
+        <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+        <script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('vendor/modernizr/modernizr.js')}}"></script>
+        <script src="{{asset('vendor/jquery-cookie/jquery.cookie.js')}}"></script>
+        <script src="{{asset('vendor/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
+        <script src="{{asset('vendor/switchery/switchery.min.js')}}"></script>
+        
+        
+        <!-- end: MAIN JAVASCRIPTS -->
+        <!-- start: CLIP-TWO JAVASCRIPTS -->
+        <script src="{{asset('assets/js/main.js')}}"></script>
+        <script type="text/javascript">
+
+         
+            jQuery(document).ready(function() {
+               
+                desplay_danger();
+
+              });
+          function desplay_danger(){
+               
+    $.ajax({
+        url: "{{path('danger_stock')}}",
+        type: 'POST',
+        data: {
+            "display": 1
+        },
+        beforeSend: function(){
+                            console.log('charge');
+                            
+                        },
+        success: function(d){
+                             console.log('cb1');
+                             $('#danger').html(d.produit);
+                             
+
+                        },
+        error: function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           alert(xhr.responseText);
+           alert(xhr.status);
+           alert(xhr.thrownError);
+           console.log(thrownError);
+       },
+
+
+    });
+
+};
+
+        </script>
+        {% endblock %}
+
+        {% block jspage %}
+
+        {% endblock %}
+         
+
+    </body>
+</html>

@@ -1,0 +1,283 @@
+{% extends 'base.html.twig' %}
+{% block title %}Calcule de salaire | BusinessPark{% endblock %}
+{% block content %}
+	<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<link href="{{asset('vendor/bootstrap-fileinput/jasny-bootstrap.min.css')}}" rel="stylesheet" media="screen">
+		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<section id="page-title">
+							<div class="row">
+								<div class="col-sm-8">
+									<h1 class="mainTitle">GRH</h1>
+									
+								</div>
+								<ol class="breadcrumb">
+									<li>
+										<span>GRH</span>
+									</li>
+									<li class="active">
+										<span>Calcule Salaire</span>
+									</li>
+								</ol>
+							</div>
+						</section>
+						<!-- end: PAGE TITLE -->
+						<!-- start: USER PROFILE -->
+						<div class="container-fluid container-fullw bg-white">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="tabbable">
+										<ul class="nav nav-tabs tab-padding tab-space-3 tab-blue" id="myTab4">
+											<li class="active">
+												<a data-toggle="tab" href="#panel_overview">
+													Overview
+												</a>
+											</li>
+											
+										</ul>
+										<div class="tab-content">
+											<div id="panel_overview" class="tab-pane fade in active">
+												<div class="row">
+													<div class="col-sm-5 col-md-4">
+														<div class="user-left">
+															<div class="center">
+																<h4>{{employe.nom~' '~employe.prenom}}</h4>
+																<div class="fileinput fileinput-new" data-provides="fileinput">
+																	<div class="user-image">
+																		<div class="fileinput-new thumbnail">
+																			<img src="{{asset('assets/images/avatar-1-xl.jpg')}}" alt="">
+																		</div>
+																		<div class="fileinput-preview fileinput-exists thumbnail"></div>
+																		<div class="user-image-buttons">
+																			<span class="btn btn-azure btn-file btn-sm"><span class="fileinput-new"><i class="fa fa-pencil"></i></span><span class="fileinput-exists"><i class="fa fa-pencil"></i></span>
+																				<input type="file">
+																			</span>
+																			<a href="#" class="btn fileinput-exists btn-red btn-sm" data-dismiss="fileinput">
+																				<i class="fa fa-times"></i>
+																			</a>
+																		</div>
+																	</div>
+																</div>
+																<hr>
+																
+															</div>
+															<table class="table table-condensed">
+																<thead>
+																	<tr>
+																		<th colspan="3">Contact Information</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>Adresse</td>
+																		<td>
+																		<a href="#">
+																			{{employe.address}}
+																		</a></td>
+																		
+																	</tr>
+																	<tr>
+																		<td>email:</td>
+																		<td>
+																		<a href="">
+																			{{employe.email}}
+																		</a></td>
+																		
+																	</tr>
+																	<tr>
+																		<td>Téléphone:</td>
+																		<td>{{employe.tel}}</td>
+																		
+																	</tr>
+																	
+																</tbody>
+															</table>
+															<table class="table">
+																<thead>
+																	<tr>
+																		<th colspan="3"> Information Profissionnelle</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>Position</td>
+																		<td>
+																			{% if employe.post == null %}
+																			Vide{% else %}
+																			{{employe.post.intitule}}
+																			{% endif %}
+																			</td>
+																			
+																		
+																	</tr>
+																	<tr>
+																		<td>Connecté la dernière fois</td>
+																		<td>{{user.lastLogin|date('d,M-Y h:s')}}</td>
+																		
+																	</tr>
+																	<tr>
+																		<td>Salaire</td>
+																		<td>{{employe.salaire}}</td>
+																		
+																	</tr>
+																	<tr>
+																		<td>Superviseur</td>
+																		<td>
+																		<a href="#">
+																			{% if employe.departement.responsable == null %}
+																				pas de superviseur
+																			{% else %}
+																			{{employe.departement.responsable.nom~' '~employe.departement.responsable.prenom}}
+																		{% endif %}
+																		</a></td>
+																		
+																	</tr>
+																	<tr>
+																		<td>Status</td>
+																		<td><span class="label label-sm label-info">{{user.roles|join('/')}}</span></td>
+																		
+																	</tr>
+																</tbody>
+															</table>
+															<table class="table">
+																<thead>
+																	<tr>
+																		<th colspan="3"> Information Supplémentaire</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>anniversaire</td>
+																		<td>{{employe.datenaissance|date("d,M,Y")}}</td>
+																		
+																	</tr>
+																	<tr>
+																		<td>Etat civile</td>
+																		<td>{{employe.etatcivil}}</td>
+																		
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+													<div class="col-sm-7 col-md-8">
+														
+														<div class="panel panel-white" id="activities">
+															<div class="panel-heading border-light">
+																<h4 class="panel-title text-primary">Liste des Absences ce mois</h4>
+																<paneltool class="panel-tools" tool-collapse="tool-collapse" tool-refresh="load1" tool-dismiss="tool-dismiss"></paneltool>
+															</div>
+															
+												                 <div class="panel-body">
+												
+													               <table class="table">
+														<thead>
+															<tr>
+																<th class="hidden-xs">Cause</th>
+																<th>Nombre de jours</th>
+																<th>Debut</th>
+																<th>Fin</th>
+															</tr>
+														</thead>
+														<tbody>
+															 {% for abs in absences %}
+															 	<tr>
+																<td class="hidden-xs"> {{abs.cause}} </td>
+																<td><span class="badge"> {{abs.nbjours}}</span></td>
+																<td> {{abs.debut|date('d,M-Y')}} </td>
+																<td> {{abs.fin|date('d,M-Y')}} </td>
+															    </tr>
+
+
+															 {% endfor %}
+															
+														</tbody>
+													        </table>
+											                   	</div>
+											
+														</div>
+													
+														<div class="panel panel-white space20">
+															<div class="panel-heading">
+																<h4 class="panel-title">Calcule salaire</h4>
+															</div>
+															<div class="panel-body">
+																<ul class="ltwt">
+																	<li class="ltwt_tweet">
+																		<p class="ltwt_tweet_text">
+																			<a href class="text-info">
+																				
+																			</a>
+																			{{ form_start(form) }}
+                                                                            {{ form_errors(form) }}
+                                                                           <div class="form-group">
+														                    <label>
+													                          Salaire intiale :  <span class="symbol required"></span>
+													                         </label>
+														                      <span class="text-bold">{{employe.salaire}}</span>
+													                      </div>
+													                      <div class="form-group">
+														                    <label>
+													                          Montans :  <span class="symbol required"></span>
+													                         </label>
+													                          <span class="text-bold">{{ form_widget(form.montans,{ 'attr': {'class': 'form-control','placeholder':'Text Field'} }) }}</span>
+														                   
+													                      </div>
+													                      <div class="form-group">
+														                    <label>
+													                          Nombre de jours d'absence :  <span class="symbol required"></span>
+													                         </label>
+													                          <span class="text-bold">{{nbabsences}}</span>
+														                   
+													                      </div>
+													                      <div class="form-group">
+														                    <label>
+													                          Date  <span class="symbol required"></span>
+													                         </label>
+														                   {{ form_widget(form.datepay,{ 'attr': {'class': 'form-control','placeholder':'Text Field'} }) }}
+													                      </div>
+												
+												                          {{ form_widget(form.save,{ 'attr': {'class': 'btn btn-o btn-primary'} }) }}
+														                  {{ form_end(form) }} 
+																		</p>
+																		
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end: USER PROFILE -->
+			
+{% endblock %}
+{% block jspage	 %}
+ 	    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script src="{{asset('vendor/maskedinput/jquery.maskedinput.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+		<script src="{{asset('vendor/autosize/autosize.min.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/classie.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/selectFx.js')}}"></script>
+		<script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-timepicker/bootstrap-timepicker.min.js')}}"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+       
+        
+        <!-- start: JavaScript Event Handlers for this page -->
+		<script src="{{asset('vendor/bootstrap-fileinput/jasny-bootstrap.js')}}"></script>
+
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+                FormElements.init();
+                
+            });
+        </script>
+        </script>
+        {% endblock %}

@@ -1,0 +1,157 @@
+{% extends 'base.html.twig' %}
+{% block title %}Modifier Taxe | BusinessPark{% endblock %}
+{% block content %}
+	<section id="page-title">
+	
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">Gestion de facturation </h1>
+                                    
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>gestion des taxes</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>modifier</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+	                 <div class="container-fluid container-fullw bg-white">
+							<div class="row">
+								<div class="col-md-12">
+									<h5 class="over-title margin-bottom-15">modifier un  <span class="text-bold">Taxe</span></h5>
+									
+									<div class="row">
+										<div class="col-md-12">
+											{{ form_start(form) }}
+                                            {{ form_errors(form) }}
+                                          
+											<fieldset>
+												<legend>
+													Taxe
+												</legend>
+												<div class="form-group">
+													<label>
+														Intitule <span class="symbol required"></span>
+													</label>
+													<div class="form-group">
+														
+														{{ form_widget(form.nom,{ 'attr': {'class': 'form-control','placeholder':'tappez l email'} }) }}
+													</div>
+												</div>
+												<div class="form-group">
+													<label>
+													Valeur <span class="symbol required"></span>
+													</label>
+													<div class="form-group">
+														
+														{{ form_widget(form.valeur,{ 'attr': {'class': 'form-control','placeholder':'tappez l email'} }) }}
+													</div>
+												</div>
+												<div class="form-group">
+													<label>
+														Type  <span class="symbol required"></span>
+													</label>
+													<div class="form-group">
+														
+														{{ form_widget(form.type,{ 'attr': {'class': 'form-control','placeholder':'tappez l email'} }) }}
+													</div>
+												</div>
+												{{ form_widget(form.save,{ 'attr': {'class': 'btn btn-o btn-primary'} }) }}
+														{{ form_end(form) }} 
+											</fieldset>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+{% endblock %}
+{% block jspage	 %}
+ 	    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script src="{{asset('vendor/maskedinput/jquery.maskedinput.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+		<script src="{{asset('vendor/autosize/autosize.min.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/classie.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/selectFx.js')}}"></script>
+		<script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-timepicker/bootstrap-timepicker.min.js')}}"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+
+        
+        <!-- start: JavaScript Event Handlers for this page -->
+		<script src="{{asset('assets/js/form-elements.js')}}"></script>
+
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+                FormElements.init();
+            });
+        </script>
+        </script>
+        {% endblock %}
+        {% block menufinance %}
+                        
+                            <li class="active open">
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class=" ti-dashboard"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Gestion du finance </span><i class="icon-arrow"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                  <li class="active">
+                                                <a href="{{path('taxes')}}">
+                                                    Taxes
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('factures')}}">
+                                                    Factures
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('depences')}}">
+                                                    Depenses
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="{{path('paimentclient')}}">
+                                                    Paiments <strong>Clients</strong>
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="{{path('paimentfournisseur')}}">
+                                                    Paiments <strong>Fournisseurs</strong>
+                                                </a>
+                                            </li>
+                                            
+                                            
+                                   
+                                </ul>
+                            </li>{% endblock %}
+
+{% block menu %}
+                        <ul class="main-navigation-menu">
+                            <li >
+                                <a href="{{path('index2')}}">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-home"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Aceuil </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>{% endblock %}

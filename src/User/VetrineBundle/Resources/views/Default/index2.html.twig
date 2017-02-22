@@ -1,0 +1,1118 @@
+{% extends 'base.html.twig' %}
+{% block title %}Bienvenue | BusinessPark{% endblock %}
+{% block content %}
+<link href="{{asset('vendor/ladda-bootstrap/ladda-themeless.min.css')}}" rel="stylesheet" media="screen">
+<link href="{{asset('vendor/select2/select2.min.css')}}" rel="stylesheet" media="screen">
+    <link href="{{asset('vendor/DataTables/css/DT_bootstrap.css')}}" rel="stylesheet" media="screen">
+    <link href="{{asset('vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet" media="screen">
+    <link href="{{asset('vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css')}}" rel="stylesheet" media="screen">
+    <link href="{{asset('vendor/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet" media="screen">
+    <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+        <link rel="stylesheet" href="{{asset('/css/vendor/toastr.min.css')}}"/>
+        <link rel="stylesheet" href="{{asset('/css/vendor/intlTelInput.css')}}"/>
+        <link rel="stylesheet" href="{{asset('/css/vendor/bootstrap-rating.css')}}"/>        <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+	<section id="page-title">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">Bienvenue - BusinessPark </h1>
+                                    
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>BusinessPark</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>Aceuil</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+
+	<div class="container-fluid container-fullw bg-white">
+		  <div class="row desct">
+                <div class="col-md-12">
+      
+                  <p>
+      
+      <div class="btn-group">
+        
+                    <a href="#myTab1_example0" data-toggle="dropdown" class="btn btn-primary show-tab" aria-expanded="false">
+                      <i class="fa fa-tachometer"></i> 
+                    </a>
+                    
+                  </div>
+                    
+      <div class="btn-group">
+                    <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" aria-expanded="false">
+                      Ressource humaine <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="">
+                      <li role="" class="dropdown-header" >
+                        Administration des données
+                      </li>
+                      <li>
+                        <a href="#myTab1_example1" class="show-tab">
+                      Ajouter un departement
+                       </a>
+                      </li>
+                      <li>
+                        <a href="#myTab1_example2" class="show-tab">
+                          Ajouter un employé
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#myTab1_example3" class="show-tab">
+                          Ajouter une poste de travail
+                        </a>
+                      </li>
+                      
+                      <li>
+                        <a href="#myTab1_example6" class="show-tab">
+                          Ouvrir un recrutement
+                        </a>
+                      </li>
+
+                       <li>
+                        <a href="#myTab1_example7" class="show-tab">
+                          Calculer un salaire
+                        </a>
+                      </li>
+                      <li class="divider"></li>
+                      <li role="presentation" class="dropdown-header">
+                        Gestion de temps
+                      </li>
+                      <li>
+                        <a href="#myTab1_example4" class="show-tab">
+                          Ajouter une absence
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#myTab1_example5" class="show-tab">
+                          Traiter les demande de congés
+                        </a>
+                      </li> 
+                    </ul>
+                  </div>
+      <div class="btn-group">
+                    <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" aria-expanded="false">
+                      CRM <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li role="presentation" class="dropdown-header">
+                        gestion des interactions
+                      </li>
+                      <li>
+                        <a href="#myTab1_example8"  class="show-tab">
+                          Ajouter un client
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#myTab1_example9" class="show-tab">
+                          Voir les services en attentes
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#myTab1_example10" class="show-tab">
+                          Créer une compagne marketing
+                        </a>
+                      </li>
+                      <li class="divider"></li>
+                      <li role="presentation" class="dropdown-header">
+                        gestion de vente
+                      </li>
+                      <li>
+                        <a href="#myTab1_example11" class="show-tab">
+                          Cibler un client
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#myTab1_example12" class="show-tab">
+                          Pipline
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#myTab1_example13" class="show-tab">
+                          commande des clients
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+      <div class="btn-group">
+                    <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" aria-expanded="false">
+                      Finance <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li role="presentation" class="dropdown-header">
+                        Gestion de facturation et depence
+                      </li>
+                      <li>
+                        <a  href="#myTab1_example14" class="show-tab">
+                          Ajouter un taxe
+                        </a>
+                      </li>
+                      <li>
+                        <a  href="#myTab1_example15" class="show-tab">
+                          Créer une facture
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#myTab1_example16" class="show-tab">
+                          Ajouter un depense
+                        </a>
+                      </li>
+                      
+                      <li class="divider"></li>
+                      <li role="presentation" class="dropdown-header">
+                        gestion de paiment
+                      </li>
+                      <li>
+                        <a href="#myTab1_example17" class="show-tab">
+                          Clients
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="#myTab1_example18" class="show-tab">
+                          Fournisseurs
+                        </a>
+                      </li>
+                      
+                      
+
+                    </ul>
+                  </div>
+      <div class="btn-group">
+                    <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" aria-expanded="false">
+                      Stock <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li role="presentation" class="dropdown-header">
+                        gestion de produit et fournisseurs
+                      </li>
+                      <li>
+                        <a href="#myTab1_example19" class="show-tab">
+                          Ajouter une categorie
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="#myTab1_example20" class="show-tab">
+                          Ajouter un produit
+                        </a>
+                      </li>
+                      
+                      <li>
+                        <a href="#myTab1_example21" class="show-tab">
+                          Ajouter un fournisseur
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          
+                        </a>
+                      </li>
+                      <li class="divider"></li>
+                      <li role="presentation" class="dropdown-header">
+                        Gestions des commandes
+                      </li>
+                      <li>
+                        <a href="{{path('bon_reception')}}">
+                          d'achat (entré)
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="{{path('bon_reception')}}">
+                          de vente (sorti)
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+      <div class="btn-group">
+                    <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" aria-expanded="false">
+                    ...... <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li role="presentation" class="dropdown-header">
+                        Dropdown header
+                      </li>
+                      <li>
+                        <a href="{{path('create_facture')}}">
+                          Actionindex
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          Another action
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          Something else here
+                        </a>
+                      </li>
+                      <li class="divider"></li>
+                      <li role="presentation" class="dropdown-header">
+                        Dropdown header
+                      </li>
+                      <li>
+                        <a href="#">
+                          Separated link
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+      <img style="display:none" src="{{asset('assets/ajax.gif')}}" class="bb">
+                  </p>
+                  <div class="tabbable">
+                    <div class="tab-content">
+                       <div class="tab-pane fade in active" id="myTab1_example0">
+                           
+
+<div class="container-fluid container-fullw bg-white">
+              <div class="row">
+                <div class="col-md-12">
+            
+                          <img src="{{asset('assets/images/ERP.jpg')}}" style="height: 600px; width: 100%;"></div>
+                        </div>
+  </div>
+                        
+
+
+
+
+                                          </div>
+                      <div class="tab-pane fade in " id="myTab1_example1">
+
+                       
+                        {{ render(controller("GRHGrhBundle:Departement:ajouterdepartement")) }}
+                                          </div>
+                      <div class="tab-pane fade" id="myTab1_example2">
+                               {{ render(controller("GRHGrhBundle:Employe:ajouter_employe")) }}
+                      </div>
+                      <div class="tab-pane fade" id="myTab1_example3">
+                                {{ render(controller("GRHGrhBundle:Post:ajouter_post")) }}
+                      </div>
+                      <div class="tab-pane fade" id="myTab1_example4">
+                                 {{ render(controller("GRHGrhBundle:Absence:ajouter_absence")) }} 
+                      </div>
+                      <div class="tab-pane fade" id="myTab1_example5">
+                                  {{ render(controller("GRHGrhBundle:Conge:demande_conges")) }} 
+                      </div>
+
+                      
+                      <div class="tab-pane fade" id="myTab1_example6">
+                                  {{ render(controller("GRHGrhBundle:Recrutement:ajouter_recrutement")) }} 
+                      </div>
+                      <div class="tab-pane fade" id="myTab1_example7">
+                                  {{ render(controller("GRHGrhBundle:Salaire:ajouter_salaire")) }} 
+                      </div>
+                      <div class="tab-pane fade" id="myTab1_example8">
+                        {{ render(controller("CRMCrmBundle:Client:ajouter_client")) }} 
+                      </div>
+
+                      <div class="tab-pane fade" id="myTab1_example9">
+                        {{ render(controller("CRMCrmBundle:Service:serviceenattent")) }} 
+                      </div>
+
+                      <div class="tab-pane fade" id="myTab1_example10">
+                        {{ render(controller("CRMCrmBundle:Compagne:ajouter_compagne")) }} 
+                      </div>
+
+                      <div class="tab-pane fade" id="myTab1_example11">
+                        {{ render(controller("CRMCrmBundle:Opportunite:ajouter_opportunite")) }} 
+                      </div>
+
+                      <div class="tab-pane fade" id="myTab1_example12">
+                        {{ render(controller("CRMCrmBundle:Opportunite:pipline")) }} 
+                      </div>
+
+                       <div class="tab-pane fade" id="myTab1_example13">
+                        {{ render(controller("CRMCrmBundle:Opportunite:pipline")) }} 
+                      </div>
+
+                       <div class="tab-pane fade" id="myTab1_example14">
+                        {{ render(controller("COMPTABILITECompBundle:Taxe:ajouter_taxe")) }} 
+                      </div>
+
+                       <div class="tab-pane fade" id="myTab1_example15">
+                        
+                      </div>
+
+                      <div class="tab-pane fade" id="myTab1_example16">
+                        {{ render(controller("COMPTABILITECompBundle:Depence:ajouter_depence")) }} 
+                      </div>
+
+                      <div class="tab-pane fade" id="myTab1_example17">
+                        {{ render(controller("COMPTABILITECompBundle:Paiment:ajouter_paimentclient")) }} 
+                      </div>
+                      
+                      <div class="tab-pane fade" id="myTab1_example18">
+                        {{ render(controller("COMPTABILITECompBundle:Paiment:ajouter_paimentfournisseur")) }} 
+                      </div>
+                      <div class="tab-pane fade" id="myTab1_example19">
+                        {{ render(controller("STOCKStockBundle:Categorie:ajouter_categorie")) }} 
+                      </div>
+
+            
+
+
+                      
+
+                      <div class="tab-pane fade" id="myTab1_example20">
+                        {{ render(controller("STOCKStockBundle:Produit:ajouter_produit")) }} 
+                      </div>
+
+                      <div class="tab-pane fade" id="myTab1_example21">
+                        {{ render(controller("STOCKStockBundle:Fournisseur:ajouter_fournisseur")) }} 
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+
+              
+      </div>
+                    
+
+{% endblock %}
+{% block jspage	 %}
+ 	    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script src="{{asset('vendor/maskedinput/jquery.maskedinput.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+		<script src="{{asset('vendor/autosize/autosize.min.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/classie.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/selectFx.js')}}"></script>
+		<script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-timepicker/bootstrap-timepicker.min.js')}}"></script>
+    <script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+    <script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+    <script src="{{asset('vendor/DataTables/jquery.dataTables.min.js')}}"></script>
+    
+   <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+
+        
+        <!-- start: JavaScript Event Handlers for this page -->
+		<script src="{{asset('assets/js/ui-buttons.js')}}"></script>
+    <script src="{{asset('assets/js/table-data.js')}}"></script>
+    <script src="{{asset('assets/js/form-elements.js')}}"></script>
+
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+                TableData.init();
+                FormElements.init();
+                $( ".desct li" ).click(function() {
+                $( ".desct li" ).each(function() {
+                $(this).removeClass( "active" );});});
+
+                //////////// ajouter_depatement /////////////
+                var frm = $('form:eq(1)');
+                frm.submit(function(e){
+                  var id = $(this).attr('id');
+                                         
+                  $.ajax({
+                      url: "{{path('ajouter_departement')}}",
+                      type: 'POST',
+                      data: frm.serialize(),
+                      beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                      success: function(d){
+                             console.log('cb1');
+                             $('form').trigger("reset");
+                            $('.bb').css( "display", "none" ); },
+                      error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.responseText);           
+                      alert(xhr.status);           
+                      alert(xhr.thrownError);},
+                         });
+
+                      e.preventDefault();
+                     });
+                
+                //////////// ajouter_employe /////////////
+                var ajouter_employe = $('form:eq(2)');
+                ajouter_employe.submit(function(e){
+                  var id = $(this).attr('id');
+                                         
+                  $.ajax({
+                      url: "{{path('ajouter_employe')}}",
+                      type: 'POST',
+                      data: ajouter_employe.serialize(),
+                      beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                      success: function(d){
+                             console.log('cb1');
+                             $('form').trigger("reset");
+                            $('.bb').css( "display", "none" ); },
+                      error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.responseText);           
+                      alert(xhr.status);           
+                      alert(xhr.thrownError);},
+                         });
+
+                      e.preventDefault();
+                     });
+
+
+                //////////// ajouter_poste /////////////
+                var ajouter_poste = $('form:eq(3)');
+                ajouter_poste.submit(function(e){
+                  var id = $(this).attr('id');
+                                         
+                  $.ajax({
+                      url: "{{path('ajouter_poste')}}",
+                      type: 'POST',
+                      data: ajouter_poste.serialize(),
+                      beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                      success: function(d){
+                             console.log('cb1');
+                             $('form').trigger("reset");
+                            $('.bb').css( "display", "none" ); },
+                      error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.responseText);           
+                      alert(xhr.status);           
+                      alert(xhr.thrownError);},
+                         });
+
+                      e.preventDefault();
+                     });
+
+               
+               //////////// ajouter_absence /////////////
+                var ajouter_absence = $('form:eq(4)');
+                ajouter_absence.submit(function(e){
+                  var id = $(this).attr('id');
+                                         
+                  $.ajax({
+                      url: "{{path('ajouter_absence')}}",
+                      type: 'POST',
+                      data: ajouter_absence.serialize(),
+                      beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                      success: function(d){
+                             console.log('cb1');
+                             $('form').trigger("reset");
+                            $('.bb').css( "display", "none" ); },
+                      error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.responseText);           
+                      alert(xhr.status);           
+                      alert(xhr.thrownError);},
+                         });
+
+                      e.preventDefault();
+                     });
+               
+               
+               //////////// ajouter_recrutement /////////////
+                var ajouter_recrutement = $('form:eq(5)');
+                ajouter_recrutement.submit(function(e){
+                  var id = $(this).attr('id');
+                                         
+                  $.ajax({
+                      url: "{{path('ajouter_recrutement')}}",
+                      type: 'POST',
+                      data: ajouter_recrutement.serialize(),
+                      beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                      success: function(d){
+                             console.log('cb1');
+                             $('form').trigger("reset");
+                            $('.bb').css( "display", "none" ); },
+                      error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.responseText);           
+                      alert(xhr.status);           
+                      alert(xhr.thrownError);},
+                         });
+
+                      e.preventDefault();
+                     });
+
+
+
+
+              //////////// ajouter_salaire /////////////
+                var ajouter_salaire = $('form:eq(6)');
+                ajouter_salaire.submit(function(e){
+                  var id = $(this).attr('id');
+                                         
+                  $.ajax({
+                      url: "{{path('ajouter_salaire')}}",
+                      type: 'POST',
+                      data: ajouter_salaire.serialize(),
+                      beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                      success: function(d){
+                             console.log('cb1');
+                             $('form').trigger("reset");
+                            $('.bb').css( "display", "none" ); },
+                      error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.responseText);           
+                      alert(xhr.status);           
+                      alert(xhr.thrownError);},
+                         });
+
+                      e.preventDefault();
+                     });
+
+              //////////// ajouter_client /////////////
+                var ajouter_client = $('form:eq(7)');
+                ajouter_client.submit(function(e){
+                  var id = $(this).attr('id');
+                                         
+                  $.ajax({
+                      url: "{{path('ajouter_client')}}",
+                      type: 'POST',
+                      data: ajouter_client.serialize(),
+                      beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                      success: function(d){
+                             console.log('cb1');
+                             $('form').trigger("reset");
+                            $('.bb').css( "display", "none" ); },
+                      error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.responseText);           
+                      alert(xhr.status);           
+                      alert(xhr.thrownError);},
+                         });
+
+                      e.preventDefault();
+                     });
+
+
+
+                //////////// ajouter_compagne /////////////
+                var ajouter_compagne = $('form:eq(7)');
+                ajouter_compagne.submit(function(e){
+                  var id = $(this).attr('id');
+                                         
+                  $.ajax({
+                      url: "{{path('ajouter_compagne')}}",
+                      type: 'POST',
+                      data: ajouter_compagne.serialize(),
+                      beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                      success: function(d){
+                             console.log('cb1');
+                             $('form').trigger("reset");
+                            $('.bb').css( "display", "none" ); },
+                      error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.responseText);           
+                      alert(xhr.status);           
+                      alert(xhr.thrownError);},
+                         });
+
+                      e.preventDefault();
+                     });
+
+                
+                //////////// ajouter_opportunite /////////////
+                var ajouter_opportunite = $('form:eq(8)');
+                ajouter_opportunite.submit(function(e){
+                  var id = $(this).attr('id');
+                                         
+                  $.ajax({
+                      url: "{{path('ajouter_opportunite')}}",
+                      type: 'POST',
+                      data: ajouter_opportunite.serialize(),
+                      beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                      success: function(d){
+                             console.log('cb1');
+                             $('form').trigger("reset");
+                            $('.bb').css( "display", "none" ); },
+                      error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.responseText);           
+                      alert(xhr.status);           
+                      alert(xhr.thrownError);},
+                         });
+
+                      e.preventDefault();
+                     });
+
+           /**********************  GESTION PIPELINE **************************/
+              $('.fermeroppor').click(function(e){
+                  var id = $(this).attr('id');
+                          $.ajax({
+                  url: "{{path('fermeroppor')}}",
+                  type: 'POST',
+                  data: {
+                      "id": id
+                  },
+                  beforeSend: function(){
+                            console.log('charge');
+                            
+                        },
+                  success: function(d){
+                             console.log('cb1');
+                        },
+                  error: function (xhr, ajaxOptions, thrownError) {
+                         console.log(xhr.status);
+                         console.log(xhr.responseText);
+                         alert(xhr.responseText);
+                         alert(xhr.status);
+                         alert(xhr.thrownError);
+                         console.log(thrownError);},
+                       });
+
+                                   e.preventDefault();
+                     });
+
+
+               $('.margergagnier').click(function(e){
+                  var id = $(this).attr('id');
+                            $.ajax({
+                         url: "{{path('margergagnier')}}",
+                         type: 'POST',
+                         data: {
+                             "id": id
+                         },
+                         beforeSend: function(){
+                                             console.log('charge');
+                                             
+                                         },
+                         success: function(d){
+                                              console.log('cb1');
+                             //$('#desplay_area').html(d);
+                             
+
+                                         },
+                         error: function (xhr, ajaxOptions, thrownError) {
+                                              console.log(xhr.status);
+                                              console.log(xhr.responseText);
+                                              alert(xhr.responseText);
+                                              alert(xhr.status);
+                                              alert(xhr.thrownError);
+                                              console.log(thrownError);
+                                                           },});
+                                              e.preventDefault();
+                    });
+
+               $('.margerperdus').click(function(e){
+                  var id = $(this).attr('id');
+                          $.ajax({
+                            url: "{{path('margerperdus')}}",
+                            type: 'POST',
+                            data: {
+                            "id": id},
+                            beforeSend: function(){
+                            console.log('charge');},
+
+                            success: function(d){
+                             console.log('cb1'); },
+
+                            error: function (xhr, ajaxOptions, thrownError) {
+                               console.log(xhr.status);
+                               console.log(xhr.responseText);
+                               alert(xhr.responseText);
+                               alert(xhr.status);
+                               alert(xhr.thrownError);
+                               console.log(thrownError);},});
+
+                          e.preventDefault();
+                });
+
+              var rdv = $('form:eq(9)');
+                rdv.submit(function(e){
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{path('pipline')}}",
+                        data: rdv.serialize(),
+                        beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                        success: function(data){
+                            $('.bb').css( "display", "none" );
+                            
+                            $('form').trigger("reset");
+                           // desplay_data();
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                               console.log(xhr.status);
+                               console.log(xhr.responseText);
+                               alert(xhr.responseText);
+                               alert(xhr.status);
+                               alert(xhr.thrownError);
+                               console.log(thrownError);
+                           },
+                          });
+                    e.preventDefault();});
+
+
+               // UIButtons.init();
+         /**********************  GESTION PIPELINE **************************/
+
+          /**********************  taxe **************************/
+
+
+           /**********************  taxe **************************/
+            var ajouter_taxe = $('form:eq(11)');
+                ajouter_taxe.submit(function(e){
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{path('ajouter_taxe')}}",
+                        data: ajouter_taxe.serialize(),
+                        beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                        success: function(data){
+                            $('.bb').css( "display", "none" );
+                            
+                            $('form').trigger("reset");
+                           // desplay_data();
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                               console.log(xhr.status);
+                               console.log(xhr.responseText);
+                               alert(xhr.responseText);
+                               alert(xhr.status);
+                               alert(xhr.thrownError);
+                               console.log(thrownError);
+                           },
+                          });
+                    e.preventDefault();});
+
+            var ajouter_depence = $('form:eq(12)');
+                ajouter_depence.submit(function(e){
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{path('ajouter_depence')}}",
+                        data: ajouter_depence.serialize(),
+                        beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                        success: function(data){
+                            $('.bb').css( "display", "none" );
+                            
+                            $('form').trigger("reset");
+                            //desplay_data();
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                               console.log(xhr.status);
+                               console.log(xhr.responseText);
+                               alert(xhr.responseText);
+                               alert(xhr.status);
+                               alert(xhr.thrownError);
+                               console.log(thrownError);
+                           },
+                          });
+                    e.preventDefault();});
+
+                
+
+            var ajouter_paimentclient = $('form:eq(13)');
+                ajouter_paimentclient.submit(function(e){
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{path('ajouter_paimentclient')}}",
+                        data: ajouter_paimentclient.serialize(),
+                        beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                        success: function(data){
+                            $('.bb').css( "display", "none" );
+                            
+                            $('form').trigger("reset");
+                            //desplay_data();
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                               console.log(xhr.status);
+                               console.log(xhr.responseText);
+                               alert(xhr.responseText);
+                               alert(xhr.status);
+                               alert(xhr.thrownError);
+                               console.log(thrownError);
+                           },
+                          });
+                    e.preventDefault();});
+
+                var ajouter_paimentfournisseur = $('form:eq(14)');
+                ajouter_paimentfournisseur.submit(function(e){
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{path('ajouter_paimentfournisseur')}}",
+                        data: ajouter_paimentfournisseur.serialize(),
+                        beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                        success: function(data){
+                            $('.bb').css( "display", "none" );
+                            
+                            $('form').trigger("reset");
+                            //desplay_data();
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                               console.log(xhr.status);
+                               console.log(xhr.responseText);
+                               alert(xhr.responseText);
+                               alert(xhr.status);
+                               alert(xhr.thrownError);
+                               console.log(thrownError);
+                           },
+                          });
+                    e.preventDefault();});
+
+                var ajouter_categorie = $('form:eq(16)');
+                ajouter_categorie.submit(function(e){
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{path('ajouter_categorie')}}",
+                        data: ajouter_categorie.serialize(),
+                        beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                        success: function(data){
+                            $('.bb').css( "display", "none" );
+                            
+                            $('form').trigger("reset");
+                            //desplay_data();
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                               console.log(xhr.status);
+                               console.log(xhr.responseText);
+                               alert(xhr.responseText);
+                               alert(xhr.status);
+                               alert(xhr.thrownError);
+                               console.log(thrownError);
+                           },
+                          });
+                    e.preventDefault();});
+
+                
+                 var ajouter_produit = $('form:eq(16)');
+                ajouter_produit.submit(function(e){
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{path('ajouter_produit')}}",
+                        data: ajouter_produit.serialize(),
+                        beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                        success: function(data){
+                            $('.bb').css( "display", "none" );
+                            
+                            $('form').trigger("reset");
+                            //desplay_data();
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                               console.log(xhr.status);
+                               console.log(xhr.responseText);
+                               alert(xhr.responseText);
+                               alert(xhr.status);
+                               alert(xhr.thrownError);
+                               console.log(thrownError);
+                           },
+                          });
+                    e.preventDefault();});
+
+                var ajouter_fournisseur = $('form:eq(16)');
+                ajouter_fournisseur.submit(function(e){
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{path('ajouter_fournisseur')}}",
+                        data: ajouter_fournisseur.serialize(),
+                        beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                        success: function(data){
+                            $('.bb').css( "display", "none" );
+                            
+                            $('form').trigger("reset");
+                            //desplay_data();
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                               console.log(xhr.status);
+                               console.log(xhr.responseText);
+                               alert(xhr.responseText);
+                               alert(xhr.status);
+                               alert(xhr.thrownError);
+                               console.log(thrownError);
+                           },
+                          });
+                    e.preventDefault();});
+
+
+        /*$('.fermeroppor').click(function(e){
+                 	var id = $(this).attr('id');
+                                         
+                                        $.ajax({
+        url: "{{path('fermeroppor')}}",
+        type: 'POST',
+        data: {
+            "id": id
+        },
+        beforeSend: function(){
+                            console.log('charge');
+                            
+                        },
+        success: function(d){
+                             console.log('cb1');
+                             //$('#desplay_area').html(d);
+                             
+
+                        },
+        error: function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           alert(xhr.responseText);
+           alert(xhr.status);
+           alert(xhr.thrownError);
+           console.log(thrownError);
+       },
+
+
+    });
+
+                                   e.preventDefault();
+                     });
+
+
+         $('.margergagnier').click(function(e){
+                 	var id = $(this).attr('id');
+                                         
+                                        $.ajax({
+        url: "{{path('margergagnier')}}",
+        type: 'POST',
+        data: {
+            "id": id
+        },
+        beforeSend: function(){
+                            console.log('charge');
+                            
+                        },
+        success: function(d){
+                             console.log('cb1');
+                             //$('#desplay_area').html(d);
+                             
+
+                        },
+        error: function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           alert(xhr.responseText);
+           alert(xhr.status);
+           alert(xhr.thrownError);
+           console.log(thrownError);
+       },
+
+
+    });
+
+                                   e.preventDefault();
+                     
+                    
+                });
+
+          $('.margerperdus').click(function(e){
+                 	var id = $(this).attr('id');
+                                         
+                                        $.ajax({
+        url: "{{path('margerperdus')}}",
+        type: 'POST',
+        data: {
+            "id": id
+        },
+        beforeSend: function(){
+                            console.log('charge');
+                            
+                        },
+        success: function(d){
+                             console.log('cb1');
+                             //$('#desplay_area').html(d);
+                             
+
+                        },
+        error: function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           alert(xhr.responseText);
+           alert(xhr.status);
+           alert(xhr.thrownError);
+           console.log(thrownError);
+       },
+
+
+    });
+
+                                   e.preventDefault();
+                     
+                    
+                });
+
+          var frm = $('form:eq(1)');
+                frm.submit(function(e){
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{path('pipline')}}",
+                        data: frm.serialize(),
+                        beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                        success: function(data){
+                            $('.bb').css( "display", "none" );
+                            
+                            $('form').trigger("reset");
+                            desplay_data();
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           alert(xhr.responseText);
+           alert(xhr.status);
+           alert(xhr.thrownError);
+           console.log(thrownError);
+       },
+
+                    });
+                    e.preventDefault();
+                     
+                    //$('#pro').load("  #pro");
+                });*/
+
+
+
+            });
+        </script>
+        </script>
+        {% endblock %}
+
+

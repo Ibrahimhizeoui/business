@@ -1,0 +1,243 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste Département | BusinessPark{% endblock %}
+{% block content %}
+    
+   
+                        <section id="page-title">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">GESTION DE RESSOURCES HUMAINES </h1>
+                                    <span class="mainDescription"> Liste des<span class="text-bold">Departements</span></span>
+                                    
+                                    
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>gestion departement</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>lite</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                       <!-- start: PAGE TITLE -->
+                       <div class="container-fluid container-fullw bg-white">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="btn btn-primary btn-squared margin-bottom-20" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-plus"></i> Département</button>
+                            
+                                    
+                                    <table class="table table-hover" id="sample-table-1">
+                                        <thead>
+                                            <tr>
+                                                <th class="center">#</th>
+                                                <th>Nom</th>
+                                                <th class="hidden-xs">Nbs Emplyés</th>
+                                                <th>Résponsable</th>
+                                                <th class="hidden-xs">Déscription </th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for dep in departements %}
+                                                <tr>
+                                                <td class="center">{{dep.id}}</td>
+                                                <td class="hidden-xs">{{dep.nom}}</td>
+                                                <td>
+                                                    {% set i=0 %}
+                                                    {% for emp in employes %}
+                                                        {% if emp.departement != null %}
+                                                        {% if emp.departement.id == dep.id %}
+                                                            {% set i=i+1 %}
+
+                                                        {% endif %}
+
+                                                    {% endif %}
+
+                                                    {% endfor %}
+
+                                                    {{i}}</td>
+                                                <td>
+                                                <a href="#" rel="nofollow" target="_blank">
+                                                    {% if dep.responsable == null %}
+                                                          Pas de responsable
+                                                    {% else %}
+                                                    
+                                                    {{dep.responsable.nom~' '~dep.responsable.prenom}}
+                                                    {% endif %}
+                                                </a></td>
+                                                <td class="hidden-xs">{{dep.description}}</td>
+                                                <td class="center">
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                                    <a href="{{path('modif_departement', {'id' : dep.id})}}" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+                                                    <a href="{{path('detail_departement', {'id' : dep.id})}}" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Share"><i class="fa fa-eye"></i></a>
+                                                    <a href="{{path('supp_departement', {'id' : dep.id})}}" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+                                                </div>
+                                                <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                    <div class="btn-group" dropdown="" is-open="status.isopen">
+                                                        <button type="button" class="btn btn-primary btn-o btn-sm dropdown-toggle" dropdown-toggle="">
+                                                            <i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu pull-right dropdown-light" role="menu">
+                                                            <li>
+                                                                <a href="">
+                                                                    Edit
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    Share
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="">
+                                                                    Remove
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div></td>
+                                            </tr>
+                                            {% endfor %}
+                                            
+                                         
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade bs-example-modal-lg"  tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        {{ render(controller("GRHGrhBundle:Departement:ajouterdepartement")) }}
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+                        <!-- end: PAGE TITLE -->
+                        <!-- start: YOUR CONTENT HERE -->
+                        <!-- end: YOUR CONTENT HERE -->
+    
+    
+{% endblock %}
+ {% block jspage     %}
+        <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+         <script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+        <script src="{{asset('vendor/DataTables/jquery.dataTables.min.js')}}"></script>
+        <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+        <!-- start: CLIP-TWO JAVASCRIPTS -->
+        <script src="{{asset('assets/js/jQuery.print.js')}}"></script>
+        <!-- start: JavaScript Event Handlers for this page -->
+        <script src="{{asset('assets/js/table-data.js')}}"></script>
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+                $('.modal-content').css('background','white');
+                
+
+                //////////// ajouter_depatement /////////////
+                var frm = $('form:eq(1)');
+                frm.submit(function(e){
+                  var id = $(this).attr('id');
+                                         
+                  $.ajax({
+                      url: "{{path('ajouter_departement')}}",
+                      type: 'POST',
+                      data: frm.serialize(),
+                      beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                            window.location.reload();
+                        },
+                      success: function(d){
+                             console.log('cb1');
+                             $('form').trigger("reset");
+                            $('.bb').css( "display", "none" );
+                            window.location.reload();},
+                      error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.responseText);           
+                      alert(xhr.status);           
+                      alert(xhr.thrownError);},
+                         });
+
+                      e.preventDefault();
+                     });
+                
+               
+            });
+        </script>
+        {% endblock %}
+{% block menu %}
+                        <ul class="main-navigation-menu">
+                            <li >
+                                <a href="{{path('index2')}}">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-home"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Aceuil </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>{% endblock %}
+
+                            {% block menugrh %}
+                            
+                            <li class="active open">
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class=" ti-user"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title">Gestion res. humaines</span><i class="icon-arrow"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                            <li class="active">
+                                                <a href="{{path('departement')}}">
+                                                    Départements
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('employe')}}">
+                                                    Employés
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('postes')}}">
+                                                    Postes
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('absences')}}">
+                                                    Absences
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('conges')}}">
+                                                    Congés
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('recrutements')}}">
+                                                    Recrutements
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('salaires')}}">
+                                                    Salaires
+                                                </a>
+                                            </li>
+                                    
+                                </ul>
+                            </li>
+
+
+                                                   {% endblock %}

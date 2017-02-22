@@ -1,0 +1,125 @@
+{% extends 'base.html.twig' %}
+{% block title %}liste Condidats | BusinessPark{% endblock %}
+{% block content %}
+   
+                        <section id="page-title">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">GRH </h1>
+                                    
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>gestion des recrutements</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>liste Condidat</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                       <!-- start: PAGE TITLE -->
+                       <div class="container-fluid container-fullw bg-white">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="over-title margin-bottom-15">Liste <span class="text-bold">Condidats</span></h5>
+                                    
+                                    <table class="table table-hover" id="sample-table-1">
+                                        <thead>
+                                            <tr>
+                                                <th >Nom & Prénom</th>
+                                                <th class="hidden-xs">Telephone</th>
+                                                <th >Niveau</th>
+                                                <th class="hidden-xs">Date Entretien</th>
+                                                <th>Remarque</th>
+                                                
+                                                <th class="hidden-xs ">Recrutement</th>
+                                                <th ></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for condidat in condidats %}
+                                                <tr>
+                                                <td >{{condidat.nom~' '~condidat.prenom}}</td>
+                                                <td class="hidden-xs">{{condidat.tel}}</td>
+                                                <td>{{condidat.niveau}}</td>
+                                                
+                                                <td class="hidden-xs">{{condidat.dateentretien|date('d,M-Y')}}</td>
+                                                <td>{{condidat.remarque}}</td>
+                                                <td class="hidden-xs">{{condidat.recrutement.intitule}}</td>
+                                              
+                                                <td class="center">
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                                    <a href="{{path('ajouter_entretien',{'id':condidat.id})}}" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-check-square-o" data-toggle="modal" data-target="#myModal"></i></a>
+
+                                                    
+
+                                                    <a href="{{path('supp_condidat',{'id':entretien.id})}}" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Share" ><i class="fa fa-close"></i></a>
+                                                    <!-- Default Modal -->
+                                       
+                                        <!-- /Default Modal -->
+                                                </div>
+                                                <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                    <div class="btn-group" dropdown="" is-open="status.isopen">
+                                                        <button type="button" class="btn btn-primary btn-o btn-sm dropdown-toggle" dropdown-toggle="">
+                                                            <i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu pull-right dropdown-light" role="menu">
+                                                            <li>
+                                                                <a href="">
+                                                                    Ajouter un condidat
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="">
+                                                                    liste des condidats
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    Fermer recrutement
+                                                                </a>
+                                                            </li>
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </div></td>
+                                            </tr>
+                                            <!-- Default Modal -->
+                                       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /Default Modal -->
+                                            {% endfor %}
+                                            
+                                         
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end: PAGE TITLE -->
+                        <!-- start: YOUR CONTENT HERE -->
+                        <!-- end: YOUR CONTENT HERE -->
+    
+{% endblock %}
+ {% block jspage     %}
+        <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+        
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+               
+            });
+        </script>
+        {% endblock %}

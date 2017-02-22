@@ -1,0 +1,53 @@
+
+	                 <div class="container-fluid container-fullw bg-white">
+							<div class="row">
+								<div class="col-md-12">
+									<h5 class="over-title margin-bottom-15">ajouter un  <span class="text-bold">Taxe</span></h5>
+									
+									<div class="row">
+										<div class="col-md-12">
+											{{ form_start(form) }}
+                                            {{ form_errors(form) }}
+                                          
+											<fieldset>
+												<legend>
+													Information
+												</legend>
+												<div class="form-group">
+													<label>
+														Intitule <span class="symbol required"></span>
+													</label>
+													<div class="form-group">
+														
+														{{ form_widget(form.nom,{ 'attr': {'class': 'form-control'} }) }}
+													</div>
+												</div>
+												<div class="form-group">
+													<label>
+													Valeur <span class="symbol required"></span>
+													</label>
+													<div class="form-group">
+														
+														{{ form_widget(form.valeur,{ 'attr': {'class': 'form-control'} }) }}
+													</div>
+												</div>
+												<div class="form-group">
+													<label>
+														Type  <span class="symbol required"></span>
+													</label>
+													<div class="form-group">
+														
+														{{ form_widget(form.type,{ 'attr': {'class': 'form-control'} }) }}
+													</div>
+												</div>
+												{{ form_widget(form.save,{ 'attr': {'class': 'btn btn-o btn-primary'} }) }}
+												<input type="reset" value="reset" class="btn btn-o btn-danger" />
+														{{ form_end(form) }} 
+											</fieldset>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+

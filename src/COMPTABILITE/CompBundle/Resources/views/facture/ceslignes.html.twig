@@ -1,0 +1,84 @@
+{% if cesligne != null %}
+                                                            {% for ligne in cesligne %}
+                                                        <tr>
+                                                            <td> {{ligne.id}} </td>
+                                                            <td> {{ligne.produit.intitule}} </td>
+                                                            <td class="hidden-480"> {{ligne.quantite}} </td>
+                                                            <td class="hidden-480"> {{ligne.quantite}} </td>
+                                                            <td class="hidden-480 price"> {{ligne.produit.prixunitaire}} </td>
+                                                            <td class=""> {{ligne.total}} </td>
+                                                            <td class="center">
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                                   
+                                                    
+                                                    <a id="{{ligne.id}}"href="" class="btn btn-transparent btn-xs tooltips rmv" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+                                                </div>
+                                                <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                    <div class="btn-group" dropdown="">
+                                                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle" dropdown-toggle="">
+                                                            <i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+                                                        </button>
+                                                        
+                                                    </div>
+                                                </div></td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                       {% endif %}
+<script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+        
+            <script type="text/javascript">
+            jQuery(document).ready(function() {
+        $('.rmv').click(function(e){
+   var id = $(this).attr('id');
+   alert('d');
+   $(this).css('background','black');
+//{{path('supp_lignefacture',{'id':"+$(this).attr('id')+"})}}
+     $.ajax({
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {
+                            'id': id,
+                        },
+                        url: "{{path('supp_lignefacture')}}",
+                        
+                        beforeSend: function(){
+                            console.log('charge');
+                            
+                        },
+                        success: function(data){
+                             console.log('cb1');
+                             desplay_data();
+                            
+
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           alert(xhr.responseText);
+           alert(xhr.status);
+           alert(xhr.thrownError);
+           console.log(thrownError);
+       },
+
+                    });
+                    e.preventDefault();
+                     
+                    
+});
+});
+(function calcule() {
+           
+   var sum = 0;
+// iterate through each td based on class and add the values
+$(".price").each(function() {
+
+    var value = $(this).text();
+    // add only if the value is number
+    if(!isNaN(value) && value.length != 0) {
+        sum += parseFloat(value);
+    }
+
+});
+$('#form_total').val(sum);        
+})();
+            </script>

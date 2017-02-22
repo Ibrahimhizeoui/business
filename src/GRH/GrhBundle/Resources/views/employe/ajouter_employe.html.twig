@@ -1,0 +1,185 @@
+
+	<div class="container-fluid container-fullw bg-white">
+							<div class="row">
+								<div class="col-md-12">
+									<h5 class="over-title">Ajouter un <span class="text-bold">Emplyé</span></h5>
+									
+									<div class="row">
+										<div class="col-md-6">
+											{{ form_start(form) }}
+                                            {{ form_errors(form) }}
+                                          
+											<fieldset>
+												<legend>
+													Mofdifier la compte d'emplyé
+												</legend>
+												<div class="form-group">
+													<label>
+														E-mail <span class="symbol required"></span>
+													</label>
+													<div class="form-group">
+														
+														{{ form_widget(form.email,{ 'attr': {'class': 'form-control','placeholder':'tappez l email'} }) }}
+													</div>
+												</div>
+												<div class="form-group">
+													<label>
+														Nom d'utilisateur <span class="symbol required"></span>
+													</label>
+													<div class="form-group">
+														
+														{{ form_widget(form.username,{ 'attr': {'class': 'form-control','placeholder':'Tappez nom d\'utilisateur'} }) }}
+													</div>
+												</div>
+											</fieldset>
+											<fieldset>
+												<legend>
+													Information d'emploi
+												</legend>
+												<div class="form-group">
+													<label>
+													    Département <span class="symbol required"></span>
+													</label>
+													<div class="form-group">
+														
+														{{ form_widget(form.departement,{ 'attr': {'class': 'form-control','placeholder':'Text Field'} }) }}
+													</div>
+												</div>
+												<div class="form-group">
+													<label>
+													    Poste <span class="symbol required"></span>
+													</label>
+													<div class="form-group">
+														
+														{{ form_widget(form.post,{ 'attr': {'class': 'form-control','placeholder':'Text Field'} }) }}
+													</div>
+												</div>
+												<div class="form-group">
+													<label>
+													    Salaire <span class="symbol required"></span>
+													</label>
+													<div class="form-group">
+														
+														{{ form_widget(form.salaire,{ 'attr': {'class': 'form-control','placeholder':'Tappez la salaire'} }) }}
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label>
+													    Solde congé <span class="symbol required"></span>
+													</label>
+													<div class="form-group">
+														
+														{{ form_widget(form.soldeconges,{ 'attr': {'class': 'form-control','placeholder':'Tappez le solde '} }) }}
+													</div>
+												</div>
+													
+													
+													
+											</fieldset>
+										</div>
+										<div class="col-md-6">
+											<fieldset>
+												<legend>
+													Personal Information
+												</legend>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>
+																Nom
+															</label>
+															{{ form_widget(form.nom,{ 'attr': {'class': 'form-control','placeholder':'Entrer le nom'} }) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label">
+																Prénom
+															</label>
+															
+															{{ form_widget(form.prenom,{ 'attr': {'class': 'form-control','placeholder':'Entrer le prénom'} }) }}
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="block">
+																Date de naissance
+															</label>
+															{{ form_widget(form.datenaissance,{'attr' :{'class': 'form-control'}}) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="block">
+																Gender
+															</label>
+															<div class="clip-radio radio-primary">
+																{{ form_widget(form.sexe) }}
+															</div>
+															
+														</div>
+													</div>
+													
+												</div>
+												<div class="row">
+													
+                                                    
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="block">
+																Etat civil
+															</label>
+															{{ form_widget(form.etatcivil,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>
+																Nationnalité
+															</label>
+															{{ form_widget(form.nationalite,{ 'attr': {'class': 'form-control','placeholder':'Entrer la nationalite'} }) }}
+														</div>
+													</div>
+												</div>
+											</fieldset>
+											<fieldset>
+												<legend>
+													Information professionnelles
+												</legend>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>
+																Téléphone professionnelle
+															</label>
+															{{ form_widget(form.tel,{ 'attr': {'class': 'form-control','placeholder':'Entrer le numéro'} }) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label">
+																Addresse professionnelle
+															</label>
+															
+															{{ form_widget(form.address,{ 'attr': {'class': 'form-control','placeholder':'Entrer l\'adresse'} }) }}
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													
+													
+												</div>
+											</fieldset>
+										</div>
+									</div>
+									{{ form_widget(form.save,{ 'attr': {'class': 'btn btn-o btn-primary'} }) }}
+									<input type="reset" value="reset" class="btn btn-o btn-danger" />
+														{{ form_end(form) }} 
+												
+								</div>
+							</div>
+						</div>
+

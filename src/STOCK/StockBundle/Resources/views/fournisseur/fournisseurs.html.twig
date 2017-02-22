@@ -1,0 +1,252 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des fournisseurs | BusinessPark{% endblock %}
+{% block content %}
+	<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<link href="{{asset('vendor/select2/select2.min.css')}}" rel="stylesheet" media="screen">
+		<link href="{{asset('vendor/DataTables/css/DT_bootstrap.css')}}" rel="stylesheet" media="screen">
+		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+        <div id="ff">
+	<section id="page-title">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">Gestion de stock </h1>
+                                     <span class="mainDescription"> Liste des<span class="text-bold">Fournisseurs</span></span>
+
+                                   
+                                    
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>gestion des fournisseurs</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>liste</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                        <!-- start: DYNAMIC TABLE -->
+						<div class="container-fluid container-fullw bg-white">
+							<div class="row">
+								
+								<div class="col-md-12">
+									<button class="btn btn-primary btn-squared margin-bottom-20 hidden-xs" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-plus"></i> Fournisseur</button>
+
+                                    <button class="btn btn-primary btn-squared margin-bottom-20 hidden-xs " id="fi"><i class="fa fa-print"></i> Imprimer</button>
+                            
+                            
+									<br>
+										<br>
+									
+									<table class="table table-striped  table-hover table-full-width" id="sample_1">
+										<thead>
+											<tr>
+												<th>#</th>
+                                                <th class="">Société</th>
+												<th class="">Contactez par</th>
+												<th>Téléphone</th>
+												<th class="">Faxe</th>
+												<th>Email</th>
+												<th class="">Adress</th>
+												
+												
+												<th class="hidden-xs center">Action</th>
+												</tr>
+										</thead>
+										<tbody>
+											{% for fournisseur in fournisseurs %}
+											
+											<tr>
+												<td >{{fournisseur.id}}</td>
+                                                <td class="" >{{fournisseur.nom}}</td>
+												<td class="" >{{fournisseur.nom}}</td>
+												<td >{{fournisseur.tel}}</td>
+												
+
+												
+												<td class="" >{{fournisseur.fax}}</td>
+												<td  >{{fournisseur.email}}</td>
+												<td class="">{{fournisseur.adress}}</td>
+												
+												
+												
+												<td class="center hidden-xs">
+												<div class="visible-md visible-lg hidden-sm ">
+													<a href="{{path('modif_fournisseur',{'id':fournisseur.id})}}" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+													
+													<a href="{{path('profil_employe',{'id':fournisseur.id})}}" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Share"><i class="fa fa-eye"></i></a>
+
+
+													<a href="{{path('supp_fournisseur',{'id':fournisseur.id})}}" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+												</div>
+												<div class="visible-xs visible-sm hidden-md hidden-lg">
+													<div class="btn-group" dropdown="">
+														<button type="button" class="btn btn-primary btn-sm dropdown-toggle" dropdown-toggle="">
+															<i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+														</button>
+														<ul class="dropdown-menu pull-right dropdown-light" role="menu">
+															<li>
+																<a href="#">
+																	Mofidier
+																</a>
+															</li>
+
+															<li>
+																<a href="#">
+																	profil
+																</a>
+															</li>
+															
+															<li>
+																<a href="#">
+																	Supprimer
+																</a>
+															</li>
+														</ul>
+													</div>
+												</div></td>
+												
+											</tr>
+											{% endfor %}
+											
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div></div>
+						<!-- end: DYNAMIC TABLE -->
+						<div class="modal fade bs-example-modal-lg"  tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        {{ render(controller("STOCKStockBundle:Fournisseur:ajouter_fournisseur")) }} 
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+						
+	
+{% endblock %}
+{% block jspage %}
+        <script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+		<script src="{{asset('vendor/DataTables/jquery.dataTables.min.js')}}"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<!-- start: CLIP-TWO JAVASCRIPTS -->
+		<script src="{{asset('assets/js/jQuery.print.js')}}"></script>
+       
+        <script src="{{asset('assets/js/table-data.js')}}"></script>
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+                TableData.init();
+                 $('.modal-content').css('background','white');
+                $("#fi").click(function(){
+                    $("#ff").print();
+                });
+        
+
+				var ajouter_fournisseur = $('form:eq(1)');
+                ajouter_fournisseur.submit(function(e){
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{path('ajouter_fournisseur')}}",
+                        data: ajouter_fournisseur.serialize(),
+                        beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                        success: function(data){
+                            $('.bb').css( "display", "none" );
+                            
+                            $('form').trigger("reset");
+                            //desplay_data();
+                             window.location.reload();
+                           
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                               console.log(xhr.status);
+                               console.log(xhr.responseText);
+                               alert(xhr.responseText);
+                               alert(xhr.status);
+                               alert(xhr.thrownError);
+                               console.log(thrownError);
+                           },
+                          });
+                    e.preventDefault();});
+
+			});
+		</script>
+        {% endblock %}
+
+{% block menu %}
+                        <ul class="main-navigation-menu">
+                            <li >
+                                <a href="{{path('index2')}}">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-home"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Aceuil </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>{% endblock %}
+
+ {% block menustok %}
+                        
+                            <li class="active open">
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-agenda"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Gestion de stock 
+                                            
+                                            </span><span class="label label-danger pull-right" id="danger"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                   <li >
+                                                <a href="{{path('produits')}}">
+                                                    Produits
+                                                </a>
+                                            </li>
+                                    <li>
+                                                <a href="{{path('categories')}}">
+                                                    Categories
+                                                </a>
+                                            </li>
+                                      <li class="active">
+                                                <a href="{{path('fournisseurs')}}">
+                                                    Fournisseurs
+                                                </a>
+                                            </li>
+                                                         
+                                    <li>
+                                                <a href="{{path('bonreceptions')}}">
+                                                  Commandes d'achat
+                                                </a>
+                                            </li>
+                                      
+                                       <li>
+                                                <a href="{{path('bonreceptions2')}}">
+                                                   Bons de reception
+                                                </a>
+                                            </li>
+                                               
+                                      <li>
+                                                <a href="{{path('commandes')}}">
+                                                   Commandes de vente
+                                                </a>
+                                            </li>
+
+                                      
+                                    
+                                </ul>
+                            </li>{% endblock %}

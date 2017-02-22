@@ -1,0 +1,88 @@
+
+
+	<div class="container-fluid container-fullw bg-white">
+							<div class="row">
+								<div class="col-md-12">
+									<h5 class="over-title">Ajouter une <span class="text-bold">Compagne Marketing</span></h5>
+									
+									<div class="row">
+										
+											{{ form_start(form) }}
+                                            {{ form_errors(form) }}
+                                          
+											
+													
+													
+											
+										
+										<div class="col-md-10">
+											
+											<fieldset>
+												<legend>
+													Information 
+												</legend>
+												<div class="row">
+													<div class="col-md-12">
+														<div class="form-group">
+															<label>
+																Intitule de Compagne Marketing
+															</label>
+															{{ form_widget(form.intitule,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="form-group">
+															<label class="control-label">
+																Description de Compagne Marketing
+															</label>
+															
+															{{ form_widget(form.description,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>
+																Moyen de communication 
+															</label>
+															{{ form_widget(form.moyenne,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label">
+																Budget 
+															</label>
+															
+															{{ form_widget(form.budget,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>
+																Date de fermeture
+															</label>
+															{{ form_widget(form.datefermeture,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+													
+
+													
+												</div>
+												
+											</fieldset>
+										</div>
+									</div>
+
+									{{ form_widget(form.save,{ 'attr': {'class': 'btn btn-o btn-primary'} }) }}
+									<input type="reset" value="reset" class="btn btn-o btn-danger" />
+														{{ form_end(form) }} 
+												
+								</div>
+							</div>
+						</div>

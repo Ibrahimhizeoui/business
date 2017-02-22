@@ -1,0 +1,6 @@
+user_vetrine_homepage:
+    path:     /
+    defaults: { _controller: UserVetrineBundle:Default:index }
+index2:
+    path:     /index
+    defaults: { _controller: UserVetrineBundle:Default:index2 }

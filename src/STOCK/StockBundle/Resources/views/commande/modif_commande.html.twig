@@ -1,0 +1,595 @@
+{% extends 'base.html.twig' %}
+{% block title %}modifier Commande de vente | BusinessPark{% endblock %}
+
+
+{% block content %}
+    <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+        <link href="{{asset('vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet" media="screen">
+        <link href="{{asset('vendor/select2/select2.min.css')}}" rel="stylesheet" media="screen">
+        <link href="{{asset('vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css')}}" rel="stylesheet" media="screen">
+        <link href="{{asset('vendor/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet" media="screen">
+        <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+    <link rel="stylesheet" href="{{asset('assets/css/themes/theme-1.css')}}" id="skin_color" />
+    <section id="page-title">
+        <div id="nc" style="display:none;"> {{commande.id}} </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">Gestion de stock </h1>
+                                    
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>gestion des Commande</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>ajouter</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+
+                    <div class="container-fluid container-fullw bg-white">
+                        <div class="row">
+                            <div class="col-md-12">
+                                    <div class="invoice">
+                                        <div class="row invoice-logo">
+                                            <div class="col-sm-6">
+                                                <img alt="" src="{{asset('assets/images/your-logo-here.png')}}">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="text-dark">
+                                                    #{{commande.id}} / {{"now"|date('d M Y')}} <small class="text-light"> Lorem ipsum dolor sit amet </small>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                 <h5 class="over-title">Liste produits de cette <span class="text-bold">Commande de vente</span></h5>
+
+                                                <table class="table table-striped" id="pro">
+                                                
+
+                                                <thead>
+                                                        <tr>
+                                                            <th> # </th>
+                                                            <th> Produit </th>
+                                                            
+                                                            <th class="hidden-480"> Quantité </th>
+                                                            <th class="hidden-480"> Prix unitaire </th>
+                                                            <th > Total </th>
+                                                            <th>  </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="desplay_area" >
+                                                       
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            <div class="col-md-12">
+                                <h5 class="over-title">Ajouter produit au <span class="text-bold">Commande de vente</span></h5>
+                                <div class="col-md-12" >
+                                            <fieldset>
+                                                <legend>
+                                                Information
+                                                </legend>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+
+                                          {{ form_start(form2) }}
+                                            {{ form_errors(form2) }}
+
+                                                        <div class="">
+                                                            <label>
+                                                                Produit
+                                                            </label>
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                    
+                                                             <a type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                                                               <i class="fa fa-plus-square"></i>
+                                                              </a>
+                                                        </div>
+                                                                <div class="col-md-10">
+                                                    
+                                                            {{ form_widget(form2.produit) }}</div>
+
+
+                                                            
+                                                            </div>
+
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                Quantite
+                                                            </label>
+                                                            {{ form_widget(form2.quantite,{ 'attr': {'class': 'form-control'} }) }}
+                                                        </div>
+                                                    </div>
+                                                     
+                                               
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label class="control-label">
+                                                                Date commande Produit 
+                                                            </label>
+                                                            {{ form_widget(form2.datecom,{ 'attr': {'class': 'form-control'} }) }}
+                                                        </div>
+                                                    </div>
+                                                   
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label class="control-label">
+                                                                 
+                                                            </label><br>
+                                                            {{ form_widget(form2.save,{ 'attr': {'class': 'ff btn btn-o btn-primary'} }) }}
+                                     <img style="display:none" src="{{asset('assets/ajax.gif')}}" class="bb">
+                                    
+                                                           </div>
+                                                    </div>
+                                                    
+
+
+
+
+
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                  
+                                   
+                                    {{ form_widget(form2.save,{ 'attr': {'class': 'ff btn btn-o btn-primary'} }) }}
+                                     <img style="display:none" src="{{asset('assets/ajax.gif')}}" class="bb">
+                                    
+                                                        {{ form_rest(form2) }}
+                                                        {{ form_end(form2) }} 
+                                                
+                                                
+                                            </fieldset>
+                                            
+                                        </div>
+                                <div class="row">
+                                            
+                                        
+                                      
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-12">
+                                <h5 class="over-title">Ajouter produit au <span class="text-bold">Commande de vente</span></h5>
+                                <div class="col-md-9" >
+                                            <fieldset>
+                                                <legend>
+                                                Information
+                                                </legend>
+                                                {{ form_start(form) }}
+                                                 {{ form_errors(form) }}
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="control-label">
+                                                                Client   
+                                                               
+                                                            </label>
+
+                                                            {{ form_widget(form.client) }}
+                                                            
+                                                            
+                                                            
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                Montons totale
+                                                            </label>
+                                                            {{ form_widget(form.montans,{ 'attr': {'class': 'form-control'} }) }}
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                                
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="control-label">
+                                                                Date commande  
+                                                            </label>
+                                                            {{ form_widget(form.dateajout,{ 'attr': {'class': 'form-control'} }) }}
+                                                            
+                                                        </div>
+                                                    </div>
+
+                                                    
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="control-label">
+                                                                Status  
+                                                            </label>
+                                                            {{ form_widget(form.status,{ 'attr': {'class': 'form-control'} }) }}
+                                                            
+                                                        </div>
+                                                    </div>
+
+                                                    
+                                                </div>
+                                                <div class="row">
+                                                  <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                Type Livraison
+                                                            </label>
+                                                            {{ form_widget(form.typelivraison,{ 'attr': {'class': 'form-control'} }) }}
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                Remise en %
+                                                            </label>
+                                                            {{ form_widget(form.remise,{ 'attr': {'class': 'form-control'} }) }}
+                                                        </div>
+                                                    </div>
+                                                 </div>    
+                                    
+                                    {{ form_widget(form.ccc,{ 'attr': {'class': 'btn btn-o btn-primary'} }) }}
+                                    
+                                    {{ form_rest(form) }}
+                                                        {{ form_end(form) }} 
+                                                
+                                                
+                                            </fieldset>
+                                            
+                                        </div>
+                                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        <h4 class="modal-title" id="myModalLabel">Nouveau produit</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+
+
+                                                        <div class="row">
+                                        
+                                            {{ form_start(form3) }}
+                                            {{ form_errors(form3) }}
+                                          
+                                            
+                                        
+                                        <div class="col-md-9">
+                                            
+                                                <legend>
+                                                Information
+                                                </legend>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                Intitulé du produit
+                                                            </label>
+                                                            {{ form_widget(form3.intitule,{ 'attr': {'class': 'form-control'} }) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="control-label">
+                                                                Prix unitaire:
+                                                            </label>
+                                                            {{ form_widget(form3.prixunitaire,{ 'attr': {'class': 'form-control'} }) }}
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>
+                                                                Quantité
+                                                            </label>
+                                                            {{ form_widget(form3.quantite,{ 'attr': {'class': 'form-control'} }) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="control-label">
+                                                                Quantité minimal
+                                                            </label>
+                                                            
+                                                            {{ form_widget(form3.quantitemin,{ 'attr': {'class': 'form-control'} }) }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="block">
+                                                                Type produit
+                                                            </label>
+                                                            {{ form_widget(form3.type,{'attr' :{'class': 'form-control'}}) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="block">
+                                                                Date d'ajout
+                                                            </label>
+                                                            {{ form_widget(form3.dateajout,{'attr' :{'class': 'form-control'}}) }}
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="block">
+                                                                Description
+                                                            </label>
+                                                            {{ form_widget(form3.description,{'attr' :{'class': 'form-control'}}) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="block">
+                                                                Categorie
+                                                            </label>
+                                                            {{ form_widget(form3.categorie,{'attr' :{'class': 'form-control'}}) }}
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+
+                                                
+                                                
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                                       
+
+
+                                                                                                           </div>
+                                                    <div class="modal-footer">
+                                                        <img style="display:none" src="{{asset('assets/ajax.gif')}}" class="bb">
+                                    
+                                                        <button type="button" class="btn btn-primary btn-o" data-dismiss="modal">
+                                                            Close
+                                                        </button>
+                                                         {{ form_widget(form3.save,{ 'attr': {'class': 'btn btn-primary'} }) }}
+                                                          
+                                                        {{ form_end(form3) }} 
+                                   
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                <div class="row">
+                                            
+                                        
+                                      
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+{% endblock %}
+{% block jspage  %}
+        <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+        <script src="{{asset('vendor/maskedinput/jquery.maskedinput.min.js')}}"></script>
+        <script src="{{asset('vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+        <script src="{{asset('vendor/autosize/autosize.min.js')}}"></script>
+        <script src="{{asset('vendor/selectFx/classie.js')}}"></script>
+        <script src="{{asset('vendor/selectFx/selectFx.js')}}"></script>
+        <script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+        <script src="{{asset('vendor/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+        <script src="{{asset('vendor/bootstrap-timepicker/bootstrap-timepicker.min.js')}}"></script>
+        <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+        <!-- start: JavaScript Event Handlers for this page -->
+        <script src="{{asset('assets/js/form-elements.js')}}"></script>
+
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+                FormElements.init();
+                desplay_data();
+                var frm = $('form:eq(1)');
+                var nc=$('#nc').text()
+                frm.submit(function(e){
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{path('ajouter_commande_vente',{'id': commande.id})}}",
+                        data: frm.serialize(),
+                        beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                        success: function(data){
+                            $('.bb').css( "display", "none" );
+                            
+                            $('form').trigger("reset");
+                            //$('#pro').load(" {{path('ajouter_commande_vente',{'id': commande.id})}} #pro");
+                           desplay_data();
+                           if (data.status=='block') {
+                            alert('La commande est bloqué ! Vous n\'avez que '+ data.q+' dans le stock');
+                           }
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+           alert(xhr.responseText);
+           alert(xhr.status);
+           alert(xhr.thrownError);
+           $('.bb').css( "display", "none" );
+                            },
+
+                    });
+                    e.preventDefault();
+                     
+                   // $('#pro').load("  #pro");
+                });
+
+var frm2 = $('form:eq(3)');
+                var nc=$('#nc').text()
+                frm2.submit(function(e){
+                    
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{path('ajouter_commande_vente',{'id': commande.id})}}",
+                        data: frm2.serialize(),
+                        beforeSend: function(){
+                            console.log('charge');
+                            $('.bb').css( "display", "initial" );
+                        },
+                        success: function(data){
+                            $('.bb').css( "display", "none" );
+                            
+                            $('form:eq(3)').trigger("reset");
+                            //$('#pro').load(" {{path('ajouter_commande_vente',{'id': commande.id})}} #pro");
+                           desplay_data();
+                           
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+           alert(xhr.responseText);
+           alert(xhr.status);
+           alert(xhr.thrownError);
+           $('.bb').css( "display", "none" );
+                            },
+
+                    });
+                    e.preventDefault();
+                     
+                   // $('#pro').load("  #pro");
+                });
+
+               
+});
+
+function desplay_data(){
+               
+    $.ajax({
+        url: "{{path('ceslignes1',{'id': id})}}",
+        type: 'POST',
+        data: {
+            "display": 1
+        },
+        beforeSend: function(){
+                            console.log('charge');
+                            
+                        },
+        success: function(d){
+                             console.log('cb1');
+                             $('#desplay_area').html(d);
+                             
+
+                        },
+        error: function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           alert(xhr.responseText);
+           alert(xhr.status);
+           alert(xhr.thrownError);
+           console.log(thrownError);
+       },
+
+
+    });
+
+};
+
+            
+        </script>
+        </script>
+        {% endblock %}
+        
+{% block menu %}
+                        <ul class="main-navigation-menu">
+                            <li >
+                                <a href="{{path('index2')}}">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-home"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Aceuil </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>{% endblock %}
+
+ {% block menustok %}
+                        
+                            <li class="active open">
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-agenda"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Gestion de stock 
+                                            
+                                            </span><span class="label label-danger pull-right" id="danger"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                   <li >
+                                                <a href="{{path('produits')}}">
+                                                    Produits
+                                                </a>
+                                            </li>
+                                    <li>
+                                                <a href="{{path('categories')}}">
+                                                    Categories
+                                                </a>
+                                            </li>
+                                      <li>
+                                                <a href="{{path('fournisseurs')}}">
+                                                    Fournisseurs
+                                                </a>
+                                            </li>
+                                                         
+                                    <li>
+                                                <a href="{{path('bonreceptions')}}">
+                                                  Commandes d'achat
+                                                </a>
+                                            </li>
+                                      
+                                       <li>
+                                                <a href="{{path('bonreceptions2')}}">
+                                                   Bons de reception
+                                                </a>
+                                            </li>
+                                               
+                                      <li class="active">
+                                                <a href="{{path('commandes')}}">
+                                                   Commandes de vente
+                                                </a>
+                                            </li>
+
+                                      
+                                    
+                                </ul>
+                            </li>{% endblock %}
+

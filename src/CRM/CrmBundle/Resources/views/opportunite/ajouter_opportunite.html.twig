@@ -1,0 +1,103 @@
+
+	<div class="container-fluid container-fullw bg-white">
+							<div class="row">
+								<div class="col-md-12">
+									<h5 class="over-title">Ajouter une <span class="text-bold">Opportunité</span></h5>
+									
+									<div class="row">
+										
+											{{ form_start(form) }}
+                                            {{ form_errors(form) }}
+                                          
+											
+													
+													
+											
+										
+										<div class="col-md-10">
+											
+											<fieldset>
+												<legend>
+													Information 
+												</legend>
+												<div class="row">
+													<div class="col-md-12">
+														<div class="form-group">
+															<label>
+																Intitule Opportunité
+															</label>
+															{{ form_widget(form.intitule,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="form-group">
+															<label class="control-label">
+																Client Conserné
+															</label>
+															
+															{{ form_widget(form.client,{ 'attr': {'class': 'form-control','placeholder':'Entrer l\'adresse'} }) }}
+														</div>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>
+																Tache  Opportunité
+															</label>
+															{{ form_widget(form.activite,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label">
+																Etat d'opportunité
+															</label>
+															
+															{{ form_widget(form.type,{ 'attr': {'class': 'form-control','placeholder':'Entrer l\'adresse'} }) }}
+														</div>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>
+																Compagne d'Opportunité
+															</label>
+															{{ form_widget(form.compagne,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label">
+																Revenue espérer
+															</label>
+															
+															{{ form_widget(form.revenue,{ 'attr': {'class': 'form-control','placeholder':'Entrer l\'adresse'} }) }}
+														</div>
+													</div>
+
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label">
+																Dare de fermeture
+															</label>
+															
+															{{ form_widget(form.datefermeture,{ 'attr': {'class': 'form-control','placeholder':'Entrer l\'adresse'} }) }}
+														</div>
+													</div>
+												</div>
+												
+											</fieldset>
+										</div>
+									</div>
+									{{ form_widget(form.save,{ 'attr': {'class': 'btn btn-o btn-primary'} }) }}
+									<input type="reset" value="reset" class="btn btn-o btn-danger" />
+														{{ form_end(form) }} 
+												
+								</div>
+							</div>
+						</div>
+

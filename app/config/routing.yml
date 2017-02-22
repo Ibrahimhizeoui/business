@@ -1,0 +1,42 @@
+user_vetrine:
+    resource: "@UserVetrineBundle/Resources/config/routing.yml"
+    prefix:   /
+
+crm_client:
+    resource: "@CRMClientBundle/Resources/config/routing.yml"
+    prefix:   /Espaceclient
+
+crm_crm:
+    resource: "@CRMCrmBundle/Resources/config/routing.yml"
+    prefix:   /CRM
+
+comptabilite_comp:
+    resource: "@COMPTABILITECompBundle/Resources/config/routing.yml"
+    prefix:   /COMPTABILITE
+
+stock_stock:
+    resource: "@STOCKStockBundle/Resources/config/routing.yml"
+    prefix:   /STOCK
+
+espaceemploye_employe:
+    resource: "@EspaceemployeEmployeBundle/Resources/config/routing.yml"
+    prefix:   /Espaceemploye
+
+
+
+grh_grh:
+    resource: "@GRHGrhBundle/Resources/config/routing.yml"
+    prefix:   /GRH
+
+user_user:
+    resource: "@UserUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

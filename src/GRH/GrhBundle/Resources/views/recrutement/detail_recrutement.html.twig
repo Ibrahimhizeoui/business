@@ -1,0 +1,557 @@
+{% extends 'base.html.twig' %}
+{% block title %}Detail Recrutement | BusinessPark{% endblock %}
+{% block content %}
+	<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<link href="{{asset('vendor/bootstrap-fileinput/jasny-bootstrap.min.css')}}" rel="stylesheet" media="screen">
+		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<section id="page-title">
+							<div class="row">
+								<div class="col-sm-8">
+									<h1 class="mainTitle">GRH</h1>
+									
+								</div>
+								<ol class="breadcrumb">
+									<li>
+										<span>Recrutement</span>
+									</li>
+									<li class="active">
+										<span>Detail {{recrutement.intitule}}</span>
+									</li>
+								</ol>
+							</div>
+						</section>
+						<!-- end: PAGE TITLE -->
+						<!-- start: USER PROFILE -->
+						<div class="container-fluid container-fullw bg-white">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="tabbable">
+										<ul class="nav nav-tabs tab-padding tab-space-3 tab-blue" id="myTab4">
+											<li class="active">
+												<a data-toggle="tab" href="#panel_overview">
+													Overview
+												</a>
+											</li>
+											
+											
+										</ul>
+										<div class="tab-content">
+											<div id="panel_overview" class="tab-pane fade in active">
+												<div class="row">
+													<div class="col-sm-6 col-md-8">
+														<div class="user-left">
+															<div class="center">
+																<h4>{{recrutement.intitule}}</h4>
+																<hr>
+															</div>
+															<table class="table table-condensed">
+																<thead>
+																	<tr>
+																		<th colspan="3">Recrutement Information</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>Status</td>
+																		<td>
+																		<a href="#">
+																			{{recrutement.status}}
+																		</a></td>
+																		
+																	</tr>
+																	<tr>
+																		<td>Description:</td>
+																		<td>
+																		<a href="">
+																			{{recrutement.description}}
+																		</a></td>
+																		
+																	</tr>
+																	<tr>
+																		<td>Nombre d'employés:</td>
+																		<td>{{recrutement.nbEmployes}}</td>
+																		
+																	</tr>
+																	<tr>
+																		<td>Type de recrutement</td>
+																		<td>
+																		<a href="">
+																			{{recrutement.type}}
+																		</a></td>
+																		
+																	</tr>
+																</tbody>
+															</table>
+															<table class="table">
+																<thead>
+																	<tr>
+																		<th colspan="3">Additional information</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>Début</td>
+																		<td>{{recrutement.dateAjout|date("d,Y,M")}}</td>
+																		
+																	</tr>
+																	
+																</tbody>
+															</table>
+														</div>
+													</div>
+													
+												</div>
+											</div>
+											
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end: USER PROFILE -->
+			
+{% endblock %}
+{% block jspage	 %}
+ 	    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script src="{{asset('vendor/maskedinput/jquery.maskedinput.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+		<script src="{{asset('vendor/autosize/autosize.min.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/classie.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/selectFx.js')}}"></script>
+		<script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-timepicker/bootstrap-timepicker.min.js')}}"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+       
+        
+        <!-- start: JavaScript Event Handlers for this page -->
+		<script src="{{asset('vendor/bootstrap-fileinput/jasny-bootstrap.js')}}"></script>
+
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+                
+            });
+        </script>
+        </script>
+        {% endblock %}
+         {% block menu %}
+                        <ul class="main-navigation-menu">
+                            <li >
+                                <a href="{{path('index2')}}">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-home"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Aceuil </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            
+                            <li class="active open">
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class=" ti-user"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title">Gestion res. humaines</span><i class="icon-arrow"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                            <li >
+                                                <a href="{{path('departement')}}">
+                                                    Départements</i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('employe')}}">
+                                                    Employés
+                                                </a>
+                                            </li>
+                                            <li >
+                                                <a href="{{path('postes')}}">
+                                                    Postes
+                                                </a>
+                                            </li>
+                                            <li >
+                                                <a href="{{path('absences')}}">
+                                                    Absences
+                                                </a>
+                                            </li>
+                                            <li >
+                                                <a href="{{path('conges')}}">
+                                                    Congés
+                                                </a>
+                                            </li>
+                                            <li class="active">
+                                                <a href="{{path('recrutements')}}">
+                                                    Recrutements<i class="fa fa-share pull-right"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('salaires')}}">
+                                                    Salaires
+                                                </a>
+                                            </li>
+                                    
+                                </ul>
+                            </li>
+
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-agenda"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Gestion de stock 
+                                            
+                                            </span><span class="label label-danger pull-right" id="danger"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                    
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span>Gestion des produits </span> <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('produits')}}">
+                                                    La liste d'produits
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('ajouter_produit')}}">
+                                                    ajouter un produit
+                                                </a>
+                                            </li>
+                                            <li >
+                                        <a href="javascript:;">
+                                            <span>Gestion des categories</span> <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('categories')}}">
+                                                    La liste des categories
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('ajouter_categorie')}}">
+                                                    Ajouter une categorie
+                                                </a>
+                                            </li>
+                                           
+                                        </ul>
+                                    </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span>Gestion des fournisseurs</span> <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('fournisseurs')}}">
+                                                    Liste des fournisseur
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('ajouter_fournisseur')}}">
+                                                    Ajouter un fournisseur
+                                                </a>
+                                            </li>
+                                            
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span>Bon commandes d'achat</span> <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('bonreceptions')}}">
+                                                    Consulter les commandes
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('bon_reception')}}">
+                                                    Créer une commande d'achat
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('bonreceptions2')}}">
+                                                   Consulter les bons de  reception
+                                                </a>
+                                            </li>
+                                            
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span>Bon commandes de vente </span> <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('commandes')}}">
+                                                   Consulter les commandes de vente
+                                                </a>
+                                            </li>
+
+                                            
+
+                                            <li>
+                                                <a href="{{path('commande_vente')}}">
+                                                    Créer une commandes de vente
+                                                </a>
+                                            </li>
+                                           
+                                        </ul>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class=" ti-dashboard"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Gestion de finance </span><i class="icon-arrow"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li >
+                                        <a href="javascript:;">
+                                            <span>Gestion des taxes</span> <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('taxes')}}">
+                                                    La liste des taxes
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('ajouter_taxe')}}">
+                                                    Ajouter un taxe
+                                                </a>
+                                            </li>
+                                           
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span>Gestion de facturation </span> <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('factures')}}">
+                                                    La liste des factures
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('create_facture')}}">
+                                                    Ajouter une facture
+                                                </a>
+                                            </li>
+                                            
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span>Gestion de depence</span> <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('depences')}}">
+                                                    Liste des depences
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('ajouter_depence')}}">
+                                                    Ajouter un pedence
+                                                </a>
+                                            </li>
+                                             <li >
+                                        <a href="javascript:;">
+                                            <span>Paiments <strong>Fournisseurs </strong> </span> <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('paimentfournisseur')}}">
+                                                    La liste des paiments  
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('ajouter_paimentfournisseur')}}">
+                                                    Ajouter un paiment 
+                                                </a>
+                                            </li>
+                                           
+                                        </ul>
+                                    </li>
+                                            
+                                        </ul>
+                                    </li>
+                                   
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span>Paiments <strong>Clients</strong> </span> <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('paimentclient')}}">
+                                                    La liste  des paiments 
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('ajouter_paimentclient')}}">
+                                                    Ajouter un  paiment 
+                                                </a>
+                                            </li>
+                                            
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            
+
+              
+                    
+                           
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-agenda"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> CRM 
+                                            
+                                            </span><i class="icon-arrow"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li >
+                                        <a href="javascript:;">
+                                            <span>Gestion des clients</span> <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('clients')}}">
+                                                    La liste des clients
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('ajouter_client')}}">
+                                                    Ajouter un client
+                                                </a>
+                                            </li>
+                                           
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span>Gestion des service </span> <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('serviceenattent')}}">
+                                                    Services en attente
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('services')}}">
+                                                    Liste des services
+                                                </a>
+                                            </li>
+                                            
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span>Gestion de marketing</span> <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('fournisseurs')}}">
+                                                    Liste des compagnes
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('ajouter_fournisseur')}}">
+                                                    Ajouter un compagne
+                                                </a>
+                                            </li>
+                                            
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span>Gestion opportunites de vente</span> <i class="icon-arrow"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li>
+                                                <a href="{{path('opportunites')}}">
+                                                    Liste des opportunites
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="{{path('opportunitesganiger')}}">
+                                                    Liste des opportunites gagnier
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="{{path('opportunitesperdus')}}">
+                                                    Liste des opportunites perdus
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="{{path('opportunitesouvert')}}">
+                                                    Liste des opportunites encours
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="{{path('fermeroppor')}}">
+                                                    Liste des opportunites fermer
+                                                </a>
+                                            </li>
+
+
+
+                                            <li>
+                                                <a href="{{path('ajouter_opportunite')}}">
+                                                    Créer une Opportunité
+                                                </a>
+                                            </li>
+
+                                           
+                                            
+                                        </ul>
+                                    </li>
+                                   
+                                    
+                                </ul>
+                            </li>
+
+
+                            
+                           
+                        </ul>
+                       {% endblock %}

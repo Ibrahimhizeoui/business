@@ -1,0 +1,144 @@
+{% extends 'base.html.twig' %}
+{% block title %}Modifier Opportunité | BusinessPark{% endblock %}
+{% block content %}
+	<section id="page-title">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">CRM </h1>
+                                    
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>gestion des Opportunités</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>Modifier</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+	<div class="container-fluid container-fullw bg-white">
+							<div class="row">
+								<div class="col-md-12">
+									<h5 class="over-title">Ajouter une <span class="text-bold">Opportunité</span></h5>
+									
+									<div class="row">
+										
+											{{ form_start(form) }}
+                                            {{ form_errors(form) }}
+                                          
+											
+													
+													
+											
+										
+										<div class="col-md-10">
+											
+											<fieldset>
+												<legend>
+													Information 
+												</legend>
+												<div class="row">
+													<div class="col-md-12">
+														<div class="form-group">
+															<label>
+																Intitule Opportunité
+															</label>
+															{{ form_widget(form.intitule,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="form-group">
+															<label class="control-label">
+																Client Conserné
+															</label>
+															
+															{{ form_widget(form.client,{ 'attr': {'class': 'form-control','placeholder':'Entrer l\'adresse'} }) }}
+														</div>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>
+																Tache  Opportunité
+															</label>
+															{{ form_widget(form.activite,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label">
+																Type d'opportunité
+															</label>
+															
+															{{ form_widget(form.type,{ 'attr': {'class': 'form-control','placeholder':'Entrer l\'adresse'} }) }}
+														</div>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>
+																Compagne d'Opportunité
+															</label>
+															{{ form_widget(form.compagne,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label">
+																Revenue espérer
+															</label>
+															
+															{{ form_widget(form.revenue,{ 'attr': {'class': 'form-control','placeholder':'Entrer l\'adresse'} }) }}
+														</div>
+													</div>
+
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label">
+																Dare de fermeture
+															</label>
+															
+															{{ form_widget(form.datefermeture,{ 'attr': {'class': 'form-control','placeholder':'Entrer l\'adresse'} }) }}
+														</div>
+													</div>
+												</div>
+												
+											</fieldset>
+										</div>
+									</div>
+									{{ form_widget(form.save,{ 'attr': {'class': 'btn btn-o btn-primary'} }) }}
+														{{ form_end(form) }} 
+												
+								</div>
+							</div>
+						</div>
+{% endblock %}
+{% block jspage	 %}
+ 	    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script src="{{asset('vendor/maskedinput/jquery.maskedinput.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+		<script src="{{asset('vendor/autosize/autosize.min.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/classie.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/selectFx.js')}}"></script>
+		<script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-timepicker/bootstrap-timepicker.min.js')}}"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+
+        
+        <!-- start: JavaScript Event Handlers for this page -->
+		<script src="{{asset('assets/js/form-elements.js')}}"></script>
+
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+                FormElements.init();
+            });
+        </script>
+        </script>
+        {% endblock %}

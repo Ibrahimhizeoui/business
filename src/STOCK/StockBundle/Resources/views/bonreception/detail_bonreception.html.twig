@@ -1,0 +1,282 @@
+{% extends 'base.html.twig' %}
+{% block title %}Bon reception #{{reception.id}}| BusinessPark{% endblock %}
+
+
+{% block content %}
+    <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+        <link href="{{asset('vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet" media="screen">
+        <link href="{{asset('vendor/select2/select2.min.css')}}" rel="stylesheet" media="screen">
+        <link href="{{asset('vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css')}}" rel="stylesheet" media="screen">
+        <link href="{{asset('vendor/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet" media="screen">
+        <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+    <div id="ff">
+    <section id="page-title">
+        <div id="nc" style="display:none;"> {{reception.id}} </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">Gestion de stock </h1>
+                                    
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>gestion des Bon reception</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>Detail</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+
+                    <div >
+                    <div class="container-fluid container-fullw bg-white" id="ff">
+                        <div class="row">
+                            <div class="col-md-12">
+                                    <div class="invoice">
+                                        <div class="row invoice-logo">
+                                            <div class="col-sm-6">
+                                                <img alt="" src="{{asset('assets/images/your-logo-here.png')}}">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="text-dark">
+                                                    #{{reception.id}} / {{"now"|date('d M Y')}} <small class="text-light"> Fournisseur :<br>{{reception.fournisseur.nom}} </small>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                 <h5 class="over-title">Liste produits de cette <span class="text-bold">Commande d'achat</span></h5>
+
+                                                <table class="table table-striped" id="pro">
+                                                
+
+                                                 <thead>
+                                                        <tr>
+                                                            <th> # </th>
+                                                            <th> Produit </th>
+                                                            <th class="hidden-480"> Description </th>
+                                                            <th class="hidden-480"> Quantité </th>
+                                                            <th class="hidden-480"> Prix unitaire </th>
+                                                            <th> Total </th>
+                                                            
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% if ceslignes != null %}
+                                                            {% for ligne in ceslignes %}
+                                                        <tr>
+                                                            <td> {{ligne.id}} </td>
+                                                            <td> {{ligne.produit.intitule}} </td>
+                                                            <td class="hidden-480"> {{ligne.produit.description}} </td>
+                                                            <td class="hidden-480"> {{ligne.quantite}} </td>
+                                                            <td class="hidden-480"> {{ligne.produit.prixunitaire}} </td>
+                                                            <td> $1152 </td>
+                                                            
+                                                        </tr>
+                                                        {% endfor %}
+                                                       {% endif %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            
+                        </div>
+            <div class="col-xs-6 pull-right" >
+                <table class="table table-bordered no-margin">
+                    <tbody>
+                        <tr>
+                            <td><b>Prix Total (HT)</b></td>
+                            <td class="text-right" id="pht">{{reception.montans}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Taxes</b></td>
+                            <td class="text-right"><strong>18%:</strong> 14.544</td>
+                        </tr>
+                                               
+                                                                        <tr>
+                            <td><b>Date d'ajout :</b></td>
+                            <td class="text-right">{{reception.dateajout|date('d M Y')}}</td>
+                        </tr>
+                                                <tr>
+                            <td class="text-large"><b>Etat en stock :</b></td>
+                            <td class="text-large text-right" id="montant">{{reception.Status}} %</td>
+                        </tr>
+                        <tr>
+                            <td class="text-large"><b>Montant Payé</b></td>
+                            <td class="text-large text-right"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <a href="{{path('pdf',{'id':reception.id})}}" id="f1" class="btn btn-wide btn-success btn-squared hidden-print pdf">
+                                                    Pdf <i class="fa fa-print"></i>
+                                                </a>
+
+                                                <button id="fi" class="btn btn-wide btn-primary btn-squared hidden-print">
+                                                    Imprimer <i class="fa fa-print"></i>
+                                                </button>
+                                                
+                                                <a href="{{path('accepter_commande',{'id':reception.id})}}"class="btn btn-wide btn-primary btn-squared btn-o">
+                                                    Valider <i class="fa fa-check"></i>
+                                                </a>
+
+
+
+            </div>
+                         
+                    </div>
+                                       </div>
+</div>
+{% endblock %}
+{% block jspage  %}
+
+        <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+        <script src="{{asset('assets/js/jQuery.print.js')}}"></script>
+    
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+        <!-- start: JavaScript Event Handlers for this page -->
+        
+       <script src="{{asset('assets/js/jQuery.print.js')}}"></script>
+       
+        <script src="{{asset('assets/js/table-data.js')}}"></script>
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+                 $('.modal-content').css('background','white');
+                $("#fi").click(function(){
+                    $("#ff").print();
+                });
+         $('.pdf').click(function(e){
+  
+               $.ajax({
+                        type: 'POST',
+                        dataType: 'json',
+                        url: "{{path('pdf',{'id': reception.id})}}",
+                        
+                        
+                        beforeSend: function(){
+                            console.log('charge');
+                            
+                        },
+                        success: function(){
+                             console.log('cb1');
+                            
+
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           alert(xhr.responseText);
+           alert(xhr.status);
+           alert(xhr.thrownError);
+           console.log(thrownError);
+       },
+
+                    });
+                    e.preventDefault();
+                    
+});
+              
+ (function calcule() {
+           
+   $('tbody tr').each(function() {
+    var quantite = $(this).find("td").eq( 3 ).text();
+    var prix = $(this).find("td").eq( 4 ).text();
+    var tt=quantite * prix ;
+    $(this).find("td").eq( 5 ).text(tt);  
+});
+   var sum = 0;
+// iterate through each td based on class and add the values
+$(".price").each(function() {
+
+    var value = $(this).text();
+    // add only if the value is number
+    if(!isNaN(value) && value.length != 0) {
+        sum += parseFloat(value);
+    }
+
+});
+$('#form_montans').val(sum);        
+})();
+
+              
+});
+            
+        </script>
+        </script>
+        {% endblock %}
+
+        {% block menu %}
+                        <ul class="main-navigation-menu">
+                            <li >
+                                <a href="{{path('index2')}}">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-home"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Aceuil </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>{% endblock %}
+
+ {% block menustok %}
+                        
+                            <li class="active open">
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-agenda"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Gestion de stock 
+                                            
+                                            </span><span class="label label-danger pull-right" id="danger"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                   <li >
+                                                <a href="{{path('produits')}}">
+                                                    Produits
+                                                </a>
+                                            </li>
+                                    <li>
+                                                <a href="{{path('categories')}}">
+                                                    Categories
+                                                </a>
+                                            </li>
+                                      <li>
+                                                <a href="{{path('fournisseurs')}}">
+                                                    Fournisseurs
+                                                </a>
+                                            </li>
+                                                         
+                                    <li  >
+                                                <a href="{{path('bonreceptions')}}">
+                                                  Commandes d'achat
+                                                </a>
+                                            </li>
+                                      
+                                       <li class="active">
+                                                <a href="{{path('bonreceptions2')}}">
+                                                   Bons de reception
+                                                </a>
+                                            </li>
+                                               
+                                      <li>
+                                                <a href="{{path('commandes')}}">
+                                                   Commandes de vente
+                                                </a>
+                                            </li>
+
+                                      
+                                    
+                                </ul>
+                            </li>{% endblock %}

@@ -1,0 +1,321 @@
+{% extends 'base.html.twig' %}
+{% block title %}Facture #{{facture.id}}| BusinessPark{% endblock %}
+
+
+{% block content %}
+    <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+        <link href="{{asset('vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet" media="screen">
+        <link href="{{asset('vendor/select2/select2.min.css')}}" rel="stylesheet" media="screen">
+        <link href="{{asset('vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css')}}" rel="stylesheet" media="screen">
+        <link href="{{asset('vendor/bootstrap-timepicker/bootstrap-timepicker.min.css')}}" rel="stylesheet" media="screen">
+        <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+    <div id="ff">
+    
+    <section id="page-title">
+        <div id="nc" style="display:none;"> {{facture.id}} </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">Gestion de facturation </h1>
+                                    
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>gestion des  facture</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>Detail</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+
+                    
+                    <div class="container-fluid container-fullw bg-white">
+                        <div class="row">
+                            <div class="col-md-12">
+                                    <div class="invoice">
+                                        <div class="row invoice-logo">
+                                            <div class="col-sm-6">
+                                                <img alt="" src="{{asset('assets/images/your-logo-here.png')}}">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="text-dark">
+                                                    #{{facture.id}} / {{"now"|date('d M Y')}} <small class="text-light"> </small>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <h4>Client:</h4>
+                                                <div class="well">
+                                                    <address>
+                                                        <strong class="text-dark">Nom:</strong>{{facture.client.nom }}
+                                                        <br>
+                                                        <strong class="text-dark">Adresse:</strong>{{facture.client.adress }}
+                                                        <br>
+                                                        <strong class="text-dark">Téléphone:</strong><abbr title="Phone">{{facture.client.tel }}</abbr> 
+                                                        <br>
+                                                        <strong class="text-dark">E-mail:</strong>
+                                                        <a href="mailto:#">
+                                                            {{facture.client.email }}
+                                                        </a>
+                                                    </address>
+                                                    <address>
+                                                        
+                                                    </address>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <h4>Nous apprécions votre entreprise.</h4>
+                                                <div class="padding-bottom-30 padding-top-10 text-dark">
+                                                    Merci d'être un client.Un résumé détaillé de votre facture est ci-dessous.
+                                                    <br>
+                                                    si vous avez des questions, nous sommes heureux de vous aider.
+                                                    <br>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 pull-right">
+                                                <h4>Details Paiement :</h4>
+                                                <ul class="list-unstyled invoice-details padding-bottom-30 padding-top-10 text-dark">
+                                                   
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                 <h5 class="over-title">Liste produits de cette <span class="text-bold">Facture</span></h5>
+
+                                                <table class="table table-striped" id="pro">
+                                                
+
+                                                 <thead>
+                                                        <tr>
+                                                            <th> # </th>
+                                                            <th> Produit </th>
+                                                            <th class="hidden-480"> Description </th>
+                                                            <th class="hidden-480"> Quantité </th>
+                                                            <th class="hidden-480"> Prix unitaire </th>
+                                                            <th> Total </th>
+                                                            
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% if ceslignes != null %}
+                                                            {% for ligne in ceslignes %}
+                                                        <tr>
+                                                            <td> {{ligne.id}} </td>
+                                                            <td> {{ligne.produit.intitule}} </td>
+                                                            <td class="hidden-480"> {{ligne.produit.description}} </td>
+                                                            <td class="hidden-480"> {{ligne.quantite}} </td>
+                                                            <td class="hidden-480"> {{ligne.produit.prixunitaire}} </td>
+                                                            <td class="price">  </td>
+                                                            
+                                                        </tr>
+                                                        {% endfor %}
+                                                       {% endif %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            
+                        </div>
+<div class="col-xs-6 pull-right" >
+                <table class="table table-bordered no-margin">
+                    <tbody>
+                        <tr>
+                            <td><b>Prix Total (HT)</b></td>
+                            <td class="text-right" id="pht">{{facture.total}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Taxes</b></td>
+                            <td class="text-right"><strong>{{facture.taxe.valeur}} %</strong> valeur</td>
+                        </tr>
+                        <tr>
+                            <td><b>Remise</b></td>
+                            <td class="text-right"><strong>{{facture.remise}}</td>
+                        </tr>
+                                               
+                                                                        <tr>
+                            <td><b>Date facture </b></td>
+                            <td class="text-right">{{facture.datefacture|date('d M Y')}}</td>
+                        </tr>
+                                                <tr>
+                            <td class="text-large"><b>Client :</b></td>
+                            <td class="text-large text-right" id="montant"> {{facture.client.nom}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-large"><b>Montant Payé</b></td>
+                            <td class="text-large text-right"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <a id="f1" class="btn btn-wide btn-primary btn-squared hidden-print pdf">
+                                                    pfd <i class="fa fa-print"></i>
+                                                </a>
+                                                 <button id="fi" class="btn btn-wide btn-primary btn-squared hidden-print">
+                                                    Imprimer <i class="fa fa-print"></i>
+                                                </button>
+                                                
+                                                <a href="{{path('valider_facture',{'id':facture.id})}}"class="btn btn-wide btn-primary btn-squared btn-o hidden-print">
+                                                    Valider <i class="fa fa-check"></i>
+                                                </a>
+
+                                                
+                
+
+
+
+            </div>
+            
+                        
+                       
+                    </div><div id="ff">
+    
+                                       </div>
+
+{% endblock %}
+{% block jspage  %}
+
+        <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+        <script src="{{asset('assets/js/jQuery.print.js')}}"></script>
+       
+        <script src="{{asset('assets/js/table-data.js')}}"></script>
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+                 $('.modal-content').css('background','white');
+                $("#fi").click(function(){
+                    $("#ff").print();
+                });
+               $('.pdf').click(function(e){
+  
+               $.ajax({
+                        type: 'POST',
+                        dataType: 'json',
+                        url: "{{path('pdf_facture',{'id': facture.id})}}",
+                        
+                        
+                        beforeSend: function(){
+                            console.log('charge');
+                            
+                        },
+                        success: function(){
+                             console.log('cb1');
+                            
+
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr.status);
+           console.log(xhr.responseText);
+           alert(xhr.responseText);
+           alert(xhr.status);
+           alert(xhr.thrownError);
+           console.log(thrownError);
+       },
+
+                    });
+                    e.preventDefault();
+                    
+});
+                //FormElements.init();
+              
+ (function() {
+       
+   $('tbody tr').each(function() {
+    var quantite = $(this).find("td").eq( 3 ).text();
+    var prix = $(this).find("td").eq( 4 ).text();
+    var tt=quantite * prix ;
+    $(this).find("td").eq( 5 ).text(tt);  
+});
+   var sum = 0;
+// iterate through each td based on class and add the values
+$(".price").each(function() {
+
+    var value = $(this).text();
+    // add only if the value is number
+    if(!isNaN(value) && value.length != 0) {
+        sum += parseFloat(value);
+    }
+
+});
+$('#form_montans').val(sum);        
+$('#montans').text(sum);
+var prix = (0.01*{{facture.taxe.valeur}} * sum) + sum; 
+
+ $('.prix').text(prix) ;  
+})();
+ 
+              
+});
+            
+        </script>
+        </script>
+        {% endblock %}
+
+{% block menufinance %}
+                        
+                            <li class="active open">
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class=" ti-dashboard"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Gestion du finance </span><i class="icon-arrow"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                  <li >
+                                                <a href="{{path('taxes')}}">
+                                                    Taxes
+                                                </a>
+                                            </li>
+                                            <li class="active">
+                                                <a href="{{path('factures')}}">
+                                                    Factures
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{path('depences')}}">
+                                                    Depenses
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="{{path('paimentclient')}}">
+                                                    Paiments <strong>Clients</strong>
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="{{path('paimentfournisseur')}}">
+                                                    Paiments <strong>Fournisseurs</strong>
+                                                </a>
+                                            </li>
+                                            
+                                            
+                                   
+                                </ul>
+                            </li>{% endblock %}
+
+{% block menu %}
+                        <ul class="main-navigation-menu">
+                            <li >
+                                <a href="{{path('index2')}}">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-home"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Aceuil </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>{% endblock %}

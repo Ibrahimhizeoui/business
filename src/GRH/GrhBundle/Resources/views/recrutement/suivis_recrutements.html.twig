@@ -1,0 +1,203 @@
+{% extends 'base.html.twig' %}
+{% block title %}Suivis Recrutement | BusinessPark{% endblock %}
+{% block content %}
+   
+                        <section id="page-title">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">GRH </h1>
+                                    
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>gestion des recrutements</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>liste</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                       <!-- start: PAGE TITLE -->
+                       <div class="container-fluid container-fullw bg-white">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="over-title margin-bottom-15">Liste <span class="text-bold">Recrutements</span></h5>
+                                    
+                                    <table class="table table-hover" id="sample-table-1">
+                                        <thead>
+                                            <tr>
+                                                <th class="center">intitule</th>
+                                                <th class="hidden-xs">Type</th>
+                                                <th >Département</th>
+                                                <th class="hidden-xs">Debut occupation</th>
+                                                <th>nbs condidats</th>
+                                                
+                                                <th class="hidden-xs ">Status</th>
+                                                <th ></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for recrutement in recrutements %}
+                                                <tr>
+                                                <td class="center">{{recrutement.intitule}}</td>
+                                                <td class="hidden-xs">{{recrutement.type}}</td>
+                                                <td>{{recrutement.departement.nom}}</td>
+                                                
+                                                <td class="hidden-xs">{{recrutement.dateAjout|date('d,M-Y')}}</td>
+                                               <td >
+                                                 {% set i = 0 %}
+                                                 {% for c in condidats %}
+                                                   
+                                                        {% if recrutement.id == c.recrutement.id %}
+                                                         {% set i = i + '1' %}
+                                                        {% endif %}
+                                                 {% endfor %}
+                                                {{i}}
+                                                
+                                            </td>
+                                                <td class="hidden-xs ">{{recrutement.status}}</td>
+                                                
+                                                <td class="center">
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                                    <a class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-user-plus" data-toggle="modal" data-target="#myModal"></i></a>
+
+                                                     <a  href="{{path('list_condidat',{'id':recrutement.id})}}" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Share" ><i class="fa fa-users"></i></a>
+
+                                                    <a  class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Share" ><i class="fa fa-close"></i></a>
+                                                    <!-- Default Modal -->
+                                       
+                                        <!-- /Default Modal -->
+                                                </div>
+                                                <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                    <div class="btn-group" dropdown="" is-open="status.isopen">
+                                                        <button type="button" class="btn btn-primary btn-o btn-sm dropdown-toggle" dropdown-toggle="">
+                                                            <i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu pull-right dropdown-light" role="menu">
+                                                            <li>
+                                                                <a href="">
+                                                                    Ajouter un condidat
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="">
+                                                                    liste des condidats
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    Fermer recrutement
+                                                                </a>
+                                                            </li>
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </div></td>
+                                            </tr>
+                                            <!-- Default Modal -->
+                                       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        <h4 class="modal-title" id="myModalLabel">Ajouter un condidat</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                    
+                                                    {{ form_start(form) }}
+                                                    {{ form_errors(form) }}
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">
+                                                                Recrutement conserné : 
+                                                            </label>
+                                                             {{ form_widget(form.recrutement,{ 'attr': {'class': 'form-control'} }) }}
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">
+                                                                Nom : 
+                                                            </label>
+                                                             {{ form_widget(form.nom,{ 'attr': {'class': 'form-control'} }) }}
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">
+                                                                Prenom
+                                                            </label>
+                                                             {{ form_widget(form.prenom,{ 'attr': {'class': 'form-control'} }) }}
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">
+                                                                Date de naissance : 
+                                                            </label>
+                                                             {{ form_widget(form.datenaiss,{ 'attr': {'class': 'form-control'} }) }}
+                                                        </div>
+                                                        
+                                                        <div class="form-group">
+                                                            <label for="exampleInputPassword1">
+                                                                Niveau de condidat :  
+                                                            </label>
+                                                            {{ form_widget(form.niveau,{ 'attr': {'class': 'form-control'} }) }}
+                                                        </div>
+                                                        
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">
+                                                                Remarque sur le condidat : </label>
+                                                            
+                                                                {{ form_widget(form.remarque,{ 'attr': {'class': 'form-control'} }) }} 
+                                                            </div>
+                                                        
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">
+                                                                 Date Entretien: </label>
+                                                            
+                                                                {{ form_widget(form.dateentretien,{ 'attr': {'class': 'form-control'} }) }} 
+                                                            </div>
+                                                            <div class="form-group">
+                                                            <label for="exampleInputEmail1">
+                                                                Téléphone : </label>
+                                                            
+                                                                {{ form_widget(form.tel,{ 'attr': {'class': 'form-control'} }) }} 
+                                                             
+                                                            </div>
+                                                        
+                                                       
+                                                        
+                                                    
+                                                </div>
+                                                    <div class="modal-footer">
+                                                       
+                                                         {{ form_widget(form.save,{ 'attr': {'class': 'btn btn-primary'} }) }}
+                                                          <button type="button" class="btn btn-primary btn-o" data-dismiss="modal">
+                                                            Close
+                                                        </button>
+                                                        {{ form_end(form) }} 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /Default Modal -->
+                                            {% endfor %}
+                                            
+                                         
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end: PAGE TITLE -->
+                        <!-- start: YOUR CONTENT HERE -->
+                        <!-- end: YOUR CONTENT HERE -->
+    
+{% endblock %}
+ {% block jspage     %}
+        <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+        
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+               
+            });
+        </script>
+        {% endblock %}

@@ -1,0 +1,126 @@
+grh_grh_homepage:
+    path:     /
+    defaults: { _controller: GRHGrhBundle:Default:index }
+
+departement:
+    path:     /departement
+    defaults: { _controller: GRHGrhBundle:Departement:index }
+ajouter_departement:
+    path:     /ajoutdepartement
+    defaults: { _controller: GRHGrhBundle:Departement:ajouterdepartement }
+supp_departement:
+    path:     /supp_departement/{id}
+    defaults: { _controller: GRHGrhBundle:Departement:supp_departement }
+modif_departement:
+    path:     /modif_departement/{id}
+    defaults: { _controller: GRHGrhBundle:Departement:modif_departement }
+detail_departement:
+    path:     /detail_departement/{id}
+    defaults: {_controller: GRHGrhBundle:Departement:detail_departement}
+
+
+employe:
+    path:     /employes
+    defaults: { _controller: GRHGrhBundle:Employe:index}
+ajouter_employe:
+    path:     /ajouter_employe
+    defaults: {_controller: GRHGrhBundle:Employe:ajouter_employe}
+supp_employe:
+    path:     /supp_employe/{id}
+    defaults: {_controller: GRHGrhBundle:Employe:supp_employe}
+modif_employe:
+    path:     /modif_employe/{id}
+    defaults: {_controller: GRHGrhBundle:Employe:modif_employe}
+profil_employe:
+    path:     /profil_employe/{id}
+    defaults: {_controller: GRHGrhBundle:Employe:profil_employe}
+
+postes:
+    path:     /postes
+    defaults: {_controller: GRHGrhBundle:Post:index}
+ajouter_poste:
+    path:     /ajouter_poste
+    defaults: {_controller: GRHGrhBundle:Post:ajouter_post}
+supp_post:
+    path:     /supp_post/{id}
+    defaults: {_controller: GRHGrhBundle:Post:supp_post}
+modif_post:
+    path:     /modif_post/{id}
+    defaults: {_controller: GRHGrhBundle:Post:modif_post}
+detail_post:
+    path:     /detail_post/{id}
+    defaults: {_controller: GRHGrhBundle:Post:detail_post}
+
+absences:     
+    path:     /absences
+    defaults: {_controller: GRHGrhBundle:Absence:absences}
+ajouter_absence:     
+    path:     /ajouter_absence
+    defaults: {_controller: GRHGrhBundle:Absence:ajouter_absence}
+supp_absence:     
+    path:     /supp_absence/{id}
+    defaults: {_controller: GRHGrhBundle:Absence:supp_absence}
+modif_absence:     
+    path:     /modif_absence/{id}
+    defaults: {_controller: GRHGrhBundle:Absence:modif_absence}
+
+conges:
+    path:    /conges
+    defaults: {_controller: GRHGrhBundle:Conge:conges}
+demande_conges:
+    path:    /demande_conges
+    defaults: {_controller: GRHGrhBundle:Conge:demande_conges}
+ajouter_conge:
+    path:    /ajouter_conges
+    defaults: {_controller: GRHGrhBundle:Conge:ajouter_conges}
+supp_conge:
+    path:    /supp_conge/{id}
+    defaults: {_controller: GRHGrhBundle:Conge:supp_conge}
+modif_conge:
+    path:    /modif_conge/{id}
+    defaults: {_controller: GRHGrhBundle:Conge:modif_conge}
+
+recrutements:
+    path:   /recrutements
+    defaults: {_controller: GRHGrhBundle:Recrutement:recrutements}
+suivis_recrutements:
+    path:   /suivis_recrutements
+    defaults: {_controller: GRHGrhBundle:Recrutement:suivis_recrutements}
+list_condidat:
+    path:   /list_condidat/{id}
+    defaults: {_controller: GRHGrhBundle:Recrutement:list_condidat}
+ajouter_recrutement:
+    path:   /ajouter_recrutement
+    defaults: {_controller: GRHGrhBundle:Recrutement:ajouter_recrutement}
+modif_recrutement:
+    path:   /modif_recrutement/{id}
+    defaults: {_controller: GRHGrhBundle:Recrutement:modif_recrutement}
+supp_recrutement:
+    path:   /supp_recrutement/{id}
+    defaults: {_controller: GRHGrhBundle:Recrutement:supp_recrutement}
+detail_recrutement:
+    path:   /detail_recrutement/{id}
+    defaults: {_controller: GRHGrhBundle:Recrutement:detail_recrutement}
+ajouter_entretien:
+    path:   /ajouter_entretien/{id}
+    defaults: {_controller: GRHGrhBundle:Recrutement:ajouter_entretien}
+list_entretien:
+    path:   /list_entretien
+    defaults: {_controller: GRHGrhBundle:Recrutement:list_entretien}
+supp_entretien:
+    path:   /supp_entretien/{id}
+    defaults: {_controller: GRHGrhBundle:Recrutement:supp_entretien}
+supp_condidat:
+    path:   /supp_condidat/{id}
+    defaults: {_controller: GRHGrhBundle:Recrutement:supp_condidat}
+
+
+salaires:
+    path:   /salaires
+    defaults: {_controller: GRHGrhBundle:Salaire:salaires}
+ajouter_salaire:
+    path:   /ajouter_salaire
+    defaults: {_controller: GRHGrhBundle:Salaire:ajouter_salaire}
+creer_salaire:
+    path:   /creer_salaire/{id}
+    defaults: {_controller: GRHGrhBundle:Salaire:creer_salaire}

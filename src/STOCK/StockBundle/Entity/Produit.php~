@@ -1,0 +1,258 @@
+<?php
+
+namespace STOCK\StockBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Produit
+ *
+ * @ORM\Table(name="produit")
+ * @ORM\Entity(repositoryClass="STOCK\StockBundle\Repository\ProduitRepository")
+ */
+class Produit
+{
+    /**
+     * @ORM\ManyToOne(targetEntity="STOCK\StockBundle\Entity\Categorie")
+     * @ORM\JoinColumn(nullable=true,onDelete="SET NULL")
+     */
+    private $categorie;
+    
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="intitule", type="string", length=255)
+     */
+    private $intitule;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prixunitaire", type="string", length=255)
+     */
+    private $prixunitaire;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="quantite", type="integer")
+     */
+    private $quantite;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="quantitemin", type="integer")
+     */
+    private $quantitemin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255, nullable=true)
+     */
+    private $type;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateajout", type="date")
+     */
+    private $dateajout;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set intitule
+     *
+     * @param string $intitule
+     *
+     * @return Produit
+     */
+    public function setIntitule($intitule)
+    {
+        $this->intitule = $intitule;
+
+        return $this;
+    }
+
+    /**
+     * Get intitule
+     *
+     * @return string
+     */
+    public function getIntitule()
+    {
+        return $this->intitule;
+    }
+
+    /**
+     * Set prixunitaire
+     *
+     * @param string $prixunitaire
+     *
+     * @return Produit
+     */
+    public function setPrixunitaire($prixunitaire)
+    {
+        $this->prixunitaire = $prixunitaire;
+
+        return $this;
+    }
+
+    /**
+     * Get prixunitaire
+     *
+     * @return string
+     */
+    public function getPrixunitaire()
+    {
+        return $this->prixunitaire;
+    }
+
+    /**
+     * Set quantite
+     *
+     * @param integer $quantite
+     *
+     * @return Produit
+     */
+    public function setQuantite($quantite)
+    {
+        $this->quantite = $quantite;
+
+        return $this;
+    }
+
+    /**
+     * Get quantite
+     *
+     * @return int
+     */
+    public function getQuantite()
+    {
+        return $this->quantite;
+    }
+
+    /**
+     * Set quantitemin
+     *
+     * @param integer $quantitemin
+     *
+     * @return Produit
+     */
+    public function setQuantitemin($quantitemin)
+    {
+        $this->quantitemin = $quantitemin;
+
+        return $this;
+    }
+
+    /**
+     * Get quantitemin
+     *
+     * @return int
+     */
+    public function getQuantitemin()
+    {
+        return $this->quantitemin;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Produit
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Produit
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set dateajout
+     *
+     * @param \DateTime $dateajout
+     *
+     * @return Produit
+     */
+    public function setDateajout($dateajout)
+    {
+        $this->dateajout = $dateajout;
+
+        return $this;
+    }
+
+    /**
+     * Get dateajout
+     *
+     * @return \DateTime
+     */
+    public function getDateajout()
+    {
+        return $this->dateajout;
+    }
+}
+

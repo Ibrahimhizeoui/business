@@ -1,0 +1,89 @@
+
+clients:
+    path:   /clients
+    defaults: { _controller: CRMCrmBundle:Client:clients }
+ajouter_client:
+    path:    /ajouter_client
+    defaults: { _controller: CRMCrmBundle:Client:ajouter_client }
+modif_client:
+    path:   /modif_client/{id}
+    defaults: { _controller: CRMCrmBundle:Client:modif_client }
+supp_client:
+    path:   /supp_client/{id}
+    defaults: { _controller: CRMCrmBundle:Client:supp_client }
+profil_client:
+    path:   /profil_client/{id}
+    defaults: { _controller: CRMCrmBundle:Client:profil_client }
+
+services:
+    path:   /services
+    defaults: { _controller: CRMCrmBundle:Service:services }
+serviceenattent:
+    path:   /serviceenattent
+    defaults: { _controller: CRMCrmBundle:Service:serviceenattent }
+traiter_service:
+    path:   /traiter_service/{id}
+    defaults: { _controller: CRMCrmBundle:Service:traiter_service }
+supp_service1:
+    path:   /supp_service1/{id}
+    defaults: { _controller: CRMCrmBundle:Service:supp_service1 }
+
+opportunites:
+    path:   /opportunites
+    defaults: { _controller: CRMCrmBundle:Opportunite:opportunites }
+ajouter_opportunite:
+    path:   /ajouter_opportunite
+    defaults: { _controller: CRMCrmBundle:Opportunite:ajouter_opportunite }
+modif_opportunite:
+    path:   /modif_opportunite/{id}
+    defaults: { _controller: CRMCrmBundle:Opportunite:modif_opportunite }
+supp_opportunite:
+    path:   /supp_opportunite/{id}
+    defaults: { _controller: CRMCrmBundle:Opportunite:supp_opportunite }
+traiter_opportunite:
+    path:   /traiter_opportunite/{id}
+    defaults: { _controller: CRMCrmBundle:Opportunite:traiter_opportunite }
+pipline:
+    path:   /pipline
+    defaults: { _controller: CRMCrmBundle:Opportunite:pipline}
+fermeroppor:
+    path:   /fermeroppor
+    defaults: { _controller: CRMCrmBundle:Opportunite:fermeroppor }
+margergagnier:
+    path:   /margergagnier
+    defaults: { _controller: CRMCrmBundle:Opportunite:margergagnier }
+margerperdus:
+    path:   /margerperdus
+    defaults: { _controller: CRMCrmBundle:Opportunite:margerperdus }
+opportunitesganiger:
+    path:   /opportunitesganiger
+    defaults: { _controller: CRMCrmBundle:Opportunite:opportunitesganiger }
+opportunitesperdus:
+    path:   /opportunitesperdus
+    defaults: { _controller: CRMCrmBundle:Opportunite:opportunitesperdus }
+opportunitesouvert:
+    path:   /opportunitesouvert
+    defaults: { _controller: CRMCrmBundle:Opportunite:opportunitesouvert }
+opportunitesferme:
+    path:   /opportunitesferme
+    defaults: { _controller: CRMCrmBundle:Opportunite:opportunitesferme }
+calendier:
+    path:   /calendier
+    defaults: { _controller: CRMCrmBundle:Opportunite:calendier }
+
+rendezvous:
+    path:   /rendezvous
+    defaults: { _controller: CRMCrmBundle:Rendezvous:rendezvous }
+ajouterrendezvous:
+    path:   /ajouterrendezvous
+    defaults: { _controller: CRMCrmBundle:Rendezvous:ajouterrendezvous }
+supp_rdv:
+    path:   /supp_rdv/{id}
+    defaults: { _controller: CRMCrmBundle:Rendezvous:supp_rdv }
+
+ajouter_compagne:
+    path:   /ajouter_compagne
+    defaults: { _controller: CRMCrmBundle:Compagne:ajouter_compagne }
+compagnes:
+    path:   /compagnes
+    defaults: { _controller: CRMCrmBundle:Compagne:compagnes }

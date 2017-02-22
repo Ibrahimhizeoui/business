@@ -1,0 +1,195 @@
+{% extends 'base.html.twig' %}
+{% block title %}Modifier un fournisseur | BusinessPark{% endblock %}
+{% block content %}
+	<section id="page-title">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">Gestion de stock </h1>
+                                    
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>Gestion des fournisseurs</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>Modifier</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+	<div class="container-fluid container-fullw bg-white">
+							<div class="row">
+								<div class="col-md-12">
+									<h5 class="over-title">Modifier un <span class="text-bold">Fournisseur</span></h5>
+									
+									<div class="row">
+										
+											{{ form_start(form) }}
+                                            {{ form_errors(form) }}
+                                          
+											
+										
+										<div class="col-md-9">
+											<fieldset>
+												<legend>
+												Information
+												</legend>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>
+																Nom de fournisseur
+															</label>
+															{{ form_widget(form.nom,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label">
+																Téléphone 
+															</label>
+															{{ form_widget(form.tel,{ 'attr': {'class': 'form-control'} }) }}
+															
+														</div>
+													</div>
+												</div>
+												
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>
+																Fax
+															</label>
+															{{ form_widget(form.fax,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label">
+																Email
+															</label>
+															
+															{{ form_widget(form.email,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="block">
+																Adresse
+															</label>
+															{{ form_widget(form.adress,{'attr' :{'class': 'form-control'}}) }}
+														</div>
+													</div>
+													
+													
+												</div>
+												
+												
+												
+											</fieldset>
+											
+										</div>
+									</div>
+									{{ form_widget(form.save,{ 'attr': {'class': 'btn btn-o btn-primary'} }) }}
+														{{ form_end(form) }} 
+														
+												
+								</div>
+							</div>
+						</div>
+{% endblock %}
+{% block jspage	 %}
+ 	    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script src="{{asset('vendor/maskedinput/jquery.maskedinput.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+		<script src="{{asset('vendor/autosize/autosize.min.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/classie.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/selectFx.js')}}"></script>
+		<script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-timepicker/bootstrap-timepicker.min.js')}}"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+
+        
+        <!-- start: JavaScript Event Handlers for this page -->
+		<script src="{{asset('assets/js/form-elements.js')}}"></script>
+
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+                FormElements.init();
+            });
+        </script>
+        </script>
+        {% endblock %}
+        {% block menu %}
+                        <ul class="main-navigation-menu">
+                            <li >
+                                <a href="{{path('index2')}}">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-home"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Aceuil </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>{% endblock %}
+
+ {% block menustok %}
+                        
+                            <li class="active open">
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-agenda"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Gestion de stock 
+                                            
+                                            </span><span class="label label-danger pull-right" id="danger"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                   <li >
+                                                <a href="{{path('produits')}}">
+                                                    Produits
+                                                </a>
+                                            </li>
+                                    <li>
+                                                <a href="{{path('categories')}}">
+                                                    Categories
+                                                </a>
+                                            </li>
+                                      <li class="active">
+                                                <a href="{{path('fournisseurs')}}">
+                                                    Fournisseurs
+                                                </a>
+                                            </li>
+                                                         
+                                    <li>
+                                                <a href="{{path('bonreceptions')}}">
+                                                  Commandes d'achat
+                                                </a>
+                                            </li>
+                                      
+                                       <li>
+                                                <a href="{{path('bonreceptions2')}}">
+                                                   Bons de reception
+                                                </a>
+                                            </li>
+                                               
+                                      <li>
+                                                <a href="{{path('commandes')}}">
+                                                   Commandes de vente
+                                                </a>
+                                            </li>
+
+                                      
+                                    
+                                </ul>
+                            </li>{% endblock %}

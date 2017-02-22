@@ -1,0 +1,63 @@
+
+                     <div class="container-fluid container-fullw bg-white">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <h5 class="over-title margin-bottom-15">ajouter un  <span class="text-bold">Paiment Client </span></h5>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            {{ form_start(form) }}
+                                            {{ form_errors(form) }}
+                                          
+                                            <fieldset>
+                                                <legend>
+                                                    Fiche de Paiement 
+                                                </legend>
+                                                <div class="form-group">
+                                                    <label>
+                                                        Typepaiement <span class="symbol required"></span>
+                                                    </label>
+                                                    <div class="form-group">
+                                                        
+                                                        {{ form_widget(form.typepaiement,{ 'attr': {'class': 'form-control'} }) }}
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>
+                                                        Montant  <span class="symbol required"></span>
+                                                    </label>
+                                                    <div class="form-group">
+                                                        
+                                                        {{ form_widget(form.montant,{ 'attr': {'class': 'form-control'} }) }}
+                                                    </div>
+                                                </div>
+                                                 <div class="form-group">
+                                                    <label>
+                                                        Client <span class="symbol required"></span>
+                                                    </label>
+                                                    <div class="form-group">
+                                                        
+                                                        {{ form_widget(form.client) }}
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label>
+                                                        Date payment  <span class="symbol required"></span>
+                                                    </label>
+                                                    <div class="form-group">
+                                                        
+                                                        {{ form_widget(form.datepayment,{ 'attr': {'class': 'form-control','placeholder':'tappez l email'} }) }}
+                                                    </div>
+                                                </div>
+                                                {{ form_widget(form.save,{ 'attr': {'class': 'btn btn-o btn-primary'} }) }}
+                                                <input type="reset" value="reset" class="btn btn-o btn-danger" />
+                                                        {{ form_end(form) }} 
+                                            </fieldset>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+

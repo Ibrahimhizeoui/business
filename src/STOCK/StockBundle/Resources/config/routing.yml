@@ -1,0 +1,128 @@
+categories:
+    path:     /categories
+    defaults: { _controller: STOCKStockBundle:Categorie:categories }
+ajouter_categorie:
+    path:     /ajouter_categorie
+    defaults: { _controller: STOCKStockBundle:Categorie:ajouter_categorie }
+modif_categorie:
+    path:     /modif_categorie/{id}
+    defaults: { _controller: STOCKStockBundle:Categorie:modif_categorie }
+supp_categorie:
+    path:     /supp_categorie/{id}
+    defaults: { _controller: STOCKStockBundle:Categorie:supp_categorie }
+
+
+produits:
+    path:     /produits
+    defaults: { _controller: STOCKStockBundle:Produit:produits }
+ajouter_produit:
+    path:     /ajouter_produit
+    defaults: { _controller: STOCKStockBundle:Produit:ajouter_produit }
+modif_produit:
+    path:     /modif_produit/{id}
+    defaults: { _controller: STOCKStockBundle:Produit:modif_produit }
+supp_produit:
+    path:     /supp_produit/{id}
+    defaults: { _controller: STOCKStockBundle:Produit:supp_produit }
+detail_produit:
+    path:     /detail_produit/{id}
+    defaults: { _controller: STOCKStockBundle:Produit:detail_produit }
+danger_stock:
+    path:     /danger_stock
+    defaults: { _controller: STOCKStockBundle:Produit:danger_stock }
+
+fournisseurs:
+    path:     /fournisseurs
+    defaults: { _controller: STOCKStockBundle:Fournisseur:fournisseurs }
+ajouter_fournisseur:
+    path:     /ajouter_fournisseur
+    defaults: { _controller: STOCKStockBundle:Fournisseur:ajouter_fournisseur }
+    options:
+        expose: true
+modif_fournisseur:
+    path:     /modif_fournisseur/{id}
+    defaults: { _controller: STOCKStockBundle:Fournisseur:modif_fournisseur }
+supp_fournisseur:
+    path:     /supp_fournisseur/{id}
+    defaults: { _controller: STOCKStockBundle:Fournisseur:supp_fournisseur }
+
+commandes:
+    path:     /commandes
+    defaults: { _controller: STOCKStockBundle:Commande:commandes }
+commande_vente:
+    path:     /commande_vente
+    defaults: { _controller: STOCKStockBundle:Commande:commande_vente}
+ajouter_commande_vente:
+    path:     /ajouter_commande_vente/{id}
+    defaults: {_controller: STOCKStockBundle:Commande:ajouter_commande_vente}
+    options:
+        expose: true
+create_commande_achat:
+    path:     /create_commande_achat
+    defaults: {_controller: STOCKStockBundle:Commande:create_commande_achat}
+modif_commande:
+    path:     /modif_commande/{id}
+    defaults: {_controller: STOCKStockBundle:Commande:modif_commande}
+    options:
+        expose: true
+supp_commande:
+    path:     /supp_commande/{id}
+    defaults: {_controller: STOCKStockBundle:Commande:supp_commande}
+detail_commande:
+    path:     /detail_commande/{id}
+    defaults: {_controller: STOCKStockBundle:Commande:detail_commande}
+accepter_commande:
+    path:     accepter_commande/{id}
+    defaults: {_controller: STOCKStockBundle:Commande:accepter_commande}
+supp_ligne:
+    path:     /supp_ligne
+    defaults: {_controller: STOCKStockBundle:Commande:supp_ligne}
+    options:
+        expose: true
+ceslignes1:
+    path:     /ceslignes/{id}
+    defaults: {_controller: STOCKStockBundle:Commande:ceslignes}
+pdfvente: 
+    path:     /pdfvente/{id}
+    defaults: {_controller: STOCKStockBundle:Commande:pdfvente}
+
+
+
+bonreceptions:
+    path:     /liste_commande_achat
+    defaults: { _controller: STOCKStockBundle:Bonreception:bonreceptions }
+bonreceptions2:
+    path:     /liste_bonreceptions
+    defaults: { _controller: STOCKStockBundle:Bonreception:bonreceptions2 }
+bon_reception:
+    path:     /bon_reception
+    defaults: { _controller: STOCKStockBundle:Bonreception:bon_reception}
+ajouter_bon_reception:
+    path:     /ajouter_une_commande_achat/{id}
+    defaults: {_controller: STOCKStockBundle:Bonreception:ajouter_bon_reception}
+    options:
+        expose: true
+supp_bonreception:
+    path:     /supp_bonreception/{id}
+    defaults: {_controller: STOCKStockBundle:Bonreception:supp_bonreception}
+modif_bonreception:
+    path:     /modif_bonreception/{id}
+    defaults: {_controller: STOCKStockBundle:Bonreception:modif_bonreception}
+    options:
+        expose: true
+
+detail_bonreception:
+    path:     /detail_bonreception/{id}
+    defaults: {_controller: STOCKStockBundle:Bonreception:detail_bonreception}
+supp_lignebon:
+    path:     /supp_lignebon
+    defaults: {_controller: STOCKStockBundle:Bonreception:supp_lignebon}
+    options:
+        expose: true
+ceslignes2:
+    path:     /cesligne/{id}
+    defaults: {_controller: STOCKStockBundle:Bonreception:ceslignes}
+pdf:
+    path:     /pdf/{id}
+    defaults: {_controller: STOCKStockBundle:Bonreception:pdf}
+    

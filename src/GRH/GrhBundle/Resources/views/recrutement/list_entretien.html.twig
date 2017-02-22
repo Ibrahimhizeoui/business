@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+{% block title %}liste Entretiens | BusinessPark{% endblock %}
+{% block content %}
+   
+                        <section id="page-title">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">GRH </h1>
+                                    
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>gestion des recrutements</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>liste Entretiens</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                       <!-- start: PAGE TITLE -->
+                       <div class="container-fluid container-fullw bg-white">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="over-title margin-bottom-15">Liste <span class="text-bold">CONDIDATS</span></h5>
+                                    
+                                    <table class="table table-hover" id="sample-table-1">
+                                        <thead>
+                                            <tr>
+                                                <th >Nom & Prénom</th>
+                                                <th class="hidden-xs">Telephone</th>
+                                                <th >Description</th>
+                                                <th class="hidden-xs">Date Entretien</th>
+                                                
+                                                
+                                                <th class="hidden-xs ">Recrutement</th>
+                                                <th>Status</th>
+                                                <th ></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for entretien in entretiens %}
+                                                <tr>
+                                                <td >{{entretien.condidat.nom~' '~entretien.condidat.prenom}}</td>
+                                                <td class="hidden-xs">{{entretien.condidat.tel}}</td>
+                                                <td>{{entretien.description}}</td>
+                                                
+                                                <td class="hidden-xs">{{entretien.condidat.dateentretien|date('d,M-Y')}}</td>
+                                                <td>{{entretien.condidat.recrutement.intitule}}</td>
+                                                <td class="hidden-xs">
+                                                     {% if entretien.status == 'refuser' %}
+                                                        <span class="label label-danger"> Refuser</span>
+                                                        {% elseif  entretien.status == 'passable' %}
+                                                          <span class="label label-warning"> Passable</span>
+                                                        {% else %}
+                                                        <span class="label label-success"> Accepter</span>
+
+                                                     {% endif %}
+
+                                                    </td>
+                                              
+                                                <td class="center">
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                                    
+
+                                                    
+
+                                                    <a href="{{path('supp_entretien',{'id':entretien.id})}}" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Share" ><i class="fa fa-close"></i></a>
+                                                    <!-- Default Modal -->
+                                       
+                                        <!-- /Default Modal -->
+                                                </div>
+                                                <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                    <div class="btn-group" dropdown="" is-open="status.isopen">
+                                                        <button type="button" class="btn btn-primary btn-o btn-sm dropdown-toggle" dropdown-toggle="">
+                                                            <i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu pull-right dropdown-light" role="menu">
+                                                            <li>
+                                                                <a href="">
+                                                                    Ajouter un condidat
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="">
+                                                                    liste des condidats
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    Fermer recrutement
+                                                                </a>
+                                                            </li>
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </div></td>
+                                            </tr>
+                                            <!-- Default Modal -->
+                                       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /Default Modal -->
+                                            {% endfor %}
+                                            
+                                         
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end: PAGE TITLE -->
+                        <!-- start: YOUR CONTENT HERE -->
+                        <!-- end: YOUR CONTENT HERE -->
+    
+{% endblock %}
+ {% block jspage     %}
+        <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+        
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+               
+            });
+        </script>
+        {% endblock %}

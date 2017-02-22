@@ -1,0 +1,106 @@
+
+                                    <h5 class="over-title margin-bottom-15">La liste des opportunites  <span class="text-bold"> gangier</span></h5>
+                                    <br>
+                                        <br>
+                                    <table class="table table-striped  table-hover table-full-width" id="sample_1">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th class="hidden-xs">Intitule</th>
+                                                <th>compagne</th>
+                                                <th class="hidden-xs">Nom Client</th>
+                                                <th>Etat de opportunite</th>
+                                                <th class="hidden-xs">Revenue espérer</th>
+                                                <td >Tache</td>
+                                                <th class="hidden-xs">Date de fermeture</th>
+                                                
+                                                <th >Action</th>
+                                                
+                                                
+                                                
+                                                </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for opportunite in opportunites %}
+                                            
+                                            <tr>
+                                                <td > {{opportunite.id}}</td>
+                                               <td class="hidden-xs" >{{opportunite.intitule}}</td>
+                                               
+                                                
+
+                                                
+                                                <td  >{{opportunite.compagne.intitule}}</td>
+                                                
+                                                 <td class="hidden-xs" >{{opportunite.client.nom}}</td>
+                                                <td>
+                                                    {% if opportunite.type=='nouveau' %}
+                                                        <span class="label label-danger" >Nouveau</span>
+                                                        {% endif %}
+                                                              {% if opportunite.type=='qualifie' %}
+                                                                  <span class="label label-warning" >Qualifié</span>
+                                                                   {% endif %}
+
+
+                                                        {% if opportunite.type=='proposition'%}
+                                                        <span class="label label-success " >Proposition</span>
+
+
+                                                        {% endif %}
+                                                         {% if opportunite.type=='negociation'%}
+                                                        <span class="label label-success " >Négociation</span>
+
+
+                                                    {% endif %}
+                                                        
+                                                </td>
+                                                <td class="hidden-xs" >{{opportunite.revenue}}</td>
+                                                <td  >{{opportunite.activite}}</td>
+                                                
+                                                <td class="hidden-xs" >{{opportunite.datefermeture|date('d M Y')}}</td>
+                                                
+                                                
+                                                
+                                                <td class="center">
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                                    <a href="{{path('modif_opportunite',{'id':opportunite.id})}}" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+                                                    <a href="{{path('traiter_opportunite',{'id':opportunite.id})}}" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Share"><i class="fa fa-eye"></i></a>
+                                                   
+
+                                                    <a href="{{path('supp_opportunite',{'id':opportunite.id})}}" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+                                                </div>
+                                                <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                    <div class="btn-group" dropdown="">
+                                                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle" dropdown-toggle="">
+                                                            <i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu pull-right dropdown-light" role="menu">
+                                                            <li>
+                                                                <a href="#">
+                                                                    Mofidier
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="#">
+                                                                    Profil
+                                                                </a>
+                                                            </li>
+ 
+                                                           
+                                                            
+                                                            <li>
+                                                                <a href="#">
+                                                                    Supprimer
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div></td>
+                                                
+                                            </tr>
+                                            {% endfor %}
+                                            
+                                        </tbody>
+                                    </table>
+                                

@@ -1,0 +1,236 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des services | BusinessPark{% endblock %}
+{% block content %}
+    <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+        <link href="{{asset('vendor/select2/select2.min.css')}}" rel="stylesheet" media="screen">
+        <link href="{{asset('vendor/DataTables/css/DT_bootstrap.css')}}" rel="stylesheet" media="screen">
+       <div id="ff">
+        <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+    <section id="page-title">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">CRM </h1>
+                                    <span class="mainDescription"> Liste des <span class="text-bold"> Services</span></span>
+
+                                    
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>gestion des services</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>liste</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                        <!-- start: DYNAMIC TABLE -->
+                        <div class="container-fluid container-fullw bg-white">
+                            <div class="row">
+                                
+                                <div class="col-md-12">
+                                    <button class="btn btn-primary btn-squared margin-bottom-20 hidden-xs" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-plus"></i> Services en attente</button>
+
+                                    <button class="btn btn-primary btn-squared margin-bottom-20 hidden-xs  " id="fi"><i class="fa fa-print"></i> Imprimer</button>
+
+                                       <br>
+                                        <br>
+                                    <table class="table table-striped  table-hover table-full-width" id="sample_1">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th class="">Nom Client</th>
+                                                <th>Sujet</th>
+                                                <th class="">Description</th>
+                                                <th>Statisfaction</th>
+                                                <th class="">Etat de service</th>
+                                                <th>Date d'ajoute</th>
+                                                
+                                                <th class="hidden-xs center">Action</th>
+                                                
+                                                
+                                                
+                                                </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for service in services %}
+                                            
+                                            <tr>
+                                                <td > {{service.id}}</td>
+                                               
+                                                <td class="" >{{service.client.nom}}</td>
+                                                
+
+                                                
+                                                <td  >{{service.sujet}}</td>
+                                                <td class="" >{{service.description}}</td>
+                                                <td>
+                                                    {% if service.status=='non' %}
+                                                        <span class="label label-danger" >NON</span>
+
+
+                                                        {% else %}
+                                                        <span class="label label-success " >OUI</span>
+
+
+                                                    {% endif %}
+                                                        
+                                                    </td>
+                                                <td>
+                                                    {% if service.etat=='non_consulter' %}
+                                                        <span class="label label-danger" >NON CONSULTER</span>
+                                                        {% endif %}
+                                                              {% if service.etat=='en_attente' %}
+                                                                  <span class="label label-warning" >EN ATTENTE</span>
+                                                                   {% endif %}
+
+
+                                                        {% if service.etat=='consulter'%}
+                                                        <span class="label label-success " >CONSULTER</span>
+
+
+                                                    {% endif %}
+                                                        
+                                                    </td>
+                                                <td  >{{service.dateajout|date('d M Y')}}</td>
+                                                
+                                                
+                                                
+                                                
+                                                <td class="hidden-xs center">
+                                                <div class="visible-md visible-lg hidden-sm ">
+                                                    <a href="{{path('traiter_service',{'id':service.id})}}" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+                                                    
+                                                   
+
+                                                    <a href="{{path('supp_service1',{'id':service.id})}}" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+                                                </div>
+                                                <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                    <div class="btn-group" dropdown="">
+                                                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle" dropdown-toggle="">
+                                                            <i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu pull-right dropdown-light" role="menu">
+                                                            <li>
+                                                                <a href="#">
+                                                                    Mofidier
+                                                                </a>
+                                                            </li>
+
+                                                           
+                                                            
+                                                            <li>
+                                                                <a href="#">
+                                                                    Supprimer
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div></td>
+                                                
+                                            </tr>
+                                            {% endfor %}
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div></div>
+                        <!-- end: DYNAMIC TABLE -->
+                        <div class="modal fade bs-example-modal-lg"  tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                         {{ render(controller("CRMCrmBundle:Service:serviceenattent")) }} 
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+                        
+    
+{% endblock %}
+{% block jspage %}
+        !-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+        <script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+        <script src="{{asset('vendor/DataTables/jquery.dataTables.min.js')}}"></script>
+       <script src="{{asset('assets/js/jQuery.print.js')}}"></script>
+       
+        <script src="{{asset('assets/js/table-data.js')}}"></script>
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+                TableData.init();
+                 $('.modal-content').css('background','white');
+                $("#fi").click(function(){
+                    $("#ff").print();
+                });
+                 
+            });
+        </script>
+        {% endblock %}
+        
+{% block menu %}
+                        <ul class="main-navigation-menu">
+                            <li >
+                                <a href="{{path('index2')}}">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-home"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Aceuil </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>{% endblock %}
+                            {% block menucrm %}
+                        
+                            <li class="active open">
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-agenda"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> CRM 
+                                            
+                                            </span><i class="icon-arrow"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                  <li >
+                                                <a href="{{path('clients')}}">
+                                                    Clients
+                                                </a>
+                                            </li>
+
+                                            
+                                            <li class="active">
+                                                <a href="{{path('services')}}">
+                                                    Services
+                                                </a>
+                                            </li>
+
+                                             <li >
+                                                <a href="{{path('compagnes')}}">
+                                                    Compagnes marketing
+                                                </a>
+                                            </li>
+                                           
+                                           <li>
+                                                <a href="{{path('opportunites')}}">
+                                                    Opportunites de vente
+                                                </a>
+                                            </li>
+
+                                            
+                                            
+                                            
+                                    
+                                    
+                                </ul>
+                            </li>{% endblock %}
+

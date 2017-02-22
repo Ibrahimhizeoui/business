@@ -1,0 +1,375 @@
+{% extends 'base.html.twig' %}
+{% block title %}detail produit | BusinessPark{% endblock %}
+{% block content %}
+	
+	<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<link href="{{asset('vendor/select2/select2.min.css')}}" rel="stylesheet" media="screen">
+		<link href="{{asset('vendor/DataTables/css/DT_bootstrap.css')}}" rel="stylesheet" media="screen">
+		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<div id="ff">
+	<section id="page-title">
+
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">Gestion de stock </h1>
+                                    
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>gestion des produits</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>detail</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                        <!-- start: DYNAMIC TABLE -->
+						<div class="container-fluid container-fullw bg-white">
+							<h5 class="over-title">Fiche de  <span class="text-bold">Produit</span></h5>
+							<button class="btn btn-primary btn-squared margin-bottom-20 hidden-xs " id="fi"><i class="fa fa-print"></i> Imprimer</button>
+                                   
+							<div class="col-md-12">
+									<div class="tabbable">
+										<ul class="nav nav-tabs tab-padding tab-space-3 tab-blue" id="myTab4">
+											<li class="active"	>
+												<a data-toggle="tab" href="#panel_overview" aria-expanded="true">
+													Overview
+												</a>
+											</li>
+											<li class="">
+												<a data-toggle="tab" href="#panel_edit_account" aria-expanded="false">
+													Commande de vente
+												</a>
+											</li>
+											<li >
+												<a data-toggle="tab" href="#panel_projects" aria-expanded="false">
+													Commande d'achat
+												</a>
+											</li>
+										</ul>
+										<div class="tab-content">
+											<div id="panel_overview" class="tab-pane fade active in">
+												<div class="row">
+													<div class="col-sm-5 col-md-4">
+														<div class="user-left">
+															<div class="center">
+																<h4>{{produit.intitule}}</h4>
+																
+																
+																<hr>
+															</div>
+															<table class="table table-condensed">
+																<thead>
+																	<tr>
+																		<th colspan="3">Information</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>Categorie</td>
+																		<td>
+																		<a href="#">
+																			{% if produit.categorie != null %}
+																			{{produit.categorie.categorie}}
+																			{% endif %}
+																		</a></td>
+																		<td><a href="#panel_edit_account" class="show-tab"><i class="fa fa-pencil edit-user-info"></i></a></td>
+																	</tr>
+																	<tr>
+																		<td>Prix Unitaire:</td>
+																		<td>
+																		<a href="">
+																			{{produit.prixunitaire}}
+																		</a></td>
+																		<td><a href="#panel_edit_account" class="show-tab"><i class="fa fa-pencil edit-user-info"></i></a></td>
+																	</tr>
+																	<tr>
+																		<td>Quantite existante:</td>
+																		<td>{{produit.quantite}}</td>
+																		<td><a href="#panel_edit_account" class="show-tab"><i class="fa fa-pencil edit-user-info"></i></a></td>
+																	</tr>
+																	<tr>
+																		<td>Quantite Minimle:</td>
+																		<td>
+																		<a href="">
+																			{{produit.quantitemin}}
+																		</a></td>
+																		<td><a href="#panel_edit_account" class="show-tab"><i class="fa fa-pencil edit-user-info"></i></a></td>
+																	</tr>
+																</tbody>
+															</table>
+															<table class="table">
+																<thead>
+																	<tr>
+																		<th colspan="3">General information</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>Description</td>
+																		<td>{{produit.description}}</td>
+																		<td><a href="#panel_edit_account" class="show-tab"><i class="fa fa-pencil edit-user-info"></i></a></td>
+																	</tr>
+																	<tr>
+																		<td>Type de produit</td>
+																		<td>{{produit.type}}</td>
+																		<td><a href="#panel_edit_account" class="show-tab"><i class="fa fa-pencil edit-user-info"></i></a></td>
+																	</tr>
+																	<tr>
+																		<td>Date d'ajout</td>
+																		<td>{{produit.dateajout|date('d M Y')}}</td>
+																		<td><a href="#panel_edit_account" class="show-tab"><i class="fa fa-pencil edit-user-info"></i></a></td>
+																	</tr>
+																	
+																</tbody>
+															</table>
+															
+														</div>
+													</div>
+										<div class="col-sm-7 col-md-8">
+														
+														<div class="panel panel-white" id="activities">
+															<div class="panel-heading border-light">
+																<h4 class="panel-title text-primary">Recent Activities</h4>
+																<paneltool class="panel-tools" tool-collapse="tool-collapse" tool-refresh="load1" tool-dismiss="tool-dismiss"></paneltool>
+															</div>
+															<div collapse="activities" ng-init="activities=false" class="panel-wrapper">
+																<div class="panel-body">
+																	<div class="col-sm-12">
+									         <h5 class="over-title margin-bottom-15"> <span class="text-bold">Courbe</span></h5>
+									          <div class="row">
+									          	<div class="col-sm-6">
+											      <canvas id="lineChart" class="full-width" width="530" height="265" style="width: 530px; height: 265px;"></canvas>
+										           </div>
+										           
+												
+											
+										</div>
+									</div>
+								</div>
+																</div>
+															</div>
+														</div>
+														
+													</div>
+												</div>
+											</div>
+											<div id="panel_edit_account" class="tab-pane fade">
+												<table class="table" id="projects">
+													<thead>
+														<tr>
+															<th>#</th>
+															<th class="hidden-xs">Client</th>
+															<th class="center">Date de Commmande</th>
+															<th class="hidden-xs">Quantité sortie</th>
+															<th class="center hidden-xs">Etat au stock</th>
+															<th class="hidden-xs center">Totale $</th>
+														</tr>
+													</thead>
+													<tbody>
+														{% for cescom in cescoms %}
+														<tr>
+															<td>{{cescom.id}}</td>
+
+															<td class="hidden-xs">
+																{% if cescom.commande.client != null %}
+																	{{cescom.commande.client.nom}}
+
+																{% endif %}
+
+																
+															</td>
+															<td class="center">{{cescom.datecom|date('d M Y')}} </td>
+															<td class="hidden-xs">
+																{% if cescom.quantite < cescom.produit.quantitemin %}
+															<div class="progress active progress-xs">
+																<div style="width: 70%" aria-valuemax="10000000" aria-valuemin="0" aria-valuenow="{{cescom.quantite}}" role="progressbar" class="progress-bar progress-bar-warning">
+																	<span class="sr-only"> {{cescom.quantite}}</span>
+																</div>
+															</div>
+															{% else %}
+															<div class="progress active progress-xs">
+																<div style="width: 70%" aria-valuemax="100000" aria-valuemin="0" aria-valuenow="{{cescom.quantite}}" role="progressbar" class="progress-bar progress-bar-success">
+																	<span class="sr-only"> {{cescom.quantite}}</span>
+																</div>
+														    {% endif %}
+														    </td>
+														    <td class="center hidden-xs">
+														    	{% if cescom.pstock == 'stocke' %}
+														    	<span class="label label-success">Stocker </span>
+														    	{% else %}
+														    	<span class="label label-danger">Non Stocker </span>
+														    	{% endif %}
+														    	
+														    </td>
+															<td class="center hidden-xs"><span class="">
+																{{cescom.total}}
+															</span></td>
+														</tr>
+														{% endfor %}
+													</tbody>
+												</table>
+											</div>
+											<div id="panel_projects" class="tab-pane fade ">
+												<table class="table" id="projects">
+													<thead>
+														<tr>
+															<th>#</th>
+															<th class="hidden-xs">Fournisseur</th>
+															<th>Date de Commmande</th>
+															<th class="hidden-xs">Quantité entrer</th>
+															<th class="hidden-xs">Etat au stock</th>
+															<th class="hidden-xs center">Totale $</th>
+														</tr>
+													</thead>
+													<tbody>
+														{% for cesbon in cesbons %}
+														<tr>
+															<td>{{cesbon.id}}</td>
+															<td class="hidden-xs">{{cesbon.bonreception.fournisseur.nom}}
+															</td>
+															<td>{{cesbon.datebon|date('d M Y')}} </td>
+															<td class="hidden-xs">
+																{% if cesbon.quantite < cesbon.produit.quantitemin %}
+															<div class="progress active progress-xs">
+																<div style="width: 70%" aria-valuemax="10000000" aria-valuemin="0" aria-valuenow="{{cesbon.quantite}}" role="progressbar" class="progress-bar progress-bar-warning">
+																	<span class="sr-only"> {{cesbon.quantite}}</span>
+																</div>
+															</div>
+															{% else %}
+															<div class="progress active progress-xs">
+																<div style="width: 70%" aria-valuemax="10000000" aria-valuemin="0" aria-valuenow="{{cesbon.quantite}}" role="progressbar" class="progress-bar progress-bar-success">
+																	<span class="sr-only"> {{cesbon.quantite}}</span>
+																</div>
+														    {% endif %}
+														    </td>
+														    <td class="center hidden-xs">
+														    	{% if cesbon.bonreception.status == 'affecter' %}
+														    	<span class="label label-success">{{ cesbon.bonreception.status}} </span>
+														    	{% else %}
+														    	<span class="label label-danger">{{ cesbon.bonreception.status}} </span>
+														    	{% endif %}
+														    	
+														    </td>
+															<td class="center hidden-xs"><span class="">
+																{{cesbon.total}}
+															</span></td>
+														</tr>
+														{% endfor %}
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+						</div></div>
+						<!-- end: DYNAMIC TABLE -->
+						
+	
+{% endblock %}
+{% block jspage %}
+        <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+        <script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('vendor/modernizr/modernizr.js')}}"></script>
+        <script src="{{asset('vendor/jquery-cookie/jquery.cookie.js')}}"></script>
+        <script src="{{asset('vendor/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
+        <script src="{{asset('vendor/switchery/switchery.min.js')}}"></script>
+        <script src="{{asset('vendor/Chart.js/Chart.min.js')}}"></script>
+        
+        <!-- end: MAIN JAVASCRIPTS -->
+       <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+		<script src="{{asset('vendor/DataTables/jquery.dataTables.min.js')}}"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<!-- start: CLIP-TWO JAVASCRIPTS -->
+		 <script src="{{asset('assets/js/jQuery.print.js')}}"></script>
+       
+		
+
+		<!-- start: JavaScript Event Handlers for this page -->
+		
+		<script src="{{asset('assets/js/charts.js')}}"></script>
+		<script>
+			jQuery(document).ready(function() {
+				Main.init();
+				
+				Charts.init();
+				$("#fi").click(function(){
+                    $("#ff").print();
+                });
+				
+
+			});
+		</script>
+        {% endblock %}
+
+{% block menu %}
+                        <ul class="main-navigation-menu">
+                            <li >
+                                <a href="{{path('index2')}}">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-home"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Aceuil </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>{% endblock %}
+
+ {% block menustok %}
+                        
+                            <li class="active open">
+                                <a href="javascript:void(0)">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <i class="ti-agenda"></i>
+                                        </div>
+                                        <div class="item-inner">
+                                            <span class="title"> Gestion de stock 
+                                            
+                                            </span><span class="label label-danger pull-right" id="danger"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <ul class="sub-menu">
+                                   <li class="active ">
+                                                <a href="{{path('produits')}}">
+                                                    Produits
+                                                </a>
+                                            </li>
+                                    <li>
+                                                <a href="{{path('categories')}}">
+                                                    Categories
+                                                </a>
+                                            </li>
+                                      <li>
+                                                <a href="{{path('fournisseurs')}}">
+                                                    Fournisseurs
+                                                </a>
+                                            </li>
+                                                         
+                                    <li>
+                                                <a href="{{path('bonreceptions')}}">
+                                                  Commandes d'achat
+                                                </a>
+                                            </li>
+                                      
+                                       <li>
+                                                <a href="{{path('bonreceptions2')}}">
+                                                   Bons de reception
+                                                </a>
+                                            </li>
+                                               
+                                      <li>
+                                                <a href="{{path('commandes')}}">
+                                                   Commandes de vente
+                                                </a>
+                                            </li>
+
+                                      
+                                    
+                                </ul>
+                            </li>{% endblock %}

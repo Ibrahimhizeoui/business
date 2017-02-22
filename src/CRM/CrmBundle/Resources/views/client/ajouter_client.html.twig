@@ -1,0 +1,137 @@
+	<div class="container-fluid container-fullw bg-white">
+							<div class="row">
+								<div class="col-md-12">
+									<h5 class="over-title">Ajouter un <span class="text-bold">Client</span></h5>
+									
+									<div class="row">
+										<div class="col-md-6">
+											{{ form_start(form) }}
+                                            {{ form_errors(form) }}
+                                          
+											<fieldset>
+												<legend>
+													Créer la compte de client
+												</legend>
+												<div class="form-group">
+													<label>
+														E-mail <span class="symbol required"></span>
+													</label>
+													<div class="form-group">
+														
+														{{ form_widget(form.email,{ 'attr': {'class': 'form-control','placeholder':'tappez l email'} }) }}
+													</div>
+												</div>
+												<div class="form-group">
+													<label>
+														Nom d'utilisateur <span class="symbol required"></span>
+													</label>
+													<div class="form-group">
+														
+														{{ form_widget(form.username,{ 'attr': {'class': 'form-control','placeholder':'Tappez nom d\'utilisateur'} }) }}
+													</div>
+												</div>
+											</fieldset>
+											<fieldset>
+												<legend>
+													Information de cleint
+												</legend>
+												<div class="form-group">
+													<label>
+													    Faxe <span class="symbol required"></span>
+													</label>
+													<div class="form-group">
+														
+														{{ form_widget(form.fax,{ 'attr': {'class': 'form-control','placeholder':'Text Field'} }) }}
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label>
+													    Site web <span class="symbol required"></span>
+													</label>
+													<div class="form-group">
+														
+														{{ form_widget(form.siteweb,{ 'attr': {'class': 'form-control','placeholder':'Text Field'} }) }}
+													</div>
+												</div>
+												
+													
+													
+											</fieldset>
+										</div>
+										<div class="col-md-6">
+											<fieldset>
+												<legend>
+													Personal Information
+												</legend>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>
+																Nom
+															</label>
+															{{ form_widget(form.nom,{ 'attr': {'class': 'form-control','placeholder':'Entrer le nom'} }) }}
+														</div>
+													</div>
+													
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="block">
+																Date d'incription
+															</label>
+															{{ form_widget(form.dateinscrit,{'attr' :{'class': 'form-control'}}) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="block">
+																Type client
+															</label>
+															<div class="clip-radio radio-primary">
+																{{ form_widget(form.type) }}
+															</div>
+															
+														</div>
+													</div>
+													
+												</div>
+												
+											</fieldset>
+											<fieldset>
+												<legend>
+													Information professionnelles
+												</legend>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>
+																Téléphone professionnelle
+															</label>
+															{{ form_widget(form.tel,{ 'attr': {'class': 'form-control','placeholder':'Entrer le numéro'} }) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label">
+																Addresse professionnelle
+															</label>
+															
+															{{ form_widget(form.adress,{ 'attr': {'class': 'form-control','placeholder':'Entrer l\'adresse'} }) }}
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													
+													
+												</div>
+											</fieldset>
+										</div>
+									</div>
+									{{ form_widget(form.save,{ 'attr': {'class': 'btn btn-o btn-primary'} }) }}
+														{{ form_end(form) }} 
+												
+								</div>
+							</div>
+						</div>

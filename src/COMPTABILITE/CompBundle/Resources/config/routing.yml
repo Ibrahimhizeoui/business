@@ -1,0 +1,88 @@
+
+comptabilite_comp_homepage:
+    path:     /
+    defaults: { _controller: COMPTABILITECompBundle:Default:index }
+
+taxes:
+    path:     /taxes
+    defaults: {_controller: COMPTABILITECompBundle:Taxe:taxes}
+ajouter_taxe:
+    path:     /ajouter_taxe
+    defaults: {_controller: COMPTABILITECompBundle:Taxe:ajouter_taxe}
+modif_taxe:
+    path:     /modif_taxe/{id}
+    defaults: {_controller: COMPTABILITECompBundle:Taxe:modif_taxe}
+supp_taxe:
+    path:     /supp_taxe/{id}
+    defaults: {_controller: COMPTABILITECompBundle:Taxe:supp_taxe}
+
+factures:
+    path:    /factures
+    defaults: {_controller: COMPTABILITECompBundle:Facture:factures}
+create_facture:
+    path:    /create_facture
+    defaults: {_controller: COMPTABILITECompBundle:Facture:create_facture}
+ajouter_facture:
+    path:    /ajouter_facture/{id}
+    defaults: {_controller: COMPTABILITECompBundle:Facture:ajouter_facture}
+supp_facture:
+    path:    /supp_facture/{id}
+    defaults: {_controller: COMPTABILITECompBundle:Facture:supp_facture}
+detail_facture:
+    path:    /detail_facture/{id}
+    defaults: {_controller: COMPTABILITECompBundle:Facture:detail_facture}
+pdf_facture:
+    path:    /pdf_facture/{id}
+    defaults: {_controller: COMPTABILITECompBundle:Facture:pdf_facture}
+
+ceslignesf:
+    path:    /ceslignesf/{id}
+    defaults: {_controller: COMPTABILITECompBundle:Facture:ceslignesf}
+supp_lignefacture:
+    path:    /supp_lignefacture
+    defaults: {_controller: COMPTABILITECompBundle:Facture:supp_lignefacture}
+valider_facture:
+    path:    /valider_facture/{id}
+    defaults: {_controller: COMPTABILITECompBundle:Facture:valider_facture}
+
+paimentfournisseur:
+    path:    /paimentfournisseur
+    defaults: {_controller: COMPTABILITECompBundle:Paiment:paimentfournisseur}
+ajouter_paimentfournisseur:
+    path:    /ajouter_paimentfournisseur
+    defaults: {_controller: COMPTABILITECompBundle:Paiment:ajouter_paimentfournisseur}
+modif_paimentfournisseur:
+    path:    /modif_paimentfournisseur/{id}
+    defaults: {_controller: COMPTABILITECompBundle:Paiment:modif_paimentfournisseur}
+supp_paimentfournisseur:
+    path:    /supp_paimentfournisseur/{id}
+    defaults: {_controller: COMPTABILITECompBundle:Paiment:supp_paimentfournisseur}
+
+paimentclient:
+    path:    /paimentclient
+    defaults: {_controller: COMPTABILITECompBundle:Paiment:paimentclient}
+ajouter_paimentclient:
+    path:    /ajouter_paimentclient
+    defaults: {_controller: COMPTABILITECompBundle:Paiment:ajouter_paimentclient}
+modif_paimentclient:
+    path:    /modif_paimentclient/{id}
+    defaults: {_controller: COMPTABILITECompBundle:Paiment:modif_paimentclient}
+supp_paimentclient:
+    path:    /supp_paimentclient/{id}
+    defaults: {_controller: COMPTABILITECompBundle:Paiment:supp_paimentclient}
+
+depences:
+    path:    /depences
+    defaults: {_controller: COMPTABILITECompBundle:Depence:depences}
+ajouter_depence:
+    path:    /ajouter_depence
+    defaults: {_controller: COMPTABILITECompBundle:Depence:ajouter_depence}
+modif_depence:
+    path:    /modif_depence/{id}
+    defaults: {_controller: COMPTABILITECompBundle:Depence:modif_depence}
+supp_depence:
+    path:    /supp_depence/{id}
+    defaults: {_controller: COMPTABILITECompBundle:Depence:supp_depence}
+detail_depence:
+    path:    /detail_depence/{id}
+    defaults: {_controller: COMPTABILITECompBundle:Depence:detail_depence}

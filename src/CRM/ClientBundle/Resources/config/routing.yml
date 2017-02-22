@@ -1,0 +1,24 @@
+crm_client_homepage:
+    path:     /index
+    defaults: { _controller: CRMClientBundle:Default:index }
+messervices:
+    path:     /messervices
+    defaults: { _controller: CRMClientBundle:Default:messervices }
+ajouter_service:
+    path:     /ajouter_service
+    defaults: { _controller: CRMClientBundle:Default:ajouter_service }
+supp_service:
+    path:     /supp_service/{id}
+    defaults: { _controller: CRMClientBundle:Default:supp_service }
+modif_service:
+    path:     /modif_service/{id}
+    defaults: { _controller: CRMClientBundle:Default:modif_service }
+danger_service:
+    path:     /danger_service
+    defaults: { _controller: CRMClientBundle:Default:danger_service }
+mes_services_traitee:
+    path:     /mes_services_traitee
+    defaults: { _controller: CRMClientBundle:Default:mes_services_traitee }
+detail_service:
+    path:     /detail_service/{id}
+    defaults: { _controller: CRMClientBundle:Default:detail_service }

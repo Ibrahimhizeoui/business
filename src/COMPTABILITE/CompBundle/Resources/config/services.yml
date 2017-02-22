@@ -1,0 +1,4 @@
+services:
+#    comptabilite_comp.example:
+#        class: COMPTABILITE\CompBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des employés | BusinessPark{% endblock %}
+{% block content %}
+	<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<link href="{{asset('vendor/select2/select2.min.css')}}" rel="stylesheet" media="screen">
+		<link href="{{asset('vendor/DataTables/css/DT_bootstrap.css')}}" rel="stylesheet" media="screen">
+		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+	<section id="page-title">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">GRH </h1>
+                                    <span class="mainDescription">Refers to data arranged in rows and columns. A spreadsheet, for example, is a table. In relational database management systems, all information is stored in the form of tables. <small class="block">Webopedia - Online Tech Dictionary for IT Professionals</small></span>
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>gestion d'emplyés</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>liste</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+                        <!-- start: DYNAMIC TABLE -->
+						<div class="container-fluid container-fullw bg-white">
+							<div class="row">
+								
+								<div class="col-md-12">
+									<h5 class="over-title margin-bottom-15">La liste des  <span class="text-bold">Employés</span></h5>
+									<br>
+										<br>
+									<table class="table table-striped  table-hover table-full-width" id="sample_1">
+										<thead>
+											<tr>
+												
+												<th>Remarque</th>
+												<th class="hidden-xs"> Début</th>
+												<th>Fin</th>
+												<th >Status</th>
+												
+
+											</tr>
+										</thead>
+										<tbody>
+											{% for conge in conges %}
+											
+											<tr>
+												
+												<td>{{conge.remarque}}</td>
+												<td class="hidden-xs">{{conge.debut|date('d,M-Y')}}</td>
+												<td>{{conge.fin|date('d,M-Y')}}</td>
+												<td class="hidden-xs">{{conge.nbjours}}</td>
+												<td>{{conge.status}}</td>
+												
+											</tr>
+											{% endfor %}
+											
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- end: DYNAMIC TABLE -->
+						
+	
+{% endblock %}
+{% block javascripts %}
+        <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+        <script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('vendor/modernizr/modernizr.js')}}"></script>
+        <script src="{{asset('vendor/jquery-cookie/jquery.cookie.js')}}"></script>
+        <script src="{{asset('vendor/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
+        <script src="{{asset('vendor/switchery/switchery.min.js')}}"></script>
+        <!-- end: MAIN JAVASCRIPTS -->
+       <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+		<script src="{{asset('vendor/DataTables/jquery.dataTables.min.js')}}"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<!-- start: CLIP-TWO JAVASCRIPTS -->
+		<script src="{{asset('assets/js/main.js')}}"></script>
+		<!-- start: JavaScript Event Handlers for this page -->
+		<script src="{{asset('assets/js/table-data.js')}}"></script>
+		<script>
+			jQuery(document).ready(function() {
+				Main.init();
+				TableData.init();
+			});
+		</script>
+        {% endblock %}
+

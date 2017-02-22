@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+{% block title %}Modifier Employé | BusinessPark{% endblock %}
+{% block content %}
+	<section id="page-title">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h1 class="mainTitle">GRH </h1>
+                                    <span class="mainDescription">Refers to data arranged in rows and columns. A spreadsheet, for example, is a table. In relational database management systems, all information is stored in the form of tables. <small class="block">Webopedia - Online Tech Dictionary for IT Professionals</small></span>
+                                </div>
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <span>gestion d'emplyés</span>
+                                    </li>
+                                    <li class="active">
+                                        <span>ajouter</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+	<div class="container-fluid container-fullw bg-white">
+							<div class="row">
+								<div class="col-md-12">
+									<h5 class="over-title">Ajouter un <span class="text-bold">Emplyé</span></h5>
+									
+									<div class="row">
+										
+											{{ form_start(form) }}
+                                            {{ form_errors(form) }}
+                                          
+											
+										
+										<div class="col-md-9">
+											<fieldset>
+												<legend>
+													Personal Information
+												</legend>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>
+																Sujet
+															</label>
+															{{ form_widget(form.sujet,{ 'attr': {'class': 'form-control','placeholder':'Entrer le nom'} }) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label">
+																Remarque
+															</label>
+															
+															{{ form_widget(form.remarque,{ 'attr': {'class': 'form-control','placeholder':'Entrer le prénom'} }) }}
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="block">
+																Début
+															</label>
+															{{ form_widget(form.debut,{'attr' :{'class': 'form-control'}}) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="block">
+																Description d'activité
+															</label>
+															
+																{{ form_widget(form.description) }}
+														
+															
+														</div>
+													</div>
+													
+												</div>
+												
+											</fieldset>
+											
+										</div>
+									</div>
+									{{ form_widget(form.save,{ 'attr': {'class': 'btn btn-o btn-primary'} }) }}
+														{{ form_end(form) }} 
+														
+												
+								</div>
+							</div>
+						</div>
+{% endblock %}
+{% block jspage	 %}
+ 	    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script src="{{asset('vendor/maskedinput/jquery.maskedinput.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+		<script src="{{asset('vendor/autosize/autosize.min.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/classie.js')}}"></script>
+		<script src="{{asset('vendor/selectFx/selectFx.js')}}"></script>
+		<script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+		<script src="{{asset('vendor/bootstrap-timepicker/bootstrap-timepicker.min.js')}}"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+
+        
+        <!-- start: JavaScript Event Handlers for this page -->
+		<script src="{{asset('assets/js/form-elements.js')}}"></script>
+
+        <script>
+            jQuery(document).ready(function() {
+                Main.init();
+                FormElements.init();
+            });
+        </script>
+        </script>
+        {% endblock %}

@@ -1,0 +1,109 @@
+	<div class="container-fluid container-fullw bg-white">
+							<div class="row">
+								<div class="col-md-12">
+									<h5 class="over-title">Ajouter un <span class="text-bold">Produit</span></h5>
+									
+									<div class="row">
+										
+											{{ form_start(form) }}
+                                            {{ form_errors(form) }}
+                                          
+											
+										
+										<div class="col-md-9">
+											<fieldset>
+												<legend>
+												Information
+												</legend>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="cv">
+																Intitulé du produit
+															</label>
+															{{ form_widget(form.intitule,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label">
+																Prix unitaire:
+															</label>
+															{{ form_widget(form.prixunitaire,{ 'attr': {'class': 'form-control'} }) }}
+															
+														</div>
+													</div>
+												</div>
+												
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label>
+																Quantité
+															</label>
+															{{ form_widget(form.quantite,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="control-label">
+																Quantité minimal
+															</label>
+															
+															{{ form_widget(form.quantitemin,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="block">
+																Type produit
+															</label>
+															{{ form_widget(form.type,{'attr' :{'class': 'form-control'}}) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="block">
+																Date d'ajout
+															</label>
+															{{ form_widget(form.dateajout,{'attr' :{'class': 'form-control'}}) }}
+														</div>
+													</div>
+													
+												</div>
+												<div class="row">
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="block">
+																Description
+															</label>
+															{{ form_widget(form.description,{'attr' :{'class': 'form-control'}}) }}
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="form-group">
+															<label class="block">
+																Categorie
+															</label>
+															{{ form_widget(form.categorie,{'attr' :{'class': 'form-control add_prod'}}) }}
+														</div>
+													</div>
+													
+													
+												</div>
+
+												
+												
+											</fieldset>
+											
+										</div>
+									</div>
+									{{ form_widget(form.save,{ 'attr': {'class': 'btn btn-o btn-primary'} }) }}
+														{{ form_end(form) }} 
+														
+												
+								</div>
+							</div>
+						</div>

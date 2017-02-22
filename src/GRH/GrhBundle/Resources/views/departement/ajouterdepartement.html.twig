@@ -1,0 +1,64 @@
+
+
+                        <div class="container-fluid container-fullw bg-white">
+							<div class="row">
+								<div class="col-md-12">
+									<h5 class="over-title margin-bottom-15">Ajouter <span class="text-bold">Departement</span></h5>
+									
+									
+									<div class="row">
+										
+											{{ form_start(form) }}
+                                            {{ form_errors(form) }}
+                                          
+											
+										
+										<div class="col-md-9">
+											<fieldset>
+												<legend>
+												Information
+												</legend>
+												<div class="row">
+													<div class="form-group">
+															<label for="exampleInputEmail1">
+																Nom du département : 
+															</label>
+															 {{ form_widget(form.nom,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+												</div>
+												
+												<div class="row">
+													<div class="form-group">
+															<label for="exampleInputPassword1">
+																Résponsable :  
+															</label>
+															{{ form_widget(form.responsable,{ 'attr': {'class': 'form-control'} }) }}
+														</div>
+												</div>
+												<div class="row">
+													<div class="form-group">
+															<label for="exampleInputEmail1">
+																Description : </label>
+															
+																{{ form_widget(form.description,{ 'attr': {'class': 'form-control'} }) }} 
+															</div>
+													
+												</div>
+												
+												
+											</fieldset>
+											
+										</div>
+									</div>
+									{{ form_widget(form.save,{ 'attr': {'class': 'btn btn-o btn-primary'} }) }}
+									<input type="reset" value="reset" class="btn btn-o btn-danger" />
+														{{ form_end(form) }} 
+														
+												
+								</div>
+							</div>
+						</div>
+
+
+
+ 
